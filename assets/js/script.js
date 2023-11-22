@@ -3,6 +3,7 @@ var recipe = [];
 var score = 0;
 var possibleScore = 0;
 var questionIndex = 0;
+var maxLevel = 0;
 
 document.addEventListener("DOMContentLoaded", runGame);
 
@@ -22,6 +23,8 @@ async function runGame() {
     updateSelectionCounter();
 
     nextSubmitButton.addEventListener("click", nextSubmit);
+
+    maxLevel = pantryData.pantry.length - 1;
 }
 
 /**
@@ -102,13 +105,18 @@ function pantryItemSelect(event) {
  */
 function nextSubmit(event) {
     const nextSubmitButton = event.target;
-    if (nextSubmitButton.innerHTML === "Submit") {
-        submitSelection();
-        nextSubmitButton.innerHTML = "Next";
+    if (questionIndex === maxLevel) {
+        nextSubmitButton.innerHTML = "";
     } else {
-        nextQuestion();
-        nextSubmitButton.innerHTML = "Submit";
+        if (nextSubmitButton.innerHTML === "Submit") {
+            submitSelection();
+            nextSubmitButton.innerHTML = "Next";
+        } else {
+            nextQuestion();
+            nextSubmitButton.innerHTML = "Submit";
+        }
     }
+
 }
 
 //Recreate userSelected array. Check against recipe array. 
