@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     console.log("Pantrydata:", pantryData);
     createPantry(pantryData, pantryArea);
     createQuestion(pantryData, questionArea);
+    updateSelectionCounter();
 
     nextSubmitButton.addEventListener("click", nextSubmit);
 })
@@ -84,6 +85,7 @@ function pantryItemSelect(event) {
         userSelected = userSelected.filter(item => item !== clickedItem.innerHTML);
         console.log("User selected: ", userSelected);
     }
+    updateSelectionCounter();
 }
 
 /**
@@ -110,4 +112,8 @@ function submitSelection() {
 
 function nextQuestion() {
     console.log("Moving to next question");
+}
+
+function updateSelectionCounter() {
+    document.getElementById("selection-counter").innerHTML = userSelected.length + "/" + recipe.length + " selected."
 }
