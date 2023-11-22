@@ -1,0 +1,17 @@
+{
+    "pantry": [{
+            "name": "Cake A",
+            "question": "How to make cake A?",
+            "answers": ["a", "aa", "aaa"]
+        }, {
+            "name": "Cake B",
+            "question": "How to make cake B?",
+            "answers": ["b", "bb", "bbb"]
+        }, {
+            "name": "Cake AB",
+            "question": "How to make cake AB?",
+            "answers": ["a", "b", "ab"]
+        }
+
+    ]
+}
