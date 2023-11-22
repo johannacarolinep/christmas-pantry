@@ -2,8 +2,11 @@ var userSelected = [];
 var recipe = [];
 var score = 0;
 var possibleScore = 0;
+var questionIndex = 0;
 
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", runGame);
+
+async function runGame() {
     const scoreArea = document.getElementById("score-area");
     const questionArea = document.getElementById("question-area");
     const pantryArea = document.getElementById("pantry-area");
@@ -12,13 +15,14 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const pantryData = await pullPantryData();
     console.log("Pantrydata:", pantryData);
-    createPantry(pantryData, pantryArea);
-    createQuestion(pantryData, questionArea);
+    if (questionIndex === 0) {
+        createPantry(pantryData, pantryArea);
+    }
+    createQuestion(pantryData.pantry[questionIndex], questionArea);
     updateSelectionCounter();
-    updateScore(0, 0);
 
     nextSubmitButton.addEventListener("click", nextSubmit);
-})
+}
 
 /**
  * Pulls the pantry data from JSON
@@ -60,14 +64,14 @@ function createPantry(pantryData, pantryDiv) {
  * Creates the components of the question area 
  * for the first object in the pantryData 
  */
-function createQuestion(pantryData, questionDiv) {
+function createQuestion(level, questionDiv) {
     console.log("Create question function");
-    const firstQuestion = pantryData.pantry[0].question;
-    const firstName = pantryData.pantry[0].name;
-    const firstCountry = pantryData.pantry[0].country;
-    const firstDescription = pantryData.pantry[0].description;
-    recipe = pantryData.pantry[0].recipe;
-    questionDiv.innerHTML = firstQuestion + " " + firstName + " " + " " + firstCountry + " " + firstDescription + " Recipe is: " + recipe;
+    const question = level.question;
+    const name = level.name;
+    const country = level.country;
+    const description = level.description;
+    recipe = level.recipe;
+    questionDiv.innerHTML = question + " " + name + " " + " " + country + " " + description + " Recipe is: " + recipe;
 }
 
 /**
@@ -143,6 +147,9 @@ function submitSelection() {
 
 function nextQuestion() {
     console.log("Moving to next question");
+    questionIndex++;
+    console.log("Index is: ", questionIndex);
+    runGame();
 }
 
 function updateSelectionCounter() {
@@ -150,11 +157,9 @@ function updateSelectionCounter() {
 }
 
 function updateScore(countCorrect, countIncorrect) {
-    if (countCorrect === 0 && countIncorrect === 0) {
-        document.getElementById("score-area").innerHTML = `Your score will display here`;
-    } else {
-        possibleScore += (recipe.length);
-        score += (countCorrect - countIncorrect);
-        document.getElementById("score-area").innerHTML = `Your current score: ${score} / ${possibleScore}`;
-    }
+
+    possibleScore += (recipe.length);
+    score += (countCorrect - countIncorrect);
+    document.getElementById("score-area").innerHTML = `Your current score: ${score} / ${possibleScore}`;
+
 }
