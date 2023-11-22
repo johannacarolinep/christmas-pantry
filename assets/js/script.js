@@ -62,8 +62,16 @@ function createQuestion(pantryData, questionDiv) {
     questionDiv.innerHTML = firstQuestion + " " + firstName + " " + " " + firstCountry + " " + firstDescription;
 }
 
-//Deals with clicked pantry items
+/**
+ * Adds a border to pantry item when clicked, or removes the border on click 
+ * if already existing. 
+ */
 function pantryItemSelect(event) {
     const clickedItem = event.target;
     console.log("I have been clicked", clickedItem);
+    if (clickedItem.style.border === "") {
+        clickedItem.style.border = "2px solid gray";
+    } else {
+        clickedItem.style.border = "";
+    }
 }
