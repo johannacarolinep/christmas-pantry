@@ -1,16 +1,22 @@
 {
     "pantry": [{
             "name": "Cake A",
+            "country": "Country A",
+            "description": "Cake A is delicious",
             "question": "How to make cake A?",
-            "answers": ["a", "aa", "aaa"]
+            "recipe": ["a", "aa", "aaa"]
         }, {
             "name": "Cake B",
+            "country": "Country B",
+            "description": "Cake B is very traditional",
             "question": "How to make cake B?",
-            "answers": ["b", "bb", "bbb"]
+            "recipe": ["b", "bb", "bbb"]
         }, {
             "name": "Cake AB",
+            "country": "Country AB",
+            "description": "Cake AB has been around since the middle ages",
             "question": "How to make cake AB?",
-            "answers": ["a", "b", "ab"]
+            "recipe": ["a", "b", "ab"]
         }
 
     ]
