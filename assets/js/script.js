@@ -107,7 +107,34 @@ function nextSubmit(event) {
 //Recreate userSelected array. Check against recipe array. 
 function submitSelection() {
     console.log("Submitting selection:");
+    userCorrect = userSelected.filter(item => recipe.includes(item));
+    console.log("userCorrect:" + userCorrect);
+    userIncorrect = userSelected.filter(item => !recipe.includes(item));
+    console.log("userIncorrect:" + userIncorrect);
+    userMissed = recipe.filter(item => !userSelected.includes(item));
+    console.log("userMissed:" + userMissed);
 
+    let countCorrect = userCorrect.length;
+    let countIncorrect = userIncorrect.length;
+    let countMissed = userMissed.length;
+
+    document.getElementById("results-area").innerHTML = `You got ${countCorrect} right! ${countIncorrect} were wrong, and you missed ${countMissed}`;
+
+    let pantry = document.getElementById("pantry-area");
+    let pantryArray = pantry.childNodes;
+    for (let items in pantryArray) {
+        console.log("pantryArray:", pantryArray[items].innerHTML);
+        if (userCorrect.includes(pantryArray[items].innerHTML)) {
+            pantryArray[items].style.backgroundColor = "green";
+            pantryArray[items].style.border = "";
+        } else if (userIncorrect.includes(pantryArray[items].innerHTML)) {
+            pantryArray[items].style.backgroundColor = "red";
+            pantryArray[items].style.border = "";
+        } else if (userMissed.includes(pantryArray[items].innerHTML)) {
+            pantryArray[items].style.backgroundColor = "yellow";
+            pantryArray[items].style.border = "";
+        }
+    }
 }
 
 function nextQuestion() {
