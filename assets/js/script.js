@@ -149,6 +149,14 @@ function nextQuestion() {
     console.log("Moving to next question");
     questionIndex++;
     console.log("Index is: ", questionIndex);
+    let pantry = document.getElementById("pantry-area");
+    let pantryArray = pantry.childNodes;
+    for (let items in pantryArray) {
+        if (pantryArray[items].innerHTML) {
+            console.log("pantryArray1:", pantryArray[items]);
+            pantryArray[items].style.backgroundColor = "white";
+        }
+    }
     runGame();
 }
 
