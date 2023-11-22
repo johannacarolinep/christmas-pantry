@@ -1,4 +1,5 @@
 var userSelected = [];
+var recipe = [];
 
 document.addEventListener("DOMContentLoaded", async function () {
     const scoreArea = document.getElementById("score-area");
@@ -61,17 +62,20 @@ function createQuestion(pantryData, questionDiv) {
     const firstName = pantryData.pantry[0].name;
     const firstCountry = pantryData.pantry[0].country;
     const firstDescription = pantryData.pantry[0].description;
-    questionDiv.innerHTML = firstQuestion + " " + firstName + " " + " " + firstCountry + " " + firstDescription;
+    recipe = pantryData.pantry[0].recipe;
+    questionDiv.innerHTML = firstQuestion + " " + firstName + " " + " " + firstCountry + " " + firstDescription + " Recipe is: " + recipe;
 }
 
 /**
  * Adds a border to pantry item when clicked, and adds item to users selection, 
- * or removes the border on click if already existing, and removes item from user selection. 
+ * or removes the border on click if already existing, 
+ * and removes item from user selection. 
+ * Only selects the item if selection < recipe.
  */
 function pantryItemSelect(event) {
     const clickedItem = event.target;
     console.log("I have been clicked", clickedItem);
-    if (clickedItem.style.border === "") {
+    if (clickedItem.style.border === "" && userSelected.length < recipe.length) {
         clickedItem.style.border = "2px solid gray";
         userSelected.push(clickedItem.innerHTML);
         console.log("User selected: ", userSelected);
@@ -98,6 +102,7 @@ function nextSubmit(event) {
     }
 }
 
+//Recreate userSelected array. Check against recipe array. 
 function submitSelection() {
     console.log("Submitting selection:");
 
