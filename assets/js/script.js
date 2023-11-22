@@ -1,3 +1,5 @@
+var userSelected = [];
+
 document.addEventListener("DOMContentLoaded", async function () {
     const scoreArea = document.getElementById("score-area");
     const questionArea = document.getElementById("question-area");
@@ -10,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     createPantry(pantryData, pantryArea);
     createQuestion(pantryData, questionArea);
 
-
+    nextSubmitButton.addEventListener("click", nextSubmit);
 })
 
 /**
@@ -63,15 +65,44 @@ function createQuestion(pantryData, questionDiv) {
 }
 
 /**
- * Adds a border to pantry item when clicked, or removes the border on click 
- * if already existing. 
+ * Adds a border to pantry item when clicked, and adds item to users selection, 
+ * or removes the border on click if already existing, and removes item from user selection. 
  */
 function pantryItemSelect(event) {
     const clickedItem = event.target;
     console.log("I have been clicked", clickedItem);
     if (clickedItem.style.border === "") {
         clickedItem.style.border = "2px solid gray";
+        userSelected.push(clickedItem.innerHTML);
+        console.log("User selected: ", userSelected);
     } else {
         clickedItem.style.border = "";
+        userSelected = userSelected.filter(item => item !== clickedItem.innerHTML);
+        console.log("User selected: ", userSelected);
     }
+}
+
+/**
+ * Checks if button is Submit, then runs the submit function
+ * and updates button to "Next". If button iis "Next", runs next function
+ * and updates button to submit. 
+ */
+function nextSubmit(event) {
+    const nextSubmitButton = event.target;
+    if (nextSubmitButton.innerHTML === "Submit") {
+        submitSelection();
+        nextSubmitButton.innerHTML = "Next";
+    } else {
+        nextQuestion();
+        nextSubmitButton.innerHTML = "Submit";
+    }
+}
+
+function submitSelection() {
+    console.log("Submitting selection:");
+
+}
+
+function nextQuestion() {
+    console.log("Moving to next question");
 }
