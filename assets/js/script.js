@@ -1,5 +1,7 @@
 var userSelected = [];
 var recipe = [];
+var score = 0;
+var possibleScore = 0;
 
 document.addEventListener("DOMContentLoaded", async function () {
     const scoreArea = document.getElementById("score-area");
@@ -13,6 +15,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     createPantry(pantryData, pantryArea);
     createQuestion(pantryData, questionArea);
     updateSelectionCounter();
+    updateScore(0, 0);
 
     nextSubmitButton.addEventListener("click", nextSubmit);
 })
@@ -135,6 +138,7 @@ function submitSelection() {
             pantryArray[items].style.border = "";
         }
     }
+    updateScore(countCorrect, countIncorrect);
 }
 
 function nextQuestion() {
@@ -143,4 +147,14 @@ function nextQuestion() {
 
 function updateSelectionCounter() {
     document.getElementById("selection-counter").innerHTML = userSelected.length + "/" + recipe.length + " selected."
+}
+
+function updateScore(countCorrect, countIncorrect) {
+    if (countCorrect === 0 && countIncorrect === 0) {
+        document.getElementById("score-area").innerHTML = `Your score will display here`;
+    } else {
+        possibleScore += (recipe.length);
+        score += (countCorrect - countIncorrect);
+        document.getElementById("score-area").innerHTML = `Your current score: ${score} / ${possibleScore}`;
+    }
 }
