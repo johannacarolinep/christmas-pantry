@@ -74,7 +74,7 @@ function createQuestion(level, questionDiv) {
     questionDiv.innerHTML = `
     <h2>${level.name}</h2>
     <p>${level.country}</p>
-    <div id="cake-info-btn">Info</div>
+    <div id="cake-info-btn"><i class="fa-solid fa-info"></i></div>
     <div id="cake-modal" class="cake-modal-background">
         <div class="cake-modal-content">
             <span class="cake-modal-close">X</span>

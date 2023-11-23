@@ -39,6 +39,9 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     border: 3px solid gray;
     display: inline-block;
     border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
 }
 
 /* Cake info modal background */
