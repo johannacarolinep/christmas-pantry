@@ -74,7 +74,7 @@ function createQuestion(level, questionDiv) {
     const description = level.description;
     const question = level.question;
     recipe = level.recipe;
-    questionDiv.innerHTML = question + " " + name + " " + " " + country + " " + description + " Recipe is: " + recipe;
+    questionDiv.innerHTML = name + " " + country + " " + " " + description + " " + question + " Recipe is: " + recipe;
 }
 
 /**
