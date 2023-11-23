@@ -69,10 +69,10 @@ function createPantry(pantryData, pantryDiv) {
  */
 function createQuestion(level, questionDiv) {
     console.log("Create question function");
-    const question = level.question;
     const name = level.name;
     const country = level.country;
     const description = level.description;
+    const question = level.question;
     recipe = level.recipe;
     questionDiv.innerHTML = question + " " + name + " " + " " + country + " " + description + " Recipe is: " + recipe;
 }

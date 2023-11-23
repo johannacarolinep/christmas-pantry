@@ -1,10 +1,10 @@
 {
     "pantry": [{
-            "name": "Cake A",
-            "country": "Country A",
-            "description": "Cake A is delicious",
-            "question": "How to make cake A?",
-            "recipe": ["a", "aa", "aaa"]
+            "name": "Pavlova",
+            "country": "(Australia/New Zealand)",
+            "description": "Named after the legendary Russian ballerina Anna Pavlova, this meringue-based dessert is known for its crisp exterior and soft, marshmallow-like interior. This cake is a cherished Christmas tradition particularly in Australia and New Zealand.",
+            "question": "Which ingredients do you need to make the lovely Pavlova?",
+            "recipe": ["Eggs", "Sugar", "Vanilla", "Cream", "Berries"]
         }, {
             "name": "Cake B",
             "country": "Country B",
