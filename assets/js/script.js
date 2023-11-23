@@ -119,7 +119,7 @@ function nextSubmit(event) {
 
 }
 
-//Recreate userSelected array. Check against recipe array. 
+//Check userSelected against recipe array. 
 function submitSelection() {
     console.log("Submitting selection:");
     userCorrect = userSelected.filter(item => recipe.includes(item));
@@ -157,6 +157,7 @@ function nextQuestion() {
     console.log("Moving to next question");
     questionIndex++;
     console.log("Index is: ", questionIndex);
+    userSelected = [];
     let pantry = document.getElementById("pantry-area");
     let pantryArray = pantry.childNodes;
     for (let items in pantryArray) {
@@ -173,9 +174,7 @@ function updateSelectionCounter() {
 }
 
 function updateScore(countCorrect, countIncorrect) {
-
     possibleScore += (recipe.length);
     score += (countCorrect - countIncorrect);
     document.getElementById("score-area").innerHTML = `Your current score: ${score} / ${possibleScore}`;
-
 }
