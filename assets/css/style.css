@@ -78,11 +78,50 @@ h2 {
     color: white;
 }
 
+/* Controls area */
+#controls-area {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.controls {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    margin: 7px 10px;
+    text-transform: uppercase;
+    font-family: 'Playpen Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+#next-submit-button {
+    order: -1;
+    border: 5px dotted green;
+}
+
+#quit-button {
+    border: 5px dotted red;
+}
+
 /* Media query for tablets, screen size >= 768px */
 @media screen and (min-width: 768px) {
     #pantry-area div {
         flex-basis: 31%;
         font-size: 1.1rem;
+    }
+
+    /* Controls area */
+    #controls-area {
+        flex-direction: row;
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .controls {
+        flex-basis: 30%;
+        max-width: 240px;
     }
 }
 
@@ -91,5 +130,14 @@ h2 {
     #pantry-area div {
         flex-basis: 23%;
         font-size: 1.2rem;
+    }
+
+    /* Controls area */
+    #controls-area {
+        margin-top: 40px;
+    }
+
+    .controls {
+        padding: 15px;
     }
 }
