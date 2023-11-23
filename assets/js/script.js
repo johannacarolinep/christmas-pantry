@@ -66,6 +66,7 @@ function createPantry(pantryData, pantryDiv) {
 
 /**
  * Builds the question and recipe 
+ * Reference: https://www.w3schools.com/howto/howto_css_modals.asp
  */
 function createQuestion(level, questionDiv) {
     console.log("Create question function");
@@ -73,11 +74,18 @@ function createQuestion(level, questionDiv) {
     questionDiv.innerHTML = `
     <h2>${level.name}</h2>
     <p>${level.country}</p>
-    <br>
-    <p>${level.description}</p>
+    <div id="cake-info-btn">Info</div>
+    <div id="cake-modal" class="cake-modal-background">
+        <div class="cake-modal-content">
+            <span class="cake-modal-close">X</span>
+            <h3>More info about ${level.name}</h3>
+            <p>${level.description}</p>
+        </div>
+    </div>
     <br>
     <p>${level.question}</p>
     `
+    displayCakeInfoModal();
 }
 
 /**
@@ -182,4 +190,28 @@ function updateScore(countCorrect, countIncorrect) {
     possibleScore += (recipe.length);
     score += (countCorrect - countIncorrect);
     document.getElementById("score-area").innerHTML = `Your current score: ${score} / ${possibleScore}`;
+}
+
+/**
+ * Gets the modal and "button" from HTML and 
+ * Reference: https://www.w3schools.com/howto/howto_css_modals.asp
+ */
+function displayCakeInfoModal() {
+    let modal = document.getElementById("cake-modal");
+    let cakeInfoModal = document.getElementById("cake-info-btn");
+    let span = document.getElementsByClassName("cake-modal-close")[0];
+
+    cakeInfoModal.onclick = function () {
+        modal.style.display = "block"; //opens modal
+    }
+
+    span.onclick = function () {
+        modal.style.display = "none"; //closes modal
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none"; //closes modal
+        }
+    }
 }

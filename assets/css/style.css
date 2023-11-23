@@ -32,6 +32,62 @@ h2 {
     padding: 5px;
 }
 
+/* Styles for Cake info modal - 
+Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
+/* Cake info modal button */
+#cake-info-btn {
+    border: 3px solid gray;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+/* Cake info modal background */
+.cake-modal-background {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(124, 111, 111, 0.634);
+}
+
+/* Cake info modal box */
+.cake-modal-content {
+    background-color: #fefefe;
+    margin: 20% auto;
+    padding: 7px;
+    border: 5px dotted green;
+    width: 85%;
+}
+
+.cake-modal-content h3 {
+    padding: 15px 15px 0 15px;
+}
+
+.cake-modal-content p {
+    padding: 15px;
+}
+
+/* The Close Button */
+.cake-modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 0 5px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 #pantry-section {
     background-color: #D9CEB9;
     width: 96%;
