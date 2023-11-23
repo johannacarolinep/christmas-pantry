@@ -1,0 +1,55 @@
+/* Asterisk wildcard selector */
+/* Remove default styles added by browsers */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* General styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #000000;
+    background-color: white;
+    width: 100%;
+}
+
+#pantry-section {
+    background-color: rgb(216, 213, 213);
+    width: 96%;
+    margin: 15px auto;
+    padding: 5px;
+}
+
+#pantry-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#pantry-area div {
+    padding: 10px;
+    flex-basis: 47%;
+    text-align: center;
+    background-color: white;
+    margin: 5px;
+    font-size: 1rem;
+}
+
+/* Media query for tablets, screen size >= 768px */
+@media screen and (min-width: 768px) {
+    #pantry-area div {
+        flex-basis: 31%;
+        font-size: 1.1rem;
+    }
+}
+
+/* Media query for laptops and desktops, screen size >= 992px */
+@media screen and (min-width: 992px) {
+    #pantry-area div {
+        flex-basis: 23%;
+        font-size: 1.2rem;
+    }
+}
