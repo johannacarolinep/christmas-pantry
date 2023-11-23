@@ -65,17 +65,19 @@ function createPantry(pantryData, pantryDiv) {
 }
 
 /**
- * Creates the components of the question area 
- * for the first object in the pantryData 
+ * Builds the question and recipe 
  */
 function createQuestion(level, questionDiv) {
     console.log("Create question function");
-    const name = level.name;
-    const country = level.country;
-    const description = level.description;
-    const question = level.question;
     recipe = level.recipe;
-    questionDiv.innerHTML = name + " " + country + " " + " " + description + " " + question + " Recipe is: " + recipe;
+    questionDiv.innerHTML = `
+    <h2>${level.name}</h2>
+    <p>${level.country}</p>
+    <br>
+    <p>${level.description}</p>
+    <br>
+    <p>${level.question}</p>
+    `
 }
 
 /**
