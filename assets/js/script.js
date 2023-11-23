@@ -109,7 +109,8 @@ function nextSubmit(event) {
     if (nextSubmitButton.innerHTML === "Submit") {
         submitSelection();
         if (questionIndex === maxLevel) {
-            nextSubmitButton.innerHTML = "";
+            nextSubmitButton.hidden = "true";
+            nextSubmitButton.setAttribute('aria-hidden', 'true');
         } else {
             nextSubmitButton.innerHTML = "Next";
         }
