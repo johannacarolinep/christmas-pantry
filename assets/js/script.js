@@ -105,18 +105,17 @@ function pantryItemSelect(event) {
  */
 function nextSubmit(event) {
     const nextSubmitButton = event.target;
-    if (questionIndex === maxLevel) {
-        nextSubmitButton.innerHTML = "";
-    } else {
-        if (nextSubmitButton.innerHTML === "Submit") {
-            submitSelection();
-            nextSubmitButton.innerHTML = "Next";
+    if (nextSubmitButton.innerHTML === "Submit") {
+        submitSelection();
+        if (questionIndex === maxLevel) {
+            nextSubmitButton.innerHTML = "";
         } else {
-            nextQuestion();
-            nextSubmitButton.innerHTML = "Submit";
+            nextSubmitButton.innerHTML = "Next";
         }
+    } else {
+        nextQuestion();
+        nextSubmitButton.innerHTML = "Submit";
     }
-
 }
 
 //Check userSelected against recipe array. 
