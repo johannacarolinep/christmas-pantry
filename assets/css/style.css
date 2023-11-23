@@ -45,13 +45,37 @@ h2 {
     justify-content: space-evenly;
 }
 
-#pantry-area div {
+.pantry-item {
     padding: 10px;
     flex-basis: 47%;
     text-align: center;
     background-color: white;
     margin: 5px;
     font-size: 1rem;
+    border: 5px solid transparent;
+}
+
+.pantry-item-selected {
+    border: 5px solid rgb(143, 140, 140);
+    font-weight: 600;
+}
+
+.item-correct {
+    background-color: green;
+    font-weight: 600;
+    color: white;
+}
+
+.item-incorrect {
+    background-color: red;
+    font-weight: 600;
+    color: white;
+}
+
+.item-missed {
+    background-color: #e8ce09;
+    font-weight: 600;
+    color: white;
 }
 
 /* Media query for tablets, screen size >= 768px */

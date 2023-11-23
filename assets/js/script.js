@@ -59,6 +59,7 @@ function createPantry(pantryData, pantryDiv) {
         const pantryItem = document.createElement("div");
         pantryItem.innerHTML = pantryArray[item];
         pantryItem.addEventListener("click", pantryItemSelect);
+        pantryItem.classList.add("pantry-item");
         pantryDiv.appendChild(pantryItem);
     }
 }
@@ -86,12 +87,12 @@ function createQuestion(level, questionDiv) {
 function pantryItemSelect(event) {
     const clickedItem = event.target;
     console.log("I have been clicked", clickedItem);
-    if (clickedItem.style.border === "" && userSelected.length < recipe.length) {
-        clickedItem.style.border = "2px solid gray";
+    if (!clickedItem.classList.contains("pantry-item-selected") && userSelected.length < recipe.length) {
+        clickedItem.classList.add("pantry-item-selected");
         userSelected.push(clickedItem.innerHTML);
         console.log("User selected: ", userSelected);
     } else {
-        clickedItem.style.border = "";
+        clickedItem.classList.remove("pantry-item-selected");
         userSelected = userSelected.filter(item => item !== clickedItem.innerHTML);
         console.log("User selected: ", userSelected);
     }
@@ -139,14 +140,14 @@ function submitSelection() {
     for (let items in pantryArray) {
         console.log("pantryArray:", pantryArray[items].innerHTML);
         if (userCorrect.includes(pantryArray[items].innerHTML)) {
-            pantryArray[items].style.backgroundColor = "green";
-            pantryArray[items].style.border = "";
+            pantryArray[items].classList.add("item-correct");
+            pantryArray[items].classList.remove("pantry-item-selected");
         } else if (userIncorrect.includes(pantryArray[items].innerHTML)) {
-            pantryArray[items].style.backgroundColor = "red";
-            pantryArray[items].style.border = "";
+            pantryArray[items].classList.add("item-incorrect");
+            pantryArray[items].classList.remove("pantry-item-selected");
         } else if (userMissed.includes(pantryArray[items].innerHTML)) {
-            pantryArray[items].style.backgroundColor = "yellow";
-            pantryArray[items].style.border = "";
+            pantryArray[items].classList.add("item-missed");
+            pantryArray[items].classList.remove("pantry-item-selected");
         }
     }
     updateScore(countCorrect, countIncorrect);
@@ -162,7 +163,9 @@ function nextQuestion() {
     for (let items in pantryArray) {
         if (pantryArray[items].innerHTML) {
             console.log("pantryArray1:", pantryArray[items]);
-            pantryArray[items].style.backgroundColor = "white";
+            pantryArray[items].classList.remove("item-correct");
+            pantryArray[items].classList.remove("item-incorrect");
+            pantryArray[items].classList.remove("item-missed");
         }
     }
     runGame();
