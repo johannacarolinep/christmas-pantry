@@ -25,23 +25,63 @@ h2 {
     text-transform: uppercase;
 }
 
-#question-section {
+/* Question section */
+#question-area {
     background-color: white;
     width: 96%;
     margin: 15px auto;
-    padding: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+#question-text-content {
+    width: 100%;
+}
+
+#question-text-content>p {
+    margin: 15px 0;
+}
+
+#question-header {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+#question-title {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+#question-title h2 {
+    margin-right: 7px;
+}
+
+#question-image {
+    width: 60%;
+    max-width: 280px;
+    margin: 15px auto;
+    display: flex;
+}
+
+#question-image img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
 }
 
 /* Styles for Cake info modal - 
 Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 /* Cake info modal button */
 #cake-info-btn {
-    border: 3px solid gray;
-    display: inline-block;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    text-align: center;
+    font-size: 1.7rem;
+    margin-left: 30px;
+    display: flex;
 }
 
 /* Cake info modal background */
@@ -166,6 +206,42 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 
 /* Media query for tablets, screen size >= 768px */
 @media screen and (min-width: 768px) {
+
+    /* Question section */
+    #question-area {
+        padding: 20px 15px;
+        flex-direction: row;
+        font-size: 1.1rem;
+    }
+
+    #question-text-content {
+        width: 70%;
+        padding-left: 25px;
+    }
+
+    #question-text-content>p {
+        margin: 25px 0;
+    }
+
+    #question-title h2 {
+        margin-right: 7px;
+    }
+
+    #question-image {
+        width: 27%;
+        max-width: 230px;
+        margin: 0 auto;
+        order: -1;
+    }
+
+    /* Styles for Cake info modal - 
+    Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
+    /* Cake info modal button */
+    #cake-info-btn {
+        font-size: 2rem;
+    }
+
+    /* Pantry area */
     #pantry-area div {
         flex-basis: 31%;
         font-size: 1.1rem;
@@ -186,6 +262,42 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 
 /* Media query for laptops and desktops, screen size >= 992px */
 @media screen and (min-width: 992px) {
+
+    /* Question section */
+    #question-area {
+        padding: 30px 25px;
+        font-size: 1.2rem;
+        width: 80%;
+        max-width: 1200px;
+    }
+
+    #question-text-content {
+        width: 75%;
+        padding-left: 30px;
+    }
+
+    #question-title h2 {
+        margin-right: 10px;
+    }
+
+    #question-image {
+        width: 25%;
+        max-width: 250px;
+    }
+
+    /* Styles for Cake info modal - 
+    Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
+    /* Cake info modal button */
+    #cake-info-btn {
+        font-size: 3rem;
+    }
+
+    /* Pantry area */
+    #pantry-area div {
+        flex-basis: 31%;
+        font-size: 1.1rem;
+    }
+
     #pantry-area div {
         flex-basis: 23%;
         font-size: 1.2rem;

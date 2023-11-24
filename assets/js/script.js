@@ -72,18 +72,30 @@ function createQuestion(level, questionDiv) {
     console.log("Create question function");
     recipe = level.recipe;
     questionDiv.innerHTML = `
-    <h2>${level.name}</h2>
-    <p>${level.country}</p>
-    <div id="cake-info-btn"><i class="fa-solid fa-info"></i></div>
-    <div id="cake-modal" class="cake-modal-background">
-        <div class="cake-modal-content">
-            <span class="cake-modal-close">X</span>
-            <h3>More info about ${level.name}</h3>
-            <p>${level.description}</p>
-        </div>
+    <div id="question-text-content">
+        <div id="question-header">
+            <div id="question-title">
+                <h2>${level.name}</h2>
+                <p>${level.country}</p>
+            </div>
+            <div id="cake-info-btn">
+            <i class="fa-solid fa-circle-info"></i>
+            </div>
+            <div id="cake-modal" class="cake-modal-background">
+                <div class="cake-modal-content">
+                    <span class="cake-modal-close">X</span>
+                    <h3>More info about ${level.name}</h3>
+                    <p>${level.description}</p>
+                </div>
+            </div>    
+        </div>   
+        <p>${level.question}</p>
     </div>
-    <br>
-    <p>${level.question}</p>
+    
+    <div id="question-image">
+        <img src="${level.image}">
+    </div>
+    
     `
     displayCakeInfoModal();
 }

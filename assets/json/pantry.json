@@ -2,6 +2,7 @@
     "pantry": [{
             "name": "Pavlova",
             "country": "(Australia/New Zealand)",
+            "image": "assets/images/pavlova.png",
             "description": "Named after the legendary Russian ballerina Anna Pavlova, this meringue-based dessert is known for its crisp exterior and soft, marshmallow-like interior. This cake is a cherished Christmas tradition particularly in Australia and New Zealand.",
             "question": "Which ingredients do you need to make the lovely Pavlova?",
             "recipe": ["Eggs", "Sugar", "Vanilla", "Cream", "Berries"]
