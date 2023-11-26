@@ -132,16 +132,30 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 }
 
 #pantry-section {
-    background-color: #D9CEB9;
+    background-color: rgb(236, 233, 225);
     width: 96%;
     margin: 15px auto;
+    padding: 10px;
+}
+
+#pantry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+#selection-counter {
+    background-color: white;
     padding: 5px;
+    align-self: flex-start;
 }
 
 #pantry-area {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    background-color: #9e9381;
 }
 
 .pantry-item {
@@ -149,7 +163,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     flex-basis: 47%;
     text-align: center;
     background-color: white;
-    margin: 5px;
+    margin: 7px 0;
     font-size: 0.9rem;
     border: 5px solid transparent;
 }
@@ -188,7 +202,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     background-color: white;
     text-align: center;
     padding: 10px;
-    margin: 7px 10px;
+    margin: 7px 0;
     text-transform: uppercase;
     font-family: 'Playpen Sans', sans-serif;
     font-weight: 700;
@@ -197,11 +211,13 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 
 #next-submit-button {
     order: -1;
-    border: 5px dotted green;
+    background-color: #9e9381;
+    color: white;
 }
 
 #quit-button {
-    border: 5px dotted red;
+    background-color: rgb(134, 16, 16);
+    color: white;
 }
 
 /* Media query for tablets, screen size >= 768px */
@@ -267,7 +283,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     #question-area {
         padding: 30px 25px;
         font-size: 1.2rem;
-        width: 80%;
+        width: 85%;
         max-width: 1200px;
     }
 
@@ -293,14 +309,15 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     }
 
     /* Pantry area */
-    #pantry-area div {
-        flex-basis: 31%;
-        font-size: 1.1rem;
+    #pantry-section {
+        width: 85%;
+        margin: 15px auto;
+        padding: 5px;
     }
 
     #pantry-area div {
         flex-basis: 23%;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     /* Controls area */
