@@ -25,6 +25,8 @@ async function runGame() {
     nextSubmitButton.addEventListener("click", nextSubmit);
 
     maxLevel = pantryData.pantry.length - 1;
+
+    updateLevel();
 }
 
 /**
@@ -201,7 +203,7 @@ function updateSelectionCounter() {
 function updateScore(countCorrect, countIncorrect) {
     possibleScore += (recipe.length);
     score += (countCorrect - countIncorrect);
-    document.getElementById("score-area").innerHTML = `Your current score: ${score} / ${possibleScore}`;
+    document.getElementById("score-area").innerHTML = `Score: ${score} / ${possibleScore}`;
 }
 
 /**
@@ -226,4 +228,10 @@ function displayCakeInfoModal() {
             modal.style.display = "none"; //closes modal
         }
     }
+}
+
+function updateLevel() {
+    let level = questionIndex + 1;
+    let finalLevel = maxLevel + 1;
+    document.getElementById("level-area").innerHTML = `Level: ${level} / ${finalLevel}`;
 }
