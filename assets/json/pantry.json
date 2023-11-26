@@ -1,48 +1,39 @@
 {
     "pantry": [{
-            "name": "Pavlova",
-            "country": "(Australia/New Zealand)",
-            "image": "assets/images/pavlova.png",
-            "description": "Named after the legendary Russian ballerina Anna Pavlova, this meringue-based dessert is known for its crisp exterior and soft, marshmallow-like interior. This cake is a cherished Christmas tradition particularly in Australia and New Zealand.",
-            "question": "Which ingredients do you need to make the lovely Pavlova?",
-            "recipe": ["Eggs", "Sugar", "Vanilla", "Cream", "Berries"]
-        }, {
-            "name": "Rocky road",
-            "country": "United States",
-            "description": "The origins of the rich and chewy Rocky Road are somewhat unclear, though it is believed to have originated in the US. Its popularity as a festive indulgence however is completely undisputed!",
-            "question": "What ingredients does Rocky Road typically contain?",
-            "recipe": ["Milk chocolate", "Butter", "Marshmallows", "Nuts", "Dried fruit"]
-        }, {
-            "name": "Gingerbread cookies",
-            "country": "Swedish variant",
-            "description": "Gingerbread have ancient origins, dating back to 2400 BC (!) in Greece and evolving in China by the 10th century. By the late Middle Ages, versions emerged across Europe, with Germany and England among the early enthusiasts. The Swedish variant has been around since the 1300's, a particularly crunchy biscuit. Legend in Sweden has it that indulging in these crunchy treats can even make you a nicer person!",
-            "question": "What ingredients do we need for this crunchylicious biscuit?",
-            "recipe": ["Butter", "Syrup", "Sugar", "Cream", "Bicarbonate", "Cinnamon", "Ginger", "Cloves", "Cardamom"]
-        }, {
-            "name": "St Lucia Buns",
-            "country": "Sweden",
-            "description": "In Sweden, St. Lucia Buns, also known as 'Lussekatter' or 'Lucia Cats', are a cherished part of the festive season. Typically enjoyed on December 13th, St. Lucia's Day, these yellow buns are a symbol of light and celebration.",
-            "question": "What ingredients go into these yummy buns?",
-            "recipe": ["Flour", "Butter", "Milk", "Yeast", "Saffron", "Salt", "Sugar", "Eggs", "Raisins"]
-        }, {
-            "name": "Cozonac cu ciocolata",
-            "country": "Romania",
-            "description": "In Romania, the tradition of savouring Cozonac during Christmas is a time-honoured and flavorful custom. Baked to perfection, it fills homes with a tempting aroma during the festive season!",
-            "question": "Which ingredients are needed for this sweet swirly bread?",
-            "recipe": ["Milk", "Sugar", "Butter", "Flour", "Yeast", "Citrus zest", "Eggs", "Vanilla", "Rum", "Salt", "Nuts", "Coffee", "Cocoa"]
-        }, {
-            "name": "Bûche de Noël",
-            "country": "France",
-            "description": "The Bûche de Noël (or Yule Log Cake), mimics the appearance of a wooden log, and makes for a great centrepiece for the table, as well as a delicious conclusion to the Christmas feast! With its rich flavours and festive design, this cake embodies the spirit of joy and indulgence that defines French holiday celebrations.",
-            "question": "What's needed for this edible log?",
-            "recipe": ["Eggs", "Sugar", "Cocoa", "Flour", "Coffee", "Bicarbonate", "Salt", "Cream", "Vanilla", "Icing sugar", "Dark chocolate", "Kahlua"]
-        }, {
-            "name": "Christmas pudding",
-            "country": "United Kingdom",
-            "description": "This beloved holiday dessert originated in mediaeval England. Evolving from a savoury, porridge-like dish, it transformed into the rich and spiced treat we know today, and has become a symbol of Christmas in the United Kingdom and beyond.",
-            "question": "How to make cake AB?",
-            "recipe": ["Nuts", "Apples", "Candied citrus peel", "Nutmeg", "Raisins", "Flour", "Breadcrumbs", "Sugar", "Eggs", "Brandy", "Butter", "Citrus zest", "Icing sugar", "Ginger"]
-        }
-
-    ]
+        "name": "Candied almonds",
+        "country": "Middle East",
+        "description": "The tradition of candying nuts dates back centuries. It can be traced to the Middle East, and spread to Europe already in the Middle Ages. Today, candied almonds are enjoyed globally, especially during holidays and celebrations.",
+        "question": "What do you need to create this traditional treat?",
+        "recipe": ["Nuts", "Sugar"]
+    }, {
+        "name": "Rocky road",
+        "country": "US",
+        "description": "The origins of the rich and chewy Rocky Road are somewhat unclear, though it is believed to have originated in the US. Its popularity as a festive indulgence however is completely undisputed!",
+        "question": "What ingredients would you typically find in this festive treat?",
+        "recipe": ["Chocolate", "Marshmallows", "Nuts"]
+    }, {
+        "name": "Pavlova",
+        "country": "Australia",
+        "description": "Named after the legendary Russian ballerina Anna Pavlova, this meringue-based dessert is known for its crisp exterior and soft, marshmallow-like interior. This cake is a cherished Christmas tradition particularly in Australia and New Zealand.",
+        "question": "What ingredients do you need to make the lovely Pavlova?",
+        "recipe": ["Sugar", "Eggs", "Cream", "Fresh fruits / berries"]
+    }, {
+        "name": "Fudge",
+        "country": "US",
+        "description": "Legend has it that fudge was invented in 19th century America, as a confectioner “fudged” a batch of caramels. Since then, fudge has evolved into a beloved indulgence, characterised by its smooth, creamy texture.",
+        "question": "What ingredients are needed 'to fudge'?",
+        "recipe": ["Sugar", "Butter", "Cream", "Chocolate"]
+    }, {
+        "name": "Knäck",
+        "country": "Sweden",
+        "description": "This crunchy Christmas toffee has been enjoyed in Swedish homes since the 1800’s and has become one of the country’s most popular holiday treats. The word 'knäck' translates to 'crack' in English, which aptly describes the candy's characteristic sound when broken.",
+        "question": "What do we need to make a 'knäck' worthy of its name?",
+        "recipe": ["Cream", "Syrup", "Sugar", "Nuts", "Butter"]
+    }, {
+        "name": "Gingerbread cookies",
+        "country": "Swedish variant",
+        "description": "Gingerbread has ancient origins, dating back to 2400 BC (!) in Greece and evolving in China by the 10th century. By the late Middle Ages, versions emerged across Europe, with Germany and England among the early enthusiasts. The Swedish variant has been around since the 1300's, a particularly crunchy biscuit. Legend in Sweden has it that indulging in these crunchy treats can even make you a nicer person!",
+        "question": "What ingredients do you need to make these crunchy biscuits?",
+        "recipe": ["Sugar", "Syrup", "Butter", "Spices", "Flour", "Bicarbonate"]
+    }]
 }
