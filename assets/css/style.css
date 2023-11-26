@@ -29,7 +29,7 @@ h2 {
 /* Header */
 header {
     position: fixed;
-    z-index: 99;
+    z-index: 98;
     background-color: #ffffff;
     width: 100%;
 }
@@ -125,7 +125,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 .cake-modal-background {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 99;
     left: 0;
     top: 0;
     width: 100%;
