@@ -11,7 +11,7 @@ async function runGame() {
     const pantryArea = document.getElementById("pantry-area");
     const quitButton = document.getElementById("quit-button");
     const nextSubmitButton = document.getElementById("next-submit-button");
-
+    const finishButton = document.getElementById("finish-button");
     const pantryData = await pullPantryData();
     console.log("Pantrydata:", pantryData);
     if (questionIndex === 0) {
@@ -23,7 +23,7 @@ async function runGame() {
 
     nextSubmitButton.addEventListener("click", nextSubmit);
     quitButton.addEventListener("click", confirmQuit);
-
+    finishButton.addEventListener("click", quitGame);
     maxLevel = pantryData.pantry.length - 1;
 
     updateLevel();
@@ -118,6 +118,10 @@ function nextSubmit(event) {
         if (questionIndex === maxLevel) {
             nextSubmitButton.hidden = "true";
             nextSubmitButton.setAttribute('aria-hidden', 'true');
+            document.getElementById("quit-button").hidden = "true";
+            document.getElementById("quit-button").setAttribute('aria-hidden', 'true');
+            document.getElementById("finish-button").removeAttribute("hidden");
+            document.getElementById("finish-button").setAttribute('aria-hidden', 'false');
         } else {
             nextSubmitButton.innerHTML = "Next";
         }
@@ -306,4 +310,14 @@ function startGame() {
     questionIndex = 0;
     maxLevel = 0;
     runGame();
+    resetControls();
+}
+
+function resetControls() {
+    document.getElementById("next-submit-button").removeAttribute("hidden");
+    document.getElementById("next-submit-button").removeAttribute("aria-hidden");
+    document.getElementById("quit-button").removeAttribute("hidden");
+    document.getElementById("quit-button").removeAttribute("aria-hidden");
+    document.getElementById("finish-button").hidden = "true";
+    document.getElementById("finish-button").setAttribute('aria-hidden', 'true');
 }
