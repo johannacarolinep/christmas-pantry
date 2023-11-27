@@ -261,6 +261,13 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     color: white;
 }
 
+.quit-modal-content {
+    background-color: white;
+    width: 60%;
+    margin: auto;
+    padding: 15px;
+}
+
 /* Media query for tablets, screen size >= 768px */
 @media screen and (min-width: 768px) {
 

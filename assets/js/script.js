@@ -8,7 +8,6 @@ var maxLevel = 0;
 document.addEventListener("DOMContentLoaded", runGame);
 
 async function runGame() {
-    const scoreArea = document.getElementById("score-area");
     const pantryArea = document.getElementById("pantry-area");
     const quitButton = document.getElementById("quit-button");
     const nextSubmitButton = document.getElementById("next-submit-button");
@@ -18,10 +17,12 @@ async function runGame() {
     if (questionIndex === 0) {
         createPantry(pantryData, pantryArea);
     }
+
     createQuestion(pantryData.pantry[questionIndex]);
     updateSelectionCounter();
 
     nextSubmitButton.addEventListener("click", nextSubmit);
+    quitButton.addEventListener("click", confirmQuit);
 
     maxLevel = pantryData.pantry.length - 1;
 
@@ -249,4 +250,39 @@ function shuffle(array) {
 function scrollTop() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+/**
+ * Opens confirmation modal when quit button is clicked. 
+ * Calls quitGame function if confirmed.
+ */
+function confirmQuit(event) {
+    const quitButton = event.target;
+
+    let modal = document.getElementById("quit-modal");
+    let cancelButton = document.getElementById("quit-modal-close");
+    let confirmQuitButton = document.getElementById("confirm-quit");
+
+    modal.style.display = "block"; //opens modal
+
+    cancelButton.addEventListener("click", function () {
+        modal.style.display = "none"; //closes modal
+    })
+
+
+    /*cancelButton.onclick = function () {
+        modal.style.display = "none"; //closes modal
+    }*/
+
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none"; //closes modal
+        }
+    }
+
+    confirmQuitButton.addEventListener("click", quitGame);
+}
+
+function quitGame() {
+    console.log("Quitting game");
 }
