@@ -147,10 +147,23 @@ function submitSelection() {
     let countIncorrect = userIncorrect.length;
     let countMissed = userMissed.length;
 
-    document.getElementById("results-area").innerHTML = `You got ${countCorrect} right! ${countIncorrect} were wrong, and you missed ${countMissed}`;
+    updateQuestionResults(countCorrect, countIncorrect, countMissed);
+    displayPantryFeedback(userCorrect, userIncorrect, userMissed);
+    updateScore(countCorrect, countIncorrect);
+}
 
+/**
+ * Takes 3 arrays of strings. Creates another array based on the children of an HTML element.
+ * Compares the created array to the parameter arrays and adds/removes classes to the HTML elements
+ * based on whether they are found in the parameter arrays.
+ * @param {String[]} userCorrect 
+ * @param {String[]} userIncorrect 
+ * @param {String[]} userMissed 
+ */
+function displayPantryFeedback(userCorrect, userIncorrect, userMissed) {
     let pantry = document.getElementById("pantry-area");
     let pantryArray = pantry.childNodes;
+
     for (let items in pantryArray) {
         console.log("pantryArray:", pantryArray[items].innerHTML);
         if (userCorrect.includes(pantryArray[items].innerHTML)) {
@@ -164,7 +177,6 @@ function submitSelection() {
             pantryArray[items].classList.remove("pantry-item-selected");
         }
     }
-    updateScore(countCorrect, countIncorrect);
 }
 
 function nextQuestion() {
@@ -196,6 +208,17 @@ function updateScore(countCorrect, countIncorrect) {
         score = 0;
     }
     document.getElementById("score-area").innerHTML = `Score: ${score} / ${possibleScore}`;
+}
+
+/**
+ * Takes three numbers and inserts them in a string which 
+ * is added to the innerHTML of a HTML element.
+ * @param {Number} countCorrect 
+ * @param {Number} countIncorrect 
+ * @param {Number} countMissed 
+ */
+function updateQuestionResults(countCorrect, countIncorrect, countMissed) {
+    document.getElementById("results-area").innerHTML = `You got ${countCorrect} right! ${countIncorrect} were wrong, and you missed ${countMissed}`;
 }
 
 /**
