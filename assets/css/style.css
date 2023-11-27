@@ -98,14 +98,14 @@ h1 {
     margin-right: 7px;
 }
 
-#question-image {
+#question-image-container {
     width: 60%;
     max-width: 280px;
     margin: 15px auto;
     display: flex;
 }
 
-#question-image img {
+#question-image {
     object-fit: cover;
     width: 100%;
     border-radius: 50%;
@@ -293,7 +293,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         margin-right: 7px;
     }
 
-    #question-image {
+    #question-image-container {
         width: 27%;
         max-width: 230px;
         margin: 0 auto;
@@ -362,7 +362,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         margin-right: 10px;
     }
 
-    #question-image {
+    #question-image-container {
         width: 25%;
         max-width: 250px;
     }

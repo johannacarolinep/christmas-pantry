@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", runGame);
 
 async function runGame() {
     const scoreArea = document.getElementById("score-area");
-    const questionArea = document.getElementById("question-area");
     const pantryArea = document.getElementById("pantry-area");
     const quitButton = document.getElementById("quit-button");
     const nextSubmitButton = document.getElementById("next-submit-button");
@@ -19,7 +18,7 @@ async function runGame() {
     if (questionIndex === 0) {
         createPantry(pantryData, pantryArea);
     }
-    createQuestion(pantryData.pantry[questionIndex], questionArea);
+    createQuestion(pantryData.pantry[questionIndex]);
     updateSelectionCounter();
 
     nextSubmitButton.addEventListener("click", nextSubmit);
@@ -70,35 +69,15 @@ function createPantry(pantryData, pantryDiv) {
  * Builds the question and recipe 
  * Reference: https://www.w3schools.com/howto/howto_css_modals.asp
  */
-function createQuestion(level, questionDiv) {
+function createQuestion(level) {
     console.log("Create question function");
     recipe = level.recipe;
-    questionDiv.innerHTML = `
-    <div id="question-text-content">
-        <div id="question-header">
-            <div id="question-title">
-                <h2>${level.name}</h2>
-                <p>${level.country}</p>
-            </div>
-            <div id="cake-info-btn">
-            <i class="fa-solid fa-circle-info"></i>
-            </div>
-            <div id="cake-modal" class="cake-modal-background">
-                <div class="cake-modal-content">
-                    <span class="cake-modal-close">X</span>
-                    <h3>More info about ${level.name}</h3>
-                    <p>${level.description}</p>
-                </div>
-            </div>    
-        </div>   
-        <p>${level.question}</p>
-    </div>
-    
-    <div id="question-image">
-        <img src="${level.image}">
-    </div>
-    
-    `
+    document.getElementById("cake-name").innerHTML = level.name;
+    document.getElementById("cake-country").innerHTML = `(${level.country})`;
+    document.getElementById("cake-question").innerHTML = level.question;
+    document.getElementById("question-image").setAttribute("src", level.image);
+    document.getElementById("cake-modal-heading").innerHTML = `About ${level.name}:`;
+    document.getElementById("cake-description").innerHTML = level.description;
     displayCakeInfoModal();
 }
 
