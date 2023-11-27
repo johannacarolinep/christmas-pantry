@@ -80,6 +80,7 @@ function createQuestion(level) {
     document.getElementById("cake-country").innerHTML = `(${level.country})`;
     document.getElementById("cake-question").innerHTML = level.question;
     document.getElementById("question-image").setAttribute("src", level.image);
+    document.getElementById("question-image").setAttribute("alt", level.name);
     document.getElementById("cake-modal-heading").innerHTML = `About ${level.name}:`;
     document.getElementById("cake-description").innerHTML = level.description;
     displayCakeInfoModal();
