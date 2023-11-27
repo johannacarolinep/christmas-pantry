@@ -56,6 +56,9 @@ function createPantry(pantryData, pantryDiv) {
     const pantryArray = [...new Set(masterPantryArray)];
     console.log("pantryArray:", pantryArray);
 
+    //Randomize order in pantry array
+    shuffle(pantryArray);
+
     for (item in pantryArray) {
         const pantryItem = document.createElement("div");
         pantryItem.innerHTML = pantryArray[item];
@@ -182,6 +185,9 @@ function updateSelectionCounter() {
 function updateScore(countCorrect, countIncorrect) {
     possibleScore += (recipe.length);
     score += (countCorrect - countIncorrect);
+    if (score < 0) {
+        score = 0;
+    }
     document.getElementById("score-area").innerHTML = `Score: ${score} / ${possibleScore}`;
 }
 
@@ -213,4 +219,24 @@ function updateLevel() {
     let level = questionIndex + 1;
     let finalLevel = maxLevel + 1;
     document.getElementById("level-area").innerHTML = `Level: ${level} / ${finalLevel}`;
+}
+
+/**
+ * Will randomize the item order in a given array
+ * Fisher-Yates Shuffle, credit: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+ * @param array 
+ * @returns array, with randomized order
+ */
+function shuffle(array) {
+    let currentIndex = array.length,
+        randomIndex;
+
+    while (currentIndex > 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]
+        ];
+    }
+    return array;
 }
