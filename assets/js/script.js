@@ -14,6 +14,7 @@ async function runGame() {
     const finishButton = document.getElementById("finish-button");
     const pantryData = await pullPantryData();
     console.log("Pantrydata:", pantryData);
+
     if (questionIndex === 0) {
         createPantry(pantryData, pantryArea);
     }
