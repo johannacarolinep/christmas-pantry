@@ -46,7 +46,7 @@ async function pullPantryData() {
  */
 function createPantry(pantryData, pantryDiv) {
     let masterPantryArray = [];
-
+    pantryDiv.innerHTML = "";
     console.log(pantryData);
 
     for (let i = 0; i < pantryData.pantry.length; i++) {
@@ -257,10 +257,9 @@ function scrollTop() {
  * Calls quitGame function if confirmed.
  */
 function confirmQuit(event) {
-    const quitButton = event.target;
 
-    let modal = document.getElementById("quit-modal");
-    let cancelButton = document.getElementById("quit-modal-close");
+    let modal = document.getElementById("confirm-quit-modal");
+    let cancelButton = document.getElementById("confirm-quit-modal-close");
     let confirmQuitButton = document.getElementById("confirm-quit");
 
     modal.style.display = "block"; //opens modal
@@ -269,20 +268,42 @@ function confirmQuit(event) {
         modal.style.display = "none"; //closes modal
     })
 
-
-    /*cancelButton.onclick = function () {
-        modal.style.display = "none"; //closes modal
-    }*/
-
     window.onclick = function (event) {
         if (event.target === modal) {
             modal.style.display = "none"; //closes modal
         }
     }
 
-    confirmQuitButton.addEventListener("click", quitGame);
+    confirmQuitButton.addEventListener("click", function () {
+        modal.style.display = "none"; //closes modal
+        quitGame();
+    });
 }
-
+/**
+ * Opens main modal and updates content to show final score
+ */
 function quitGame() {
     console.log("Quitting game");
+    let quitModal = document.getElementById("quit-modal");
+    let startGameButton = document.getElementById("restart-game-button");
+
+    quitModal.style.display = "block"; //opens modal
+    document.getElementById("final-score-display").innerHTML = `Final score: ${score}`;
+    document.getElementById("score-context").innerHTML = `You got ${score} points out of ${possibleScore} possible points.`;
+
+    startGameButton.addEventListener("click", function () {
+        quitModal.style.display = "none";
+        startGame();
+    })
+}
+
+function startGame() {
+    console.log("Restarting game");
+    userSelected = [];
+    recipe = [];
+    score = 0;
+    possibleScore = 0;
+    questionIndex = 0;
+    maxLevel = 0;
+    runGame();
 }

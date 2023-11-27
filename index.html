@@ -61,13 +61,24 @@
             <div id="quit-button" class="controls">Quit</div>
             <div id="next-submit-button" class="controls">Submit</div>
         </div>
-        <div id="quit-modal" class="cake-modal-background">
-            <div class="quit-modal-content">
+        <!-- Confirm quit modal -->
+        <div id="confirm-quit-modal" class="cake-modal-background">
+            <div class="confirm-quit-modal-content">
                 <h3>Are you sure you want to quit?</h3>
                 <div>
-                    <button id="quit-modal-close">Cancel</button>
+                    <button id="confirm-quit-modal-close">Cancel</button>
                     <button id="confirm-quit">Confirm</button>
                 </div>
+            </div>
+        </div>
+        <!-- Quit game modal -->
+        <div id="quit-modal" class="cake-modal-background">
+            <div class="quit-modal-content">
+                <h3>Qutting game</h3>
+                <p id="final-score-display"></p>
+                <p id="score-context"></p>
+                <p>Do you want to play again?</p>
+                <button id="restart-game-button">Restart game</button>
             </div>
         </div>
         <div id="results-area"></div>

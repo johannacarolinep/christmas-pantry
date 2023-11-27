@@ -261,9 +261,16 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     color: white;
 }
 
-.quit-modal-content {
+.confirm-quit-modal-content {
     background-color: white;
     width: 60%;
+    margin: auto;
+    padding: 15px;
+}
+
+.quit-modal-content {
+    background-color: white;
+    width: 85%;
     margin: auto;
     padding: 15px;
 }
