@@ -122,6 +122,7 @@ function nextSubmit(event) {
         }
     } else {
         nextQuestion();
+        scrollTop();
         nextSubmitButton.innerHTML = "Submit";
     }
 }
@@ -239,4 +240,13 @@ function shuffle(array) {
         ];
     }
     return array;
+}
+
+/**
+ * Scrolls to the top of the page.
+ * Credit: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+ */
+function scrollTop() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
