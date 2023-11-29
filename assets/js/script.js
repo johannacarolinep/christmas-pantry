@@ -5,7 +5,10 @@ var possibleScore = 0;
 var questionIndex = 0;
 var maxLevel = 0;
 
-document.addEventListener("DOMContentLoaded", runGame);
+document.addEventListener("DOMContentLoaded", function () {
+    displayWelcomeModal();
+    runGame();
+})
 
 async function runGame() {
     const pantryArea = document.getElementById("pantry-area");
@@ -345,4 +348,19 @@ function resetControls() {
     document.getElementById("quit-button").removeAttribute("aria-hidden");
     document.getElementById("finish-button").hidden = "true";
     document.getElementById("finish-button").setAttribute('aria-hidden', 'true');
+}
+
+/**
+ * Displays the welcome modal
+ * Reference: https://www.w3schools.com/howto/howto_css_modals.asp
+ */
+function displayWelcomeModal() {
+    let modal = document.getElementById("welcome-modal");
+    let closeButton = document.getElementById("welcome-modal-close");
+
+    modal.style.display = "block"; //opens modal
+
+    closeButton.onclick = function () {
+        modal.style.display = "none"; //closes modal
+    }
 }
