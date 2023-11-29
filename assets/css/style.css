@@ -159,7 +159,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 }
 
 /* The Close Button */
-.cake-modal-close,
+#cake-modal-close,
 .modal-close-x {
     color: #aaa;
     float: right;

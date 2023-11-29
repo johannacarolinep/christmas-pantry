@@ -6,17 +6,44 @@ var questionIndex = 0;
 var maxLevel = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
-    displayWelcomeModal();
+    /* Welcome modal */
+    const welcomeModal = document.getElementById("welcome-modal");
+    const welcomeCloseBtn = document.getElementById("welcome-modal-close");
+    displayModal(welcomeModal, undefined, welcomeCloseBtn, true, true);
+
+    /* Cake modal */
+    const cakeModal = document.getElementById("cake-modal");
+    const cakeOpenModalBtn = document.getElementById("cake-info-btn");
+    const cakeCloseModalBtn = document.getElementById("cake-modal-close");
+    displayModal(cakeModal, cakeOpenModalBtn, cakeCloseModalBtn, false, false);
+
+    /* Instructions modal */
+    const instructionsModal = document.getElementById("instructions-modal");
+    const instructionsOpenBtn = document.getElementById("instructions-btn");
+    const instructionscloseBtn = document.getElementById("instructions-modal-close");
+    displayModal(instructionsModal, instructionsOpenBtn, instructionscloseBtn, false, false);
+
+    /* Confirm quit modal */
+    const confirmQuitModal = document.getElementById("confirm-quit-modal");
+    const confirmQuitOpenBtn = document.getElementById("quit-button");
+    const confirmQuitCancel = document.getElementById("confirm-quit-modal-close");
+    const confirmQuitButton = document.getElementById("confirm-quit");
+
+    displayModal(confirmQuitModal, confirmQuitOpenBtn, confirmQuitCancel, false, false);
+    confirmQuitButton.addEventListener("click", function () {
+        confirmQuitModal.style.display = "none"; //closes modal
+        quitGame();
+    });
+
+    const finishButton = document.getElementById("finish-button");
+    finishButton.addEventListener("click", quitGame);
     runGame();
 })
 
 async function runGame() {
     const pantryArea = document.getElementById("pantry-area");
-    const quitButton = document.getElementById("quit-button");
     const nextSubmitButton = document.getElementById("next-submit-button");
-    const finishButton = document.getElementById("finish-button");
     const pantryData = await pullPantryData();
-    const instructionsButton = document.getElementById("instructions-btn");
     console.log("Pantrydata:", pantryData);
 
     if (questionIndex === 0) {
@@ -27,12 +54,10 @@ async function runGame() {
     updateSelectionCounter();
 
     nextSubmitButton.addEventListener("click", nextSubmit);
-    quitButton.addEventListener("click", confirmQuit);
-    finishButton.addEventListener("click", quitGame);
+
     maxLevel = pantryData.pantry.length - 1;
 
     updateLevel();
-    instructionsButton.addEventListener("click", displayInstructionsModal);
 }
 
 /**
@@ -90,7 +115,6 @@ function createQuestion(level) {
     document.getElementById("question-image").setAttribute("alt", level.name);
     document.getElementById("cake-modal-heading").innerHTML = `About ${level.name}:`;
     document.getElementById("cake-description").innerHTML = level.description;
-    displayCakeInfoModal();
 }
 
 /**
@@ -240,54 +264,6 @@ function updateQuestionResults(countCorrect, countIncorrect, countMissed) {
     document.getElementById("results-area").innerHTML = `You got ${countCorrect} right! ${countIncorrect} were wrong, and you missed ${countMissed}`;
 }
 
-/**
- * Gets the modal and "button" from HTML and 
- * Reference: https://www.w3schools.com/howto/howto_css_modals.asp
- */
-function displayCakeInfoModal() {
-    let modal = document.getElementById("cake-modal");
-    let cakeInfoModal = document.getElementById("cake-info-btn");
-    let span = document.getElementsByClassName("cake-modal-close")[0];
-
-    cakeInfoModal.onclick = function () {
-        modal.style.display = "block"; //opens modal
-    }
-
-    span.onclick = function () {
-        modal.style.display = "none"; //closes modal
-    }
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none"; //closes modal
-        }
-    }
-}
-
-/**
- * Gets the modal and "button" from HTML and 
- * Reference: https://www.w3schools.com/howto/howto_css_modals.asp
- */
-function displayInstructionsModal() {
-    let modal = document.getElementById("instructions-modal");
-    let modalButton = document.getElementById("instructions-btn");
-    let closeButton = document.getElementById("instructions-modal-close");
-
-    modalButton.onclick = function () {
-        modal.style.display = "block"; //opens modal
-    }
-
-    closeButton.onclick = function () {
-        modal.style.display = "none"; //closes modal
-    }
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none"; //closes modal
-        }
-    }
-}
-
 function updateLevel() {
     let level = questionIndex + 1;
     let finalLevel = maxLevel + 1;
@@ -323,33 +299,6 @@ function scrollTop() {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-/**
- * Opens confirmation modal when quit button is clicked. 
- * Calls quitGame function if confirmed.
- */
-function confirmQuit(event) {
-
-    let modal = document.getElementById("confirm-quit-modal");
-    let cancelButton = document.getElementById("confirm-quit-modal-close");
-    let confirmQuitButton = document.getElementById("confirm-quit");
-
-    modal.style.display = "block"; //opens modal
-
-    cancelButton.addEventListener("click", function () {
-        modal.style.display = "none"; //closes modal
-    })
-
-    window.onclick = function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none"; //closes modal
-        }
-    }
-
-    confirmQuitButton.addEventListener("click", function () {
-        modal.style.display = "none"; //closes modal
-        quitGame();
-    });
-}
 /**
  * Opens main modal and updates content to show final score
  */
@@ -390,16 +339,29 @@ function resetControls() {
 }
 
 /**
- * Displays the welcome modal
+ * Gets the modal and "button" from HTML and 
  * Reference: https://www.w3schools.com/howto/howto_css_modals.asp
  */
-function displayWelcomeModal() {
-    let modal = document.getElementById("welcome-modal");
-    let closeButton = document.getElementById("welcome-modal-close");
+function displayModal(modalParam, openModalBtn, closeModalBtn, fullScreen, defaultOpen) {
+    if (defaultOpen) {
+        modalParam.style.display = "block"; //opens modal
+    }
 
-    modal.style.display = "block"; //opens modal
+    if (openModalBtn) {
+        openModalBtn.onclick = function () {
+            modalParam.style.display = "block"; //opens modal
+        }
+    }
 
-    closeButton.onclick = function () {
-        modal.style.display = "none"; //closes modal
+    closeModalBtn.onclick = function () {
+        modalParam.style.display = "none"; //closes modal
+    }
+
+    if (!fullScreen) {
+        window.onclick = function (event) {
+            if (event.target == modalParam) {
+                modalParam.style.display = "none"; //closes modal
+            }
+        }
     }
 }
