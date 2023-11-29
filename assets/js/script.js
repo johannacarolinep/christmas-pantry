@@ -175,12 +175,21 @@ function displayPantryFeedback(userCorrect, userIncorrect, userMissed) {
         console.log("pantryArray:", pantryArray[items].innerHTML);
         if (userCorrect.includes(pantryArray[items].innerHTML)) {
             pantryArray[items].classList.add("item-correct");
+            let correctIcon = document.createElement("i");
+            correctIcon.className = "fa-solid fa-circle-check";
+            pantryArray[items].appendChild(correctIcon);
             pantryArray[items].classList.remove("pantry-item-selected");
         } else if (userIncorrect.includes(pantryArray[items].innerHTML)) {
             pantryArray[items].classList.add("item-incorrect");
+            let inCorrectIcon = document.createElement("i");
+            inCorrectIcon.className = "fa-solid fa-circle-xmark";
+            pantryArray[items].appendChild(inCorrectIcon);
             pantryArray[items].classList.remove("pantry-item-selected");
         } else if (userMissed.includes(pantryArray[items].innerHTML)) {
             pantryArray[items].classList.add("item-missed");
+            let missedIcon = document.createElement("i");
+            missedIcon.className = "fa-solid fa-minus";
+            pantryArray[items].appendChild(missedIcon);
             pantryArray[items].classList.remove("pantry-item-selected");
         }
     }
@@ -199,6 +208,9 @@ function nextQuestion() {
             pantryArray[items].classList.remove("item-correct");
             pantryArray[items].classList.remove("item-incorrect");
             pantryArray[items].classList.remove("item-missed");
+            if (pantryArray[items].querySelector("i")) {
+                pantryArray[items].querySelector("i").remove();
+            }
         }
     }
     runGame();
