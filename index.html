@@ -28,6 +28,9 @@
                 <div id="score-area">
                     Score: 0
                 </div>
+                <div id="instructions-btn">
+                    <i class="fa-solid fa-circle-question"></i>
+                </div>
             </div>
         </div>
     </header>
@@ -117,6 +120,26 @@
             <p>You can always access the rules by clicking the question mark at the top of your screen.
             </p>
             <button id="welcome-modal-close" class="welcome-modal-button">Let the festivities begin!</button>
+        </div>
+    </aside>
+
+    <!-- Instructions modal -->
+    <aside id="instructions-modal" class="modal-background-transparent">
+        <div class="instructions-modal-content">
+            <span id="instructions-modal-close" class="modal-close-x">X</span>
+            <h2 class="instructions-modal-heading">Game rules:</h2>
+            <p>Right ingredients are worth 1 point each</p>
+            <p>Wrong ones deduct 1 point</p>
+            <p>Missing ingredients are just missed chances — no deduction!</p>
+            <h2 class="instructions-modal-heading">How to play:</h2>
+            <p>Click an ingredient to pick it, click again to un-pick.</p>
+            <p>You can't select more ingredients than the recipe contains, so you may need to un-pick some before you
+                can add more.
+            </p>
+            <p>Once you're happy with your selection, click "SUBMIT". See your updated score, and which ingredients you
+                got right and wrong, and which ones you missed.
+            </p>
+            <p>When you're ready to move on, click "NEXT".</p>
         </div>
     </aside>
 

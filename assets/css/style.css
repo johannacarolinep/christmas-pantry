@@ -50,19 +50,21 @@ h1 {
     display: flex;
     justify-content: space-between;
     margin: 10px auto;
-    flex-basis: 50%;
+    flex-basis: 33%;
 }
 
 #level-area {
-    width: 50%;
     display: flex;
     flex-wrap: wrap;
 }
 
 #score-area {
-    width: 50%;
     display: flex;
     flex-wrap: wrap;
+}
+
+#instructions-btn i {
+    font-size: 1.4rem;
 }
 
 /* Question section */
@@ -126,7 +128,8 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 }
 
 /* Cake info modal background */
-.cake-modal-background {
+.cake-modal-background,
+.modal-background-transparent {
     display: none;
     position: fixed;
     z-index: 99;
@@ -156,7 +159,8 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 }
 
 /* The Close Button */
-.cake-modal-close {
+.cake-modal-close,
+.modal-close-x {
     color: #aaa;
     float: right;
     font-size: 1rem;
@@ -314,6 +318,23 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     border: none;
 }
 
+/* Instructions modal */
+.instructions-modal-content {
+    background-color: #ffffff;
+    width: 90%;
+    margin: 80px auto;
+    padding: 15px;
+    border: 10px dotted rgb(199, 10, 10);
+}
+
+.instructions-modal-content p {
+    margin-bottom: 15px;
+}
+
+.instructions-modal-content h2 {
+    margin: 15px 0 5px 0;
+}
+
 /* Media query for tablets, screen size >= 768px */
 @media screen and (min-width: 768px) {
 
@@ -327,6 +348,10 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 
     .stats-area {
         font-size: 1.1rem;
+    }
+
+    #instructions-btn i {
+        font-size: 1.6rem;
     }
 
     /* Question section */
@@ -393,6 +418,13 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         width: 250px;
         padding: 20px;
     }
+
+    /* Instructions modal */
+    .instructions-modal-content {
+        width: 80%;
+        margin: 80px auto;
+        padding: 20px;
+    }
 }
 
 /* Media query for laptops and desktops, screen size >= 992px */
@@ -402,6 +434,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     .header-wrapper {
         width: 85%;
         margin: auto;
+        max-width: 1200px;
     }
 
     h1 {
@@ -409,6 +442,10 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         width: 50%;
         text-align: center;
         margin: 15px auto;
+    }
+
+    #instructions-btn i {
+        font-size: 1.8rem;
     }
 
     /* Question section */
@@ -473,5 +510,13 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 
     .welcome-modal-button {
         margin: 30px auto 10px auto;
+    }
+
+    /* Instructions modal */
+    .instructions-modal-content {
+        width: 70%;
+        max-width: 1000px;
+        margin: 80px auto;
+        padding: 30px;
     }
 }

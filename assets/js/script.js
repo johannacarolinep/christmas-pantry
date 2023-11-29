@@ -16,6 +16,7 @@ async function runGame() {
     const nextSubmitButton = document.getElementById("next-submit-button");
     const finishButton = document.getElementById("finish-button");
     const pantryData = await pullPantryData();
+    const instructionsButton = document.getElementById("instructions-btn");
     console.log("Pantrydata:", pantryData);
 
     if (questionIndex === 0) {
@@ -31,6 +32,7 @@ async function runGame() {
     maxLevel = pantryData.pantry.length - 1;
 
     updateLevel();
+    instructionsButton.addEventListener("click", displayInstructionsModal);
 }
 
 /**
@@ -239,6 +241,30 @@ function displayCakeInfoModal() {
     }
 
     span.onclick = function () {
+        modal.style.display = "none"; //closes modal
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none"; //closes modal
+        }
+    }
+}
+
+/**
+ * Gets the modal and "button" from HTML and 
+ * Reference: https://www.w3schools.com/howto/howto_css_modals.asp
+ */
+function displayInstructionsModal() {
+    let modal = document.getElementById("instructions-modal");
+    let modalButton = document.getElementById("instructions-btn");
+    let closeButton = document.getElementById("instructions-modal-close");
+
+    modalButton.onclick = function () {
+        modal.style.display = "block"; //opens modal
+    }
+
+    closeButton.onclick = function () {
         modal.style.display = "none"; //closes modal
     }
 
