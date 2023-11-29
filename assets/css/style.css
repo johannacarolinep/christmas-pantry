@@ -180,6 +180,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     cursor: pointer;
 }
 
+/* Pantry area */
 #pantry-section {
     background-color: rgb(236, 233, 225);
     width: 96%;
@@ -214,11 +215,20 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     background-color: white;
     margin: 7px 0;
     font-size: 0.9rem;
-    border: 5px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     -ms-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    border-radius: 2px;
+    outline: none;
+    transition: 0.5s;
+}
+
+.pantry-item:hover {
+    box-shadow: rgba(246, 243, 214, 0.764) 0px 7px 29px 0px;
 }
 
 .pantry-item-selected {
@@ -227,21 +237,26 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 }
 
 .item-correct {
-    background-color: green;
+    background-color: rgb(36, 112, 36);
     font-weight: 600;
     color: white;
 }
 
 .item-incorrect {
-    background-color: red;
+    background-color: rgb(180, 53, 53);
     font-weight: 600;
     color: white;
 }
 
 .item-missed {
-    background-color: #e8ce09;
+    background-color: #d4bc08;
     font-weight: 600;
     color: white;
+}
+
+.pantry-item i {
+    font-size: 1.3rem;
+    margin-left: 10px;
 }
 
 /* Controls area */
@@ -408,6 +423,10 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     #pantry-area div {
         flex-basis: 31%;
         font-size: 1.1rem;
+    }
+
+    .pantry-item i {
+        font-size: 1.4rem;
     }
 
     /* Controls area */
