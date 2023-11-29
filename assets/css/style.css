@@ -167,6 +167,10 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     font-weight: bold;
     border: 1px solid black;
     padding: 0 5px;
+    cursor: pointer;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .close:hover,
@@ -211,6 +215,10 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     margin: 7px 0;
     font-size: 0.9rem;
     border: 5px solid transparent;
+    cursor: pointer;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .pantry-item-selected {
@@ -237,7 +245,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 }
 
 /* Controls area */
-#controls-area {
+.controls-area {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
@@ -252,6 +260,13 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     font-family: 'Playpen Sans', sans-serif;
     font-weight: 700;
     font-size: 1.1rem;
+}
+
+.controls-area div {
+    cursor: pointer;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 #next-submit-button {
@@ -396,7 +411,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     }
 
     /* Controls area */
-    #controls-area {
+    .controls-area {
         flex-direction: row;
         margin: auto;
         margin-top: 20px;
@@ -492,7 +507,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     }
 
     /* Controls area */
-    #controls-area {
+    .controls-area {
         margin-top: 40px;
     }
 
