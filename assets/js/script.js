@@ -255,21 +255,21 @@ function updateLevel() {
 /**
  * Will randomize the item order in a given array
  * Fisher-Yates Shuffle, credit: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
- * @param array 
- * @returns array, with randomized order
+ * @param {Array} shuffleArray 
+ * @returns {Array}, with randomized order
  */
-function shuffle(array) {
-    let currentIndex = array.length,
-        randomIndex;
+function shuffle(shuffleArray) {
+    let currentIndex = shuffleArray.length
+    let randomIndex;
 
     while (currentIndex > 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
-        [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]
+        [shuffleArray[currentIndex], shuffleArray[randomIndex]] = [
+            shuffleArray[randomIndex], shuffleArray[currentIndex]
         ];
     }
-    return array;
+    return shuffleArray;
 }
 
 /**
