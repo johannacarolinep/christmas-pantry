@@ -1,9 +1,9 @@
-var userSelected = [];
-var recipe = [];
-var score = 0;
-var possibleScore = 0;
-var questionIndex = 0;
-var maxLevel = 0;
+let userSelected = [];
+let recipe = [];
+let score = 0;
+let possibleScore = 0;
+let questionIndex = 0;
+let maxLevel = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
     /* Welcome modal */
@@ -54,7 +54,6 @@ async function runGame() {
     updateSelectionCounter();
 
     nextSubmitButton.addEventListener("click", nextSubmit);
-
     maxLevel = pantryData.pantry.length - 1;
 
     updateLevel();
