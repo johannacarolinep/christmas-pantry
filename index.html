@@ -45,13 +45,6 @@
                 <div id="cake-info-btn">
                     <i class="fa-solid fa-circle-info"></i>
                 </div>
-                <div id="cake-modal" class="cake-modal-background">
-                    <div class="cake-modal-content">
-                        <span id="cake-modal-close">X</span>
-                        <h3 id="cake-modal-heading"></h3>
-                        <p id="cake-description"></p>
-                    </div>
-                </div>
             </div>
             <p id="cake-question"></p>
             <p id="cake-recipe-hint"></p>
@@ -76,27 +69,6 @@
             <div id="finish-button" class="controls" hidden aria-hidden>Finish
             </div>
         </div>
-        <!-- Confirm quit modal -->
-        <div id="confirm-quit-modal" class="cake-modal-background">
-            <div class="confirm-quit-modal-content">
-                <h3>Are you sure you want to quit?</h3>
-                <div>
-                    <button id="confirm-quit-modal-close">Cancel</button>
-                    <button id="confirm-quit">Confirm</button>
-                </div>
-            </div>
-        </div>
-        <!-- Quit game modal -->
-        <div id="quit-modal" class="cake-modal-background">
-            <div class="quit-modal-content">
-                <h3>Qutting game</h3>
-                <p id="final-score-display"></p>
-                <p id="score-context"></p>
-                <p>Do you want to play again?</p>
-                <button id="restart-game-button">Restart game</button>
-            </div>
-        </div>
-        <div id="results-area"></div>
     </section>
 
     <!-- Welcome modal -->
@@ -126,13 +98,14 @@
 
     <!-- Instructions modal -->
     <aside id="instructions-modal" class="modal-background-transparent">
-        <div class="instructions-modal-content">
+        <div class="modal-content-card border-red">
             <span id="instructions-modal-close" class="modal-close-x">X</span>
-            <h2 class="instructions-modal-heading">Game rules:</h2>
+            <h3 class="instructions-modal-heading">Game rules:</h3>
             <p>Right ingredients are worth 1 point each</p>
             <p>Wrong ones deduct 1 point</p>
             <p>Missing ingredients are just missed chances — no deduction!</p>
-            <h2 class="instructions-modal-heading">How to play:</h2>
+            <br>
+            <h3 class="instructions-modal-heading">How to play:</h3>
             <p>Click an ingredient to pick it, click again to un-pick.</p>
             <p>You can't select more ingredients than the recipe contains, so you may need to un-pick some before you
                 can add more.
@@ -143,6 +116,38 @@
             <p>When you're ready to move on, click "NEXT".</p>
         </div>
     </aside>
+
+    <!-- Cake info modal -->
+    <aside id="cake-modal" class="modal-background-transparent">
+        <div class="modal-content-card border-green">
+            <span id="cake-modal-close" class="modal-close-x">X</span>
+            <h3 id="cake-modal-heading"></h3>
+            <p id="cake-description"></p>
+        </div>
+    </aside>
+
+    <!-- Confirm quit modal -->
+    <div id="confirm-quit-modal" class="modal-background-transparent">
+        <div class="modal-content-card border-red">
+            <h3>Are you sure you want to quit?</h3>
+            <div>
+                <button id="confirm-quit-modal-close">Cancel</button>
+                <button id="confirm-quit">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quit game modal -->
+    <div id="quit-modal" class="modal-background-transparent">
+        <div class="quit-modal-content modal-content-card">
+            <h3>Qutting game</h3>
+            <p id="final-score-display"></p>
+            <p id="score-context"></p>
+            <p>Do you want to play again?</p>
+            <button id="restart-game-button">Restart game</button>
+        </div>
+    </div>
+    <div id="results-area"></div>
 
     <!--Fontawesome-->
     <script src="https://kit.fontawesome.com/a0a89111ce.js" crossorigin="anonymous"></script>
