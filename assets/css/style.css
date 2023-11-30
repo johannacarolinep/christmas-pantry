@@ -254,9 +254,23 @@ h1 {
 /* Modals */
 /* Styles for Cake info modal - 
 Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
+/* Full screen modal background */
+.full-screen-modal {
+    display: none;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(134, 16, 16);
+    background-image: url(../images/wallpaper-gold.webp);
+    background-size: cover;
+}
 
 /* Card modals background */
-.modal-background-transparent {
+.modal-background {
     display: none;
     position: fixed;
     z-index: 99;
@@ -278,7 +292,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-height: 90%;
+    max-height: 95%;
     overflow-y: auto;
 }
 
@@ -305,7 +319,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     user-select: none;
 }
 
-.modal-content-card button {
+.modal-content-button {
     padding: 6px 8px;
     text-transform: uppercase;
     font-size: 1rem;
@@ -316,7 +330,21 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     cursor: pointer;
 }
 
-/* Cake info modal box */
+/* Welcome modal */
+.welcome-modal-heading {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.welcome-modal-button {
+    display: block;
+    margin: 0 auto 20px auto;
+    background-color: rgb(36, 112, 36);
+    color: white;
+    padding: 10px 15px;
+}
+
+/* Cake info modal */
 .border-green {
     border: 8px dotted green;
 }
@@ -332,50 +360,13 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     color: white;
 }
 
-.quit-modal-content {
-    background-color: white;
-    width: 85%;
-    margin: auto;
-    padding: 15px;
-}
-
-/* Welcome modal */
-.welcome-modal {
-    display: none;
-    position: fixed;
-    z-index: 99;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: #30513b;
-}
-
-.welcome-modal-content {
-    width: 90%;
-    margin: 20px auto;
-    background-color: #ffffff;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-.welcome-modal-content h1 {
-    text-align: center;
-    font-size: 1.3rem;
-}
-
-.welcome-modal-button {
-    padding: 10px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    width: 70%;
-    margin: 10px auto;
-    background-color: #30513b;
+/* Quit modal */
+#restart-game-button {
+    display: block;
+    margin: 10px auto 15px auto;
+    padding: 5px 15px;
+    background-color: #9e9381;
     color: white;
-    font-weight: 600;
-    border: none;
 }
 
 /* Media query for tablets, screen size >= 768px */
