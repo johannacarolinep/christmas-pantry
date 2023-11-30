@@ -251,8 +251,7 @@ h1 {
     color: white;
 }
 
-/* Modals */
-/* Styles for Cake info modal - 
+/* Styles for modals
 Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 /* Full screen modal background */
 .full-screen-modal {
@@ -416,9 +415,6 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         order: -1;
     }
 
-    /* Styles for Cake info modal - 
-    Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
-    /* Cake info modal button */
     #cake-info-btn {
         font-size: 2rem;
     }
@@ -447,21 +443,65 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         max-width: 240px;
     }
 
+    /* Styles for modals
+Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
+    /* Modal content cards */
+    .modal-content-card {
+        box-shadow: 0 0 40px -1px #edeac4;
+        padding: 15px;
+        width: 70%;
+        max-height: 80%;
+        font-size: 1.1rem;
+    }
+
+    .modal-content-card h3 {
+        text-transform: uppercase;
+        padding: 10px 20px 0 20px;
+    }
+
+    .modal-content-card p {
+        padding: 10px 20px;
+    }
+
+    /* The Close Button */
+    .modal-close-x {
+        font-size: 1.1rem;
+    }
+
+    .modal-content-button {
+        font-size: 1.1rem;
+        margin: 20px;
+    }
+
     /* Welcome modal */
-    .welcome-modal-content {
-        margin-top: 40px;
+    .welcome-modal-heading {
+        text-align: center;
+        font-size: 1.4rem;
+        padding: 20px 20px 0 20px;
+    }
+
+    .modal-card-big {
+        width: 80%;
     }
 
     .welcome-modal-button {
-        width: 250px;
-        padding: 20px;
+        margin: 15px auto 20px auto;
+    }
+
+    /* Cake info modal */
+    .border-green {
+        border: 10px dotted green;
     }
 
     /* Instructions modal */
-    .instructions-modal-content {
-        width: 80%;
-        margin: 80px auto;
-        padding: 20px;
+    .border-red {
+        border: 10px dotted rgb(199, 10, 10);
+    }
+
+    /* Quit modal */
+    #restart-game-button {
+        margin: 15px auto 20px auto;
+        padding: 10px 15px;
     }
 }
 
@@ -509,9 +549,6 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         max-width: 250px;
     }
 
-    /* Styles for Cake info modal - 
-    Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
-    /* Cake info modal button */
     #cake-info-btn {
         font-size: 3rem;
     }
@@ -538,23 +575,32 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         padding: 15px;
     }
 
+    /* Styles for modals
+Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
+    /* Modal content cards */
+    .modal-content-card {
+        box-shadow: 0 0 50px -1px #edeac4;
+        padding: 15px;
+        width: 60%;
+        max-width: 800px;
+    }
+
+    .modal-content-card h3 {
+        font-size: 1.5rem;
+    }
+
     /* Welcome modal */
-    .welcome-modal-content {
-        margin-top: 50px;
-        width: 80%;
-        max-width: 1000px;
-        padding: 30px;
+    .welcome-modal-heading {
+        font-size: 1.5rem;
+        padding: 20px 20px 10px 20px;
+    }
+
+    .modal-card-big {
+        width: 65%;
+        max-width: 900px;
     }
 
     .welcome-modal-button {
-        margin: 30px auto 10px auto;
-    }
-
-    /* Instructions modal */
-    .instructions-modal-content {
-        width: 70%;
-        max-width: 1000px;
-        margin: 80px auto;
-        padding: 30px;
+        margin: 20px auto 25px auto;
     }
 }
