@@ -22,6 +22,8 @@ body {
     background-color: #30513b;
     width: 100%;
     font-family: 'Poppins', sans-serif;
+    background-image: url(../images/wallpaper-gold.webp);
+    background-size: cover;
 }
 
 h1,
@@ -34,15 +36,19 @@ h2 {
 header {
     position: fixed;
     z-index: 98;
-    background-color: #ffffff;
+    background-color: #871f1f;
     width: 100%;
+    background-image: url(../images/snowflakes.webp);
+    background-size: cover;
+    border-bottom: 10px solid white;
+    box-shadow: 0 0 7px -1px #edeac4;
 }
 
 h1 {
     font-size: 1.5rem;
-    border-bottom: 2px solid black;
     width: fit-content;
     margin: 7px auto;
+    padding: 7px 15px;
 }
 
 .stats-area {
@@ -69,13 +75,15 @@ h1 {
 
 /* Question section */
 #question-area {
-    background-color: white;
+    background-color: #f7f8f3f1;
     width: 96%;
     margin: 15px auto;
     padding: 10px;
     display: flex;
     flex-direction: column;
-    margin-top: 104px;
+    margin-top: 140px;
+    box-shadow: 0 0 50px -1px #edeac4;
+    border: 10px solid white;
 }
 
 #question-text-content {
@@ -182,10 +190,12 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 
 /* Pantry area */
 #pantry-section {
-    background-color: rgb(236, 233, 225);
+    background-color: #f7f8f3f1;
     width: 96%;
     margin: 15px auto;
     padding: 10px;
+    box-shadow: 0 0 50px -1px #edeac4;
+    border: 10px solid white;
 }
 
 #pantry-header {
@@ -389,7 +399,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         padding: 20px 15px;
         flex-direction: row;
         font-size: 1.1rem;
-        margin-top: 133.5px;
+        margin-top: 160px;
     }
 
     #question-text-content {
@@ -488,7 +498,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         font-size: 1.2rem;
         width: 85%;
         max-width: 1200px;
-        margin-top: 142px;
+        margin-top: 162px;
     }
 
     #question-text-content {
