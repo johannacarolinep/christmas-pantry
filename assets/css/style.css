@@ -392,6 +392,36 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     color: white;
 }
 
+/* Footer */
+
+footer {
+    background-color: #797162;
+}
+
+.footer-wrapper {
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 7.5px;
+}
+
+.social-media-links {
+    margin: 10px;
+}
+
+.social-media-links a {
+    text-decoration: none;
+}
+
+.social-media-links i {
+    color: white;
+    font-size: 2rem;
+    margin: 0 10px;
+}
+
 /* Media query for tablets, screen size >= 768px */
 @media screen and (min-width: 768px) {
 
@@ -533,6 +563,22 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         margin: 15px auto 20px auto;
         padding: 10px 15px;
     }
+
+    /* Footer */
+    .footer-wrapper {
+        padding: 25px 17.5px;
+        font-size: 1.1rem;
+    }
+
+    .social-media-links {
+        margin: 0;
+        margin-top: 10px;
+    }
+
+    .social-media-links i {
+        font-size: 2.5rem;
+        margin: 0 10px;
+    }
 }
 
 /* Media query for laptops and desktops, screen size >= 992px */
@@ -632,5 +678,24 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 
     .welcome-modal-button {
         margin: 20px auto 25px auto;
+    }
+
+    /* Footer */
+    .footer-wrapper {
+        padding: 25px 17.5px;
+        font-size: 1.1rem;
+        width: 85%;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .social-media-links {
+        margin: 0;
+        margin-top: 10px;
+    }
+
+    .social-media-links i {
+        font-size: 2.5rem;
+        margin: 0 10px;
     }
 }
