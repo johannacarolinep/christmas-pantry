@@ -270,7 +270,15 @@ function updateScore(countCorrect, countIncorrect) {
  * @param {Number} countMissed 
  */
 function updateQuestionResults(countCorrect, countIncorrect, countMissed) {
-    document.getElementById("results-area").innerHTML = `You got ${countCorrect} right! ${countIncorrect} were wrong, and you missed ${countMissed}`;
+    const resultsArea = document.getElementById("results-area");
+
+    if (countCorrect === recipe.length) {
+        resultsArea.innerHTML = `${countCorrect}/${recipe.length}! Congrats!`;
+    } else if (countCorrect === 0) {
+        resultsArea.innerHTML = `Correct: ${countCorrect}   Incorrect: ${countIncorrect}   Missed: ${countMissed}   Better luck next time!`;
+    } else {
+        resultsArea.innerHTML = `Correct: ${countCorrect}   Incorrect: ${countIncorrect}   Missed: ${countMissed}`;
+    }
 }
 
 function resetQuestionResults() {
