@@ -212,7 +212,6 @@ h1 {
         -7px -7px 14px #f9f9ef;
 }
 
-
 .item-correct {
     background-color: rgb(36, 112, 36);
     color: white;
@@ -267,6 +266,13 @@ h1 {
 #quit-button {
     background-color: rgb(158, 47, 47);
     color: white;
+}
+
+/* Results area */
+.results-area {
+    font-weight: 500;
+    margin-top: 10px;
+    text-align: center;
 }
 
 /* Styles for modals
@@ -459,6 +465,12 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     .controls {
         flex-basis: 30%;
         max-width: 240px;
+    }
+
+    /* Results area */
+    .results-area {
+        font-size: 1.1rem;
+        margin-top: 20px;
     }
 
     /* Styles for modals
