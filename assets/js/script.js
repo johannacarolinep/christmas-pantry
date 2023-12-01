@@ -236,6 +236,7 @@ function nextQuestion() {
             }
         }
     }
+    resetQuestionResults();
     runGame();
 }
 
@@ -270,6 +271,10 @@ function updateScore(countCorrect, countIncorrect) {
  */
 function updateQuestionResults(countCorrect, countIncorrect, countMissed) {
     document.getElementById("results-area").innerHTML = `You got ${countCorrect} right! ${countIncorrect} were wrong, and you missed ${countMissed}`;
+}
+
+function resetQuestionResults() {
+    document.getElementById("results-area").innerHTML = "";
 }
 
 function updateLevel() {
