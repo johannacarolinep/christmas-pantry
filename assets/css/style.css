@@ -221,8 +221,8 @@ main {
 .pantry-item-selected {
     background-color: #64564F;
     color: white;
-    box-shadow: 7px 7px 18px #bbbbb3,
-        -7px -7px 14px #f9f9ef;
+    box-shadow: 7px 7px 18px #584c46,
+        -7px -7px 14px #706058;
 }
 
 .item-correct {
@@ -270,15 +270,40 @@ main {
     user-select: none;
 }
 
-#next-submit-button {
+#next-submit-button,
+#finish-button {
     order: -1;
     background-color: #64564F;
     color: white;
+    background: linear-gradient(145deg, #6b5c55, #5a4d47);
+    box-shadow: 7px 7px 18px #bbbbb3,
+        -7px -7px 14px #f9f9ef;
 }
 
 #quit-button {
     background-color: #9E2F2F;
     color: white;
+    background: linear-gradient(145deg, #a93232, #8e2a2a);
+    box-shadow: 7px 7px 18px #bbbbb3,
+        -7px -7px 14px #f9f9ef;
+}
+
+#next-submit-button:hover,
+#quit-button:hover,
+#finish-button:hover {
+    box-shadow: 10px 10px 31px #afa19b,
+        -10px -10px 31px #ffffff;
+}
+
+#next-submit-button:active,
+#finish-button:active {
+    box-shadow: inset 10px 10px 31px #584c46,
+        inset -10px -10px 31px #706058;
+}
+
+#quit-button:active {
+    box-shadow: inset 10px 10px 31px #8b2929,
+        inset -10px -10px 31px #b13535;
 }
 
 /* Results area */
@@ -366,18 +391,35 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     cursor: pointer;
 }
 
-/* Welcome modal */
+/* Welcome modal and Quit modal */
 .welcome-modal-heading {
     text-align: center;
     font-size: 1.3rem;
 }
 
-.welcome-modal-button {
+.welcome-modal-button,
+#restart-game-button {
     display: block;
     margin: 0 auto 20px auto;
     background-color: #247024;
+    background: linear-gradient(145deg, #277827, #206520);
     color: white;
     padding: 10px 15px;
+    box-shadow: 7px 7px 18px #bbbbb3,
+        -7px -7px 14px #f9f9ef;
+}
+
+.welcome-modal-button:hover,
+#restart-game-button:hover {
+    box-shadow: 10px 10px 31px #afa19b,
+        -10px -10px 31px #ffffff;
+}
+
+.welcome-modal-button:active,
+#restart-game-button:active {
+    background: #247024;
+    box-shadow: inset 10px 10px 31px #206320,
+        inset -10px -10px 31px #287d28;
 }
 
 /* Cake info modal */
@@ -396,13 +438,20 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     color: white;
 }
 
-/* Quit modal */
-#restart-game-button {
-    display: block;
-    margin: 10px auto 15px auto;
-    padding: 5px 15px;
-    background-color: #247024;
-    color: white;
+#confirm-quit:hover,
+#confirm-quit-modal-close:hover {
+    box-shadow: 10px 10px 31px #afa19b,
+        -10px -10px 31px #ffffff;
+}
+
+#confirm-quit:active {
+    box-shadow: inset 10px 10px 31px #8b2929,
+        inset -10px -10px 31px #b13535;
+}
+
+#confirm-quit-modal-close:active {
+    box-shadow: inset 10px 10px 31px #cacaca,
+        inset -10px -10px 31px #ffffff;
 }
 
 /* Footer */
