@@ -214,15 +214,15 @@ main {
 }
 
 .pantry-item-active:active {
-    box-shadow: inset 7px 7px 14px #797162,
-        inset -7px -7px 14px #a79b88;
+    box-shadow: inset 10px 10px 31px #584c46,
+        inset -10px -10px 31px #706058;
 }
 
 .pantry-item-selected {
     background-color: #64564F;
     color: white;
-    box-shadow: 7px 7px 18px #584c46,
-        -7px -7px 14px #706058;
+    box-shadow: 7px 7px 18px #bbbbb3,
+        -7px -7px 14px #f9f9ef;
 }
 
 .item-correct {
