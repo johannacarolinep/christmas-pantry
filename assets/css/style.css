@@ -18,8 +18,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    color: rgb(88, 32, 32);
-    background-color: #30513b;
+    color: #632424;
+    background-color: #63513c;
     width: 100%;
     font-family: 'Poppins', sans-serif;
     background-image: url(../images/wallpaper-gold.webp);
@@ -36,7 +36,7 @@ h2 {
 header {
     position: fixed;
     z-index: 98;
-    background-color: #871f1f;
+    background-color: #f7f8f3f1;
     width: 100%;
     background-image: url(../images/snowflakes.webp);
     background-size: cover;
@@ -45,7 +45,7 @@ header {
 }
 
 h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     width: fit-content;
     margin: 7px auto;
     padding: 7px 15px;
@@ -57,7 +57,8 @@ h1 {
     justify-content: space-between;
     margin: 10px auto;
     flex-basis: 33%;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 #level-area {
@@ -201,14 +202,14 @@ main {
 
 .pantry-item-active {
     background-color: white;
-    color: black;
+    color: #632424;
 }
 
 .pantry-item-active:hover {
     border-radius: 2px;
     box-shadow: 7px 7px 18px #bbbbb3,
         -7px -7px 14px #f9f9ef;
-    background-color: #908675;
+    background-color: #64564F;
     color: white;
 }
 
@@ -218,7 +219,7 @@ main {
 }
 
 .pantry-item-selected {
-    background-color: #908675;
+    background-color: #64564F;
     color: white;
     box-shadow: 7px 7px 18px #bbbbb3,
         -7px -7px 14px #f9f9ef;
@@ -230,7 +231,7 @@ main {
 }
 
 .item-incorrect {
-    background-color: rgb(158, 47, 47);
+    background-color: #9E2F2F;
     color: white;
 }
 
@@ -271,12 +272,12 @@ main {
 
 #next-submit-button {
     order: -1;
-    background-color: #9e9381;
+    background-color: #64564F;
     color: white;
 }
 
 #quit-button {
-    background-color: rgb(158, 47, 47);
+    background-color: #9E2F2F;
     color: white;
 }
 
@@ -346,7 +347,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     float: right;
     font-size: 1rem;
     font-weight: bold;
-    border: 1px solid black;
+    border: 1px solid #632424;
     padding: 0 5px;
     cursor: pointer;
     -ms-user-select: none;
@@ -374,24 +375,24 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 .welcome-modal-button {
     display: block;
     margin: 0 auto 20px auto;
-    background-color: rgb(36, 112, 36);
+    background-color: #247024;
     color: white;
     padding: 10px 15px;
 }
 
 /* Cake info modal */
 .border-green {
-    border: 8px dotted green;
+    border: 8px dotted #247024;
 }
 
 /* Instructions modal */
 .border-red {
-    border: 8px dotted rgb(199, 10, 10);
+    border: 8px dotted #b8372d;
 }
 
 /* Confirm quit modal */
 #confirm-quit {
-    background-color: rgb(199, 10, 10);
+    background-color: #b8372d;
     color: white;
 }
 
@@ -400,14 +401,14 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     display: block;
     margin: 10px auto 15px auto;
     padding: 5px 15px;
-    background-color: #9e9381;
+    background-color: #247024;
     color: white;
 }
 
 /* Footer */
 
 footer {
-    background-color: #797162;
+    background-color: #64564F;
 }
 
 .footer-wrapper {
@@ -566,12 +567,12 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 
     /* Cake info modal */
     .border-green {
-        border: 10px dotted green;
+        border: 10px dotted #247024;
     }
 
     /* Instructions modal */
     .border-red {
-        border: 10px dotted rgb(199, 10, 10);
+        border: 10px dotted #b8372d;
     }
 
     /* Quit modal */
