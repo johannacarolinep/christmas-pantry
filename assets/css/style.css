@@ -161,7 +161,6 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    background-color: #9e9381;
 }
 
 .pantry-item {
@@ -171,6 +170,8 @@ h1 {
     background-color: white;
     margin: 7px 0;
     font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -178,35 +179,45 @@ h1 {
     -ms-user-select: none;
     -webkit-user-select: none;
     user-select: none;
-    border-radius: 2px;
-    outline: none;
-    transition: 0.5s;
+    border-radius: 5px;
+    transition: 0.3s;
+    box-shadow: 7px 7px 14px #e5e5dd,
+        -7px -7px 14px #f9f9ef;
 }
 
 .pantry-item:hover {
-    box-shadow: rgba(246, 243, 214, 0.764) 0px 7px 29px 0px;
+    border-radius: 2px;
+    box-shadow: 7px 7px 18px #bbbbb3,
+        -7px -7px 14px #f9f9ef;
+    background-color: #908675;
+    color: white;
+}
+
+.pantry-item:active {
+    box-shadow: inset 7px 7px 14px #797162,
+        inset -7px -7px 14px #a79b88;
 }
 
 .pantry-item-selected {
-    border: 5px solid rgb(143, 140, 140);
-    font-weight: 600;
+    background-color: #908675;
+    color: white;
+    box-shadow: 7px 7px 18px #bbbbb3,
+        -7px -7px 14px #f9f9ef;
 }
+
 
 .item-correct {
     background-color: rgb(36, 112, 36);
-    font-weight: 600;
     color: white;
 }
 
 .item-incorrect {
-    background-color: rgb(180, 53, 53);
-    font-weight: 600;
+    background-color: rgb(158, 47, 47);
     color: white;
 }
 
 .item-missed {
     background-color: #d4bc08;
-    font-weight: 600;
     color: white;
 }
 
@@ -247,7 +258,7 @@ h1 {
 }
 
 #quit-button {
-    background-color: rgb(134, 16, 16);
+    background-color: rgb(158, 47, 47);
     color: white;
 }
 
