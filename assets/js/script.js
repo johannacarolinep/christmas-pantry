@@ -275,9 +275,9 @@ function updateQuestionResults(countCorrect, countIncorrect, countMissed) {
     if (countCorrect === recipe.length) {
         resultsArea.innerHTML = `${countCorrect}/${recipe.length}! Congrats!`;
     } else if (countCorrect === 0) {
-        resultsArea.innerHTML = `Correct: ${countCorrect}   Incorrect: ${countIncorrect}   Missed: ${countMissed}   Better luck next time!`;
+        resultsArea.innerHTML = `Correct: ${countCorrect}&nbsp;&nbsp;&nbsp;Incorrect: ${countIncorrect}&nbsp;&nbsp;&nbsp;Missed: ${countMissed}&nbsp;&nbsp;&nbsp;Better luck next time!`;
     } else {
-        resultsArea.innerHTML = `Correct: ${countCorrect}   Incorrect: ${countIncorrect}   Missed: ${countMissed}`;
+        resultsArea.innerHTML = `Correct: ${countCorrect}&nbsp;&nbsp;&nbsp;Incorrect: ${countIncorrect}&nbsp;&nbsp;&nbsp;Missed: ${countMissed}`;
     }
 }
 
