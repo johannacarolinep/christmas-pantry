@@ -3,6 +3,7 @@
         "name": "Candied almonds",
         "country": "Middle East",
         "image": "assets/images/candied-almonds.webp",
+        "altText": "Candied almonds in a small bowl.",
         "description": "The tradition of candying nuts dates back centuries. It can be traced to the Middle East, and spread to Europe already in the Middle Ages. Today, candied almonds are enjoyed globally, especially during holidays and celebrations.",
         "question": "What do you need to create this traditional treat?",
         "recipe": ["Nuts", "Sugar"]
@@ -10,6 +11,7 @@
         "name": "Rocky road",
         "country": "US",
         "image": "assets/images/rockyroad.webp",
+        "altText": "2 stacks of pieces of 'Rocky road', surrounded by some crumbles",
         "description": "The origins of the rich and chewy Rocky Road are somewhat unclear, though it is believed to have originated in the US. Its popularity as a festive indulgence however is completely undisputed!",
         "question": "What ingredients would you typically find in this festive treat?",
         "recipe": ["Chocolate", "Marshmallows", "Nuts"]
@@ -17,6 +19,7 @@
         "name": "Pavlova",
         "country": "Australia",
         "image": "assets/images/pavlova.webp",
+        "altText": "A Pavlova on a platter, with a shimmering, blurred, background",
         "description": "Named after the legendary Russian ballerina Anna Pavlova, this meringue-based dessert is known for its crisp exterior and soft, marshmallow-like interior. This cake is a cherished Christmas tradition particularly in Australia and New Zealand.",
         "question": "What ingredients do you need to make the lovely Pavlova?",
         "recipe": ["Sugar", "Eggs", "Cream", "Fresh fruits / berries"]
@@ -24,6 +27,7 @@
         "name": "Fudge",
         "country": "US",
         "image": "assets/images/fudge.webp",
+        "altText": "A pile of fudge pieces on a small platter. In the background, a candle and a branch from a fir tree",
         "description": "Legend has it that fudge was invented in 19th century America, as a confectioner “fudged” a batch of caramels. Since then, fudge has evolved into a beloved indulgence, characterised by its smooth, creamy texture.",
         "question": "What ingredients are needed 'to fudge'?",
         "recipe": ["Sugar", "Butter", "Cream", "Chocolate"]
@@ -31,6 +35,7 @@
         "name": "Knäck",
         "country": "Sweden",
         "image": "assets/images/knack.webp",
+        "altText": "Small red paper cups filled with toffee. The toffee has small beige bits inside",
         "description": "This crunchy Christmas toffee has been enjoyed in Swedish homes since the 1800’s and has become one of the country’s most popular holiday treats. The word 'knäck' translates to 'crack' in English, which aptly describes the candy's characteristic sound when broken.",
         "question": "What do we need to make a 'knäck' worthy of its name?",
         "recipe": ["Cream", "Syrup", "Sugar", "Nuts", "Butter"]
@@ -38,6 +43,7 @@
         "name": "Gingerbread cookies",
         "country": "Swedish variant",
         "image": "assets/images/gingerbread.webp",
+        "altText": "A platter with gingerbread cookies, in different shapes and decorated with white patterns",
         "description": "Gingerbread has ancient origins, dating back to 2400 BC (!) in Greece and evolving in China by the 10th century. By the late Middle Ages, versions emerged across Europe, with Germany and England among the early enthusiasts. The Swedish variant has been around since the 1300's, a particularly crunchy biscuit. Legend in Sweden has it that indulging in these crunchy treats can even make you a nicer person!",
         "question": "What ingredients do you need to make these crunchy biscuits?",
         "recipe": ["Sugar", "Syrup", "Butter", "Spices", "Flour", "Bicarbonate"]

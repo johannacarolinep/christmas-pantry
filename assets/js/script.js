@@ -113,7 +113,7 @@ function createQuestion(level) {
     document.getElementById("cake-question").innerHTML = level.question;
     document.getElementById("cake-recipe-hint").innerHTML = `This recipe contains ${recipe.length} ingredients.`;
     document.getElementById("question-image").setAttribute("src", level.image);
-    document.getElementById("question-image").setAttribute("alt", level.name);
+    document.getElementById("question-image").setAttribute("alt", level.altText);
     document.getElementById("cake-modal-heading").innerHTML = `About ${level.name}:`;
     document.getElementById("cake-description").innerHTML = level.description;
 }
