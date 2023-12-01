@@ -240,7 +240,16 @@ function nextQuestion() {
 }
 
 function updateSelectionCounter() {
-    document.getElementById("selection-counter").innerHTML = userSelected.length + "/" + recipe.length + " selected."
+    const selectionCounter = document.getElementById("selection-counter");
+    selectionCounter.innerHTML = userSelected.length + "/" + recipe.length + " selected";
+
+    if (userSelected.length === recipe.length) {
+        selectionCounter.classList.add("counter-full");
+    }
+
+    if (userSelected.length < recipe.length && selectionCounter.classList.contains("counter-full")) {
+        selectionCounter.classList.remove("counter-full");
+    }
 }
 
 function updateScore(countCorrect, countIncorrect) {

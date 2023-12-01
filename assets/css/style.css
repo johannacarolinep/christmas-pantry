@@ -151,10 +151,17 @@ h1 {
     margin-bottom: 10px;
 }
 
-#selection-counter {
-    background-color: white;
-    padding: 5px;
+.selection-counter {
+    background-color: rgba(252, 252, 252, 0.538);
+    padding: 8px;
     align-self: flex-start;
+    border-radius: 20px;
+}
+
+.counter-full {
+    box-shadow: 0 0 50px -1px #f3eeab;
+    background-color: rgb(252, 252, 252);
+    font-weight: 500;
 }
 
 #pantry-area {
