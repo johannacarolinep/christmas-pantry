@@ -4,6 +4,7 @@ let score = 0;
 let possibleScore = 0;
 let questionIndex = 0;
 let maxLevel = 0;
+let submitted = false;
 
 document.addEventListener("DOMContentLoaded", function () {
     /* Welcome modal */
@@ -95,6 +96,7 @@ function createPantry(pantryData, pantryDiv) {
         pantryItem.innerHTML = pantryArray[item];
         pantryItem.addEventListener("click", pantryItemSelect);
         pantryItem.classList.add("pantry-item");
+        pantryItem.classList.add("pantry-item-active");
         pantryDiv.appendChild(pantryItem);
     }
 }
@@ -125,17 +127,60 @@ function createQuestion(level) {
 function pantryItemSelect(event) {
     const clickedItem = event.target;
     console.log("I have been clicked", clickedItem);
-    if (!clickedItem.classList.contains("pantry-item-selected") && userSelected.length < recipe.length) {
-        clickedItem.classList.add("pantry-item-selected");
-        userSelected.push(clickedItem.innerHTML);
-        console.log("User selected: ", userSelected);
-    } else {
-        clickedItem.classList.remove("pantry-item-selected");
-        userSelected = userSelected.filter(item => item !== clickedItem.innerHTML);
+
+    if (!submitted) {
+        //if not already selected, and counter is not full, add item to selection
+        if (!clickedItem.classList.contains("pantry-item-selected") && userSelected.length < recipe.length) {
+            clickedItem.classList.add("pantry-item-selected");
+            userSelected.push(clickedItem.innerHTML);
+            updateSelectionCounter();
+            //if counter full - remove hover class from all pantry items without selected class
+            if (userSelected.length === recipe.length) {
+                removeActive();
+            }
+            //if item in selection, remove it from the selection    
+        } else if (clickedItem.classList.contains("pantry-item-selected")) {
+            clickedItem.classList.remove("pantry-item-selected");
+            userSelected = userSelected.filter(item => item !== clickedItem.innerHTML);
+            updateSelectionCounter();
+            //make all pantry items that are not selected get hover class
+            addActive();
+        }
         console.log("User selected: ", userSelected);
     }
-    updateSelectionCounter();
 }
+
+function removeActive() {
+    let pantry = document.getElementById("pantry-area");
+    let pantryArray = pantry.childNodes;
+    //console.log("pantryarray:", pantryArray)
+    //iterate pantry items. if they dont have selected class, then remove hover class
+
+    for (let items in pantryArray) {
+        //console.log(pantryArray[items].innerHTML);
+        if (pantryArray[items].classList) {
+            if (!pantryArray[items].classList.contains("pantry-item-selected")) {
+                pantryArray[items].classList.remove("pantry-item-active");
+            }
+        }
+    }
+}
+
+function addActive() {
+    let pantry = document.getElementById("pantry-area");
+    let pantryArray = pantry.childNodes;
+    //iterate pantry items. if they dont have selected class, then remove hover class
+
+    for (let items in pantryArray) {
+        //console.log(pantryArray[items].innerHTML);
+        if (pantryArray[items].classList) {
+            if (!pantryArray[items].classList.contains("pantry-item-selected" && !pantryArray[items].classList.contains("pantry-item-active"))) {
+                pantryArray[items].classList.add("pantry-item-active");
+            }
+        }
+    }
+}
+
 
 /**
  * Checks if button is Submit, then runs the submit function
@@ -166,6 +211,7 @@ function nextSubmit(event) {
 //Check userSelected against recipe array. 
 function submitSelection() {
     console.log("Submitting selection:");
+    submitted = true;
     userCorrect = userSelected.filter(item => recipe.includes(item));
     console.log("userCorrect:" + userCorrect);
     userIncorrect = userSelected.filter(item => !recipe.includes(item));
@@ -215,11 +261,17 @@ function displayPantryFeedback(userCorrect, userIncorrect, userMissed) {
             pantryArray[items].appendChild(missedIcon);
             pantryArray[items].classList.remove("pantry-item-selected");
         }
+        if (pantryArray[items].classList) {
+            if (pantryArray[items].classList.contains("pantry-item-active")) {
+                pantryArray[items].classList.remove("pantry-item-active");
+            }
+        }
     }
 }
 
 function nextQuestion() {
     console.log("Moving to next question");
+    submitted = false;
     questionIndex++;
     console.log("Index is: ", questionIndex);
     userSelected = [];
@@ -234,6 +286,7 @@ function nextQuestion() {
             if (pantryArray[items].querySelector("i")) {
                 pantryArray[items].querySelector("i").remove();
             }
+            pantryArray[items].classList.add("pantry-item-active");
         }
     }
     resetQuestionResults();

@@ -180,7 +180,8 @@ main {
     padding: 10px;
     flex-basis: 47%;
     text-align: center;
-    background-color: white;
+    background-color: #e8e8e0;
+    color: #cfcbcb;
     margin: 7px 0;
     font-size: 0.9rem;
     font-weight: 500;
@@ -198,7 +199,12 @@ main {
         -7px -7px 14px #f9f9ef;
 }
 
-.pantry-item:hover {
+.pantry-item-active {
+    background-color: white;
+    color: black;
+}
+
+.pantry-item-active:hover {
     border-radius: 2px;
     box-shadow: 7px 7px 18px #bbbbb3,
         -7px -7px 14px #f9f9ef;
@@ -206,7 +212,7 @@ main {
     color: white;
 }
 
-.pantry-item:active {
+.pantry-item-active:active {
     box-shadow: inset 7px 7px 14px #797162,
         inset -7px -7px 14px #a79b88;
 }
