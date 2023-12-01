@@ -74,6 +74,13 @@ h1 {
     font-size: 1.4rem;
 }
 
+/* Main */
+main {
+    margin-top: 112.5px;
+    flex: 1 0 auto;
+}
+
+
 /* Question section */
 #question-area {
     background-color: #f7f8f3f1;
@@ -82,7 +89,6 @@ h1 {
     padding: 10px;
     display: flex;
     flex-direction: column;
-    margin-top: 140px;
     box-shadow: 0 0 50px -1px #edeac4;
     border: 10px solid white;
 }
@@ -441,12 +447,16 @@ footer {
         font-size: 1.6rem;
     }
 
+    /* Main */
+    main {
+        margin-top: 128px;
+    }
+
     /* Question section */
     #question-area {
         padding: 20px 15px;
         flex-direction: row;
         font-size: 1.1rem;
-        margin-top: 160px;
     }
 
     #question-text-content {
@@ -602,13 +612,18 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         font-size: 1.8rem;
     }
 
+    /* Main */
+    main {
+        margin-top: 139.5px;
+    }
+
     /* Question section */
     #question-area {
         padding: 30px 25px;
         font-size: 1.2rem;
         width: 85%;
         max-width: 1200px;
-        margin-top: 162px;
+        margin-top: 20px;
     }
 
     #question-text-content {
