@@ -1,3 +1,4 @@
+/* Variables */
 let userSelected = [];
 let recipe = [];
 let score = 0;
@@ -6,7 +7,10 @@ let questionIndex = 0;
 let maxLevel = 0;
 let submitted = false;
 
-document.addEventListener("DOMContentLoaded", function () {
+/* Wait for page to load before initializing game */
+document.addEventListener("DOMContentLoaded", initializeGame());
+
+function initializeGame() {
     /* Welcome modal */
     const welcomeModal = document.getElementById("welcome-modal");
     const welcomeCloseBtn = document.getElementById("welcome-modal-close");
@@ -29,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const confirmQuitOpenBtn = document.getElementById("quit-button");
     const confirmQuitCancel = document.getElementById("confirm-quit-modal-close");
     const confirmQuitButton = document.getElementById("confirm-quit");
-
     displayModal(confirmQuitModal, confirmQuitOpenBtn, confirmQuitCancel, false, false);
     confirmQuitButton.addEventListener("click", function () {
         confirmQuitModal.style.display = "none"; //closes modal
@@ -38,8 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const finishButton = document.getElementById("finish-button");
     finishButton.addEventListener("click", quitGame);
+
     runGame();
-})
+}
 
 async function runGame() {
     const pantryArea = document.getElementById("pantry-area");
@@ -59,9 +63,11 @@ async function runGame() {
     updateLevel();
 }
 
+
 /**
- * Pulls the pantry data from JSON
- * Returns object pantryData
+ * Pulls the pantry data from a JSON file given the file address. Returns object pantryData.
+ * @param {string} dataAddressString 
+ * @returns pantryData, an array of objects (NEEDS MORE WORK)
  */
 async function pullPantryData(dataAddressString) {
     const pantryRawData = await fetch(dataAddressString);
@@ -74,25 +80,31 @@ async function pullPantryData(dataAddressString) {
  * by concatenating the recipe arrays of all pantry items and deduplicating.
  * Builds the pantry divs in HTML.
  */
-function createPantry(pantryData, pantryDiv) {
+function createPantry(pantryData, pantryArea) {
     let masterPantryArray = [];
-    pantryDiv.innerHTML = "";
+    pantryArea.innerHTML = "";
 
+    /* Fills masterPantryArray with all recipe array items, 
+    by concatenating all recipes */
     for (let i = 0; i < pantryData.pantry.length; i++) {
         masterPantryArray = masterPantryArray.concat(pantryData.pantry[i].recipe);
     }
+
+    /* Fills pantryArray with masterPantryArray excluding duplicates */
     const pantryArray = [...new Set(masterPantryArray)];
 
     //Randomize order in pantry array
     shuffle(pantryArray);
 
+    /* For each item in pantryArray, create a div, add event listener and 
+    classes, and append to pantryArea */
     for (item in pantryArray) {
         const pantryItem = document.createElement("div");
         pantryItem.innerHTML = pantryArray[item];
         pantryItem.addEventListener("click", pantryItemSelect);
         pantryItem.classList.add("pantry-item");
         pantryItem.classList.add("pantry-item-active");
-        pantryDiv.appendChild(pantryItem);
+        pantryArea.appendChild(pantryItem);
     }
 }
 
@@ -100,16 +112,25 @@ function createPantry(pantryData, pantryDiv) {
  * Builds the question and recipe 
  * Reference: https://www.w3schools.com/howto/howto_css_modals.asp
  */
-function createQuestion(level) {
-    recipe = level.recipe;
-    document.getElementById("cake-name").innerHTML = level.name;
-    document.getElementById("cake-country").innerHTML = `(${level.country})`;
-    document.getElementById("cake-question").innerHTML = level.question;
+
+/**
+ * Builds the question in HTML and updates the recipe using data from the json 
+ * file. Takes an integer number, the index for the json library, 
+ * and uses it to set the innerHTML and attributes to the correct values 
+ * in the questionArea and cake info modal.
+ * @param {number} index 
+ */
+function createQuestion(index) {
+    recipe = index.recipe;
+    document.getElementById("cake-name").innerHTML = index.name;
+    document.getElementById("cake-country").innerHTML = `(${index.country})`;
+    document.getElementById("cake-question").innerHTML = index.question;
     document.getElementById("cake-recipe-hint").innerHTML = `This recipe contains ${recipe.length} ingredients.`;
-    document.getElementById("question-image").setAttribute("src", level.image);
-    document.getElementById("question-image").setAttribute("alt", level.altText);
-    document.getElementById("cake-modal-heading").innerHTML = `About ${level.name}:`;
-    document.getElementById("cake-description").innerHTML = level.description;
+    document.getElementById("question-image").setAttribute("src", index.image);
+    document.getElementById("question-image").setAttribute("alt", index.altText);
+    /* Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
+    document.getElementById("cake-modal-heading").innerHTML = `About ${index.name}:`;
+    document.getElementById("cake-description").innerHTML = index.description;
 }
 
 /**
@@ -118,34 +139,46 @@ function createQuestion(level) {
  * and removes item from user selection. 
  * Only selects the item if selection < recipe.
  */
+
+/**
+ * Manages the users selection of items from the pantry 
+ * by reacting to clicks on the pantry items, 
+ * given the user has not already submitted their selection. 
+ * @param {"click"} event 
+ */
 function pantryItemSelect(event) {
     const clickedItem = event.target;
 
     if (!submitted) {
-        //if not already selected, and counter is not full, add item to selection
+        /* if not already selected, and counter is not full, add item to selection
+        and update the counter */
         if (!clickedItem.classList.contains("pantry-item-selected") && userSelected.length < recipe.length) {
             clickedItem.classList.add("pantry-item-selected");
             userSelected.push(clickedItem.innerHTML);
             updateSelectionCounter();
-            //if counter full - remove hover class from all pantry items without selected class
+            /* if counter is now full, remove active class from all pantry items, 
+            except those in selection */
             if (userSelected.length === recipe.length) {
                 removeActive();
             }
-            //if item in selection, remove it from the selection    
+            //if already selected, remove it from the selection    
         } else if (clickedItem.classList.contains("pantry-item-selected")) {
             clickedItem.classList.remove("pantry-item-selected");
             userSelected = userSelected.filter(item => item !== clickedItem.innerHTML);
             updateSelectionCounter();
-            //make all pantry items that are not selected get hover class
+            // add active class to all remaining items (since counter is no longer full)
             addActive();
         }
     }
 }
 
+/**
+ * Iterates through the pantry items. Removes the active class 
+ * from items that don't have the selected class.
+ */
 function removeActive() {
     let pantry = document.getElementById("pantry-area");
     let pantryArray = pantry.childNodes;
-    //iterate pantry items. if they dont have selected class, then remove hover class
 
     pantryArray.forEach(function (element) {
         if (!element.classList.contains("pantry-item-selected")) {
@@ -154,10 +187,13 @@ function removeActive() {
     })
 }
 
+/**
+ * Iterates through the pantry items. Adds the active class to items 
+ * if they are not in the selection nor already have the active class.
+ */
 function addActive() {
     let pantry = document.getElementById("pantry-area");
     let pantryArray = pantry.childNodes;
-    //iterate pantry items. if they dont have selected class, then remove hover class
 
     pantryArray.forEach(function (element) {
         if (!element.classList.contains("pantry-item-selected" && !element.classList.contains("pantry-item-active"))) {
@@ -167,9 +203,11 @@ function addActive() {
 }
 
 /**
- * Checks if button is Submit, then runs the submit function
- * and updates button to "Next". If button iis "Next", runs next function
- * and updates button to submit. 
+ * If the button is "Submit", runs the submitSelection function. 
+ * Changes the button to "Next" or if at maxlevel, hides the next/submit button 
+ * and the quit button, and unhides the "Finish" button.
+ * If the button is "Next", calls nextQuestion function, and changes to "Submit"
+ * @param {"click"} event 
  */
 function nextSubmit(event) {
     const nextSubmitButton = event.target;
@@ -192,11 +230,17 @@ function nextSubmit(event) {
     }
 }
 
-//Check userSelected against recipe array. 
+/**
+ * Compares the users selection to the recipe to create 3 new arrays, 
+ * userCorrect, userIncorrect, and userMissed.
+ */
 function submitSelection() {
     submitted = true;
+    //items that are in users selection and in the recipe
     userCorrect = userSelected.filter(item => recipe.includes(item));
+    //items in the users selection that are not in the recipe
     userIncorrect = userSelected.filter(item => !recipe.includes(item));
+    //items in the recipe that are not in the users selection
     userMissed = recipe.filter(item => !userSelected.includes(item));
 
     let countCorrect = userCorrect.length;
