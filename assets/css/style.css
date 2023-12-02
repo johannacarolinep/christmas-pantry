@@ -92,8 +92,8 @@ main {
     flex-direction: column;
     box-shadow: 0 0 50px -1px #edeac4;
     border: 10px solid white;
-    min-height: 456.37px;
-    max-height: 479px;
+    min-height: 391px;
+    max-height: 500px;
 }
 
 #question-text-content {
@@ -123,8 +123,8 @@ main {
 }
 
 #question-image-container {
-    width: 60%;
-    max-width: 280px;
+    width: 192px;
+    height: 192px;
     margin: 15px auto;
     display: flex;
     aspect-ratio: 1/1;
@@ -135,6 +135,7 @@ main {
     width: 100%;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
+    border: 5px solid white;
 }
 
 /* Cake info modal button */
@@ -530,7 +531,7 @@ footer {
         flex-direction: row;
         font-size: 1.1rem;
         min-height: 254.5px;
-        max-height: 290px;
+        max-height: 254.5px;
     }
 
     #question-text-content {
@@ -547,8 +548,8 @@ footer {
     }
 
     #question-image-container {
-        width: 27%;
-        max-width: 230px;
+        width: 192px;
+        height: 192px;
         margin: 0 auto;
         order: -1;
     }
@@ -703,8 +704,6 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         width: 85%;
         max-width: 1200px;
         margin-top: 20px;
-        min-height: 273.72px;
-        max-height: 330px;
     }
 
     #question-text-content {
@@ -717,8 +716,8 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     }
 
     #question-image-container {
-        width: 25%;
-        max-width: 250px;
+        width: 200px;
+        height: 200px;
     }
 
     #cake-info-btn {

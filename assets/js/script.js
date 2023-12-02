@@ -166,7 +166,6 @@ function addActive() {
     })
 }
 
-
 /**
  * Checks if button is Submit, then runs the submit function
  * and updates button to "Next". If button iis "Next", runs next function
