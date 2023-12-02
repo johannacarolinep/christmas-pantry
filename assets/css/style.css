@@ -38,6 +38,7 @@ header {
     z-index: 98;
     background-color: #f7f8f3f1;
     width: 100%;
+    min-height: 115px;
     background-image: url(../images/snowflakes.webp);
     background-size: cover;
     border-bottom: 10px solid white;
@@ -106,6 +107,7 @@ main {
 
 #question-header {
     width: 100%;
+    min-height: 36px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -183,6 +185,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    min-height: 333px;
 }
 
 .pantry-item {
@@ -559,6 +562,10 @@ footer {
     }
 
     /* Pantry area */
+    #pantry-area {
+        min-height: 242px;
+    }
+
     #pantry-area div {
         flex-basis: 31%;
         font-size: 1.1rem;
@@ -732,6 +739,10 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         padding: 5px;
         min-height: 392px;
         max-height: 418.5px;
+    }
+
+    #pantry-area {
+        min-height: 181.5px;
     }
 
     #pantry-area div {
