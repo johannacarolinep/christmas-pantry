@@ -45,7 +45,6 @@ async function runGame() {
     const pantryArea = document.getElementById("pantry-area");
     const nextSubmitButton = document.getElementById("next-submit-button");
     const pantryData = await pullPantryData();
-    console.log("Pantrydata:", pantryData);
 
     if (questionIndex === 0) {
         createPantry(pantryData, pantryArea);
@@ -78,15 +77,11 @@ async function pullPantryData() {
 function createPantry(pantryData, pantryDiv) {
     let masterPantryArray = [];
     pantryDiv.innerHTML = "";
-    console.log(pantryData);
 
     for (let i = 0; i < pantryData.pantry.length; i++) {
         masterPantryArray = masterPantryArray.concat(pantryData.pantry[i].recipe);
-        console.log(pantryData.pantry[i].recipe);
     }
-    console.log("Master pantry array:", masterPantryArray);
     const pantryArray = [...new Set(masterPantryArray)];
-    console.log("pantryArray:", pantryArray);
 
     //Randomize order in pantry array
     shuffle(pantryArray);
@@ -106,7 +101,6 @@ function createPantry(pantryData, pantryDiv) {
  * Reference: https://www.w3schools.com/howto/howto_css_modals.asp
  */
 function createQuestion(level) {
-    console.log("Create question function");
     recipe = level.recipe;
     document.getElementById("cake-name").innerHTML = level.name;
     document.getElementById("cake-country").innerHTML = `(${level.country})`;
@@ -126,7 +120,6 @@ function createQuestion(level) {
  */
 function pantryItemSelect(event) {
     const clickedItem = event.target;
-    console.log("I have been clicked", clickedItem);
 
     if (!submitted) {
         //if not already selected, and counter is not full, add item to selection
@@ -146,14 +139,12 @@ function pantryItemSelect(event) {
             //make all pantry items that are not selected get hover class
             addActive();
         }
-        console.log("User selected: ", userSelected);
     }
 }
 
 function removeActive() {
     let pantry = document.getElementById("pantry-area");
     let pantryArray = pantry.childNodes;
-    //console.log("pantryarray:", pantryArray)
     //iterate pantry items. if they dont have selected class, then remove hover class
 
     pantryArray.forEach(function (element) {
@@ -204,14 +195,10 @@ function nextSubmit(event) {
 
 //Check userSelected against recipe array. 
 function submitSelection() {
-    console.log("Submitting selection:");
     submitted = true;
     userCorrect = userSelected.filter(item => recipe.includes(item));
-    console.log("userCorrect:" + userCorrect);
     userIncorrect = userSelected.filter(item => !recipe.includes(item));
-    console.log("userIncorrect:" + userIncorrect);
     userMissed = recipe.filter(item => !userSelected.includes(item));
-    console.log("userMissed:" + userMissed);
 
     let countCorrect = userCorrect.length;
     let countIncorrect = userIncorrect.length;
@@ -235,7 +222,6 @@ function displayPantryFeedback(userCorrect, userIncorrect, userMissed) {
     let pantryArray = pantry.childNodes;
 
     for (let items in pantryArray) {
-        console.log("pantryArray:", pantryArray[items].innerHTML);
         if (userCorrect.includes(pantryArray[items].innerHTML)) {
             pantryArray[items].classList.add("item-correct");
             let correctIcon = document.createElement("i");
@@ -264,10 +250,8 @@ function displayPantryFeedback(userCorrect, userIncorrect, userMissed) {
 }
 
 function nextQuestion() {
-    console.log("Moving to next question");
     submitted = false;
     questionIndex++;
-    console.log("Index is: ", questionIndex);
     userSelected = [];
     let pantry = document.getElementById("pantry-area");
     let pantryArray = pantry.childNodes;
@@ -372,7 +356,6 @@ function scrollTop() {
  * Opens main modal and updates content to show final score
  */
 function quitGame() {
-    console.log("Quitting game");
     let quitModal = document.getElementById("quit-modal");
     let startGameButton = document.getElementById("restart-game-button");
 
@@ -387,7 +370,6 @@ function quitGame() {
 }
 
 function startGame() {
-    console.log("Restarting game");
     userSelected = [];
     recipe = [];
     score = 0;
