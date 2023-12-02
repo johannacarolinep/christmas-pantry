@@ -213,14 +213,6 @@ main {
     color: #632424;
 }
 
-.pantry-item-active:hover {
-    border-radius: 2px;
-    box-shadow: 7px 7px 18px #bbbbb3,
-        -7px -7px 14px #f9f9ef;
-    background-color: #64564F;
-    color: white;
-}
-
 .pantry-item-active:active {
     box-shadow: inset 10px 10px 31px #584c46,
         inset -10px -10px 31px #706058;
@@ -296,13 +288,6 @@ main {
     background: linear-gradient(145deg, #a93232, #8e2a2a);
     box-shadow: 7px 7px 18px #bbbbb3,
         -7px -7px 14px #f9f9ef;
-}
-
-#next-submit-button:hover,
-#quit-button:hover,
-#finish-button:hover {
-    box-shadow: 10px 10px 31px #afa19b,
-        -10px -10px 31px #ffffff;
 }
 
 #next-submit-button:active,
@@ -419,12 +404,6 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         -7px -7px 14px #f9f9ef;
 }
 
-.welcome-modal-button:hover,
-#restart-game-button:hover {
-    box-shadow: 10px 10px 31px #afa19b,
-        -10px -10px 31px #ffffff;
-}
-
 .welcome-modal-button:active,
 #restart-game-button:active {
     background: #247024;
@@ -446,12 +425,6 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 #confirm-quit {
     background-color: #b8372d;
     color: white;
-}
-
-#confirm-quit:hover,
-#confirm-quit-modal-close:hover {
-    box-shadow: 10px 10px 31px #afa19b,
-        -10px -10px 31px #ffffff;
 }
 
 #confirm-quit:active {
@@ -748,6 +721,15 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         font-size: 1.1rem;
     }
 
+    /* Pantry item hover */
+    .pantry-item-active:hover {
+        border-radius: 2px;
+        box-shadow: 7px 7px 18px #bbbbb3,
+            -7px -7px 14px #f9f9ef;
+        background-color: #64564F;
+        color: white;
+    }
+
     /* Controls area */
     .controls-area {
         margin-top: 40px;
@@ -756,6 +738,14 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 
     .controls {
         padding: 15px;
+    }
+
+    /* Controls hover */
+    #next-submit-button:hover,
+    #quit-button:hover,
+    #finish-button:hover {
+        box-shadow: 10px 10px 31px #afa19b,
+            -10px -10px 31px #ffffff;
     }
 
     /* Styles for modals
@@ -772,7 +762,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         font-size: 1.5rem;
     }
 
-    /* Welcome modal */
+    /* Welcome modal and quit modal */
     .welcome-modal-heading {
         font-size: 1.5rem;
         padding: 20px 20px 10px 20px;
@@ -785,6 +775,19 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 
     .welcome-modal-button {
         margin: 20px auto 25px auto;
+    }
+
+    .welcome-modal-button:hover,
+    #restart-game-button:hover {
+        box-shadow: 10px 10px 31px #afa19b,
+            -10px -10px 31px #ffffff;
+    }
+
+    /* Confirm quit modal */
+    #confirm-quit:hover,
+    #confirm-quit-modal-close:hover {
+        box-shadow: 10px 10px 31px #afa19b,
+            -10px -10px 31px #ffffff;
     }
 
     /* Footer */
