@@ -268,7 +268,7 @@ function nextQuestion() {
 
 function updateSelectionCounter() {
     const selectionCounter = document.getElementById("selection-counter");
-    selectionCounter.innerHTML = userSelected.length + "/" + recipe.length + " selected";
+    selectionCounter.innerHTML = `${userSelected.length}/${recipe.length} selected`;
 
     if (userSelected.length === recipe.length) {
         selectionCounter.classList.add("counter-full");
