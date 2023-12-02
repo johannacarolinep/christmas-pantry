@@ -156,14 +156,11 @@ function removeActive() {
     //console.log("pantryarray:", pantryArray)
     //iterate pantry items. if they dont have selected class, then remove hover class
 
-    for (let items in pantryArray) {
-        //console.log(pantryArray[items].innerHTML);
-        if (pantryArray[items].classList) {
-            if (!pantryArray[items].classList.contains("pantry-item-selected")) {
-                pantryArray[items].classList.remove("pantry-item-active");
-            }
+    pantryArray.forEach(function (element) {
+        if (!element.classList.contains("pantry-item-selected")) {
+            element.classList.remove("pantry-item-active");
         }
-    }
+    })
 }
 
 function addActive() {
@@ -171,14 +168,11 @@ function addActive() {
     let pantryArray = pantry.childNodes;
     //iterate pantry items. if they dont have selected class, then remove hover class
 
-    for (let items in pantryArray) {
-        //console.log(pantryArray[items].innerHTML);
-        if (pantryArray[items].classList) {
-            if (!pantryArray[items].classList.contains("pantry-item-selected" && !pantryArray[items].classList.contains("pantry-item-active"))) {
-                pantryArray[items].classList.add("pantry-item-active");
-            }
+    pantryArray.forEach(function (element) {
+        if (!element.classList.contains("pantry-item-selected" && !element.classList.contains("pantry-item-active"))) {
+            element.classList.add("pantry-item-active");
         }
-    }
+    })
 }
 
 
@@ -277,18 +271,19 @@ function nextQuestion() {
     userSelected = [];
     let pantry = document.getElementById("pantry-area");
     let pantryArray = pantry.childNodes;
-    for (let items in pantryArray) {
-        if (pantryArray[items].innerHTML) {
-            console.log("pantryArray1:", pantryArray[items]);
-            pantryArray[items].classList.remove("item-correct");
-            pantryArray[items].classList.remove("item-incorrect");
-            pantryArray[items].classList.remove("item-missed");
-            if (pantryArray[items].querySelector("i")) {
-                pantryArray[items].querySelector("i").remove();
+
+    pantryArray.forEach(function (element) {
+        if (element.innerHTML) {
+            element.classList.remove("item-correct");
+            element.classList.remove("item-incorrect");
+            element.classList.remove("item-missed");
+            if (element.querySelector("i")) {
+                element.querySelector("i").remove();
             }
-            pantryArray[items].classList.add("pantry-item-active");
+            element.classList.add("pantry-item-active");
         }
-    }
+    })
+
     resetQuestionResults();
     runGame();
 }
