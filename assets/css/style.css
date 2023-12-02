@@ -94,7 +94,7 @@ main {
     box-shadow: 0 0 50px -1px #edeac4;
     border: 10px solid white;
     min-height: 391px;
-    max-height: 500px;
+    max-height: 523px;
 }
 
 #question-text-content {
@@ -151,10 +151,7 @@ main {
 #pantry-section {
     background-color: #f7f8f3f1;
     width: 96%;
-    /* height on galaxy fold */
-    min-height: 595.5px;
-    /* height on wider mobile screen */
-    max-height: 704.5px;
+    min-height: 574px;
     margin: 15px auto;
     padding: 10px;
     box-shadow: 0 0 50px -1px #edeac4;
@@ -526,15 +523,14 @@ footer {
     /* Question section */
     #pantry-section {
         min-height: 432.5px;
-        max-height: 459px;
     }
 
     #question-area {
         padding: 20px 15px;
         flex-direction: row;
         font-size: 1.1rem;
-        min-height: 254.5px;
-        max-height: 254.5px;
+        min-height: 252px;
+        max-height: 281px;
     }
 
     #question-text-content {
@@ -711,6 +707,8 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         width: 85%;
         max-width: 1200px;
         margin-top: 20px;
+        min-height: 280px;
+        max-height: 321px;
     }
 
     #question-text-content {
@@ -738,7 +736,6 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         margin: 15px auto;
         padding: 5px;
         min-height: 392px;
-        max-height: 418.5px;
     }
 
     #pantry-area {
