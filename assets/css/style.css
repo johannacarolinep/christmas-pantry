@@ -551,6 +551,7 @@ footer {
         height: 192px;
         margin: 0 auto;
         order: -1;
+        align-self: center;
     }
 
     #cake-info-btn {
