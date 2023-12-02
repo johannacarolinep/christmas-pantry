@@ -177,11 +177,11 @@ function nextSubmit(event) {
         submitSelection();
         if (questionIndex === maxLevel) {
             nextSubmitButton.hidden = "true";
-            nextSubmitButton.setAttribute('aria-hidden', 'true');
+            nextSubmitButton.setAttribute("aria-hidden", "true");
             document.getElementById("quit-button").hidden = "true";
-            document.getElementById("quit-button").setAttribute('aria-hidden', 'true');
+            document.getElementById("quit-button").setAttribute("aria-hidden", "true");
             document.getElementById("finish-button").removeAttribute("hidden");
-            document.getElementById("finish-button").setAttribute('aria-hidden', 'false');
+            document.getElementById("finish-button").setAttribute("aria-hidden", "false");
         } else {
             nextSubmitButton.innerHTML = "Next";
         }
@@ -385,7 +385,7 @@ function resetControls() {
     document.getElementById("quit-button").removeAttribute("hidden");
     document.getElementById("quit-button").removeAttribute("aria-hidden");
     document.getElementById("finish-button").hidden = "true";
-    document.getElementById("finish-button").setAttribute('aria-hidden', 'true');
+    document.getElementById("finish-button").setAttribute("aria-hidden", "true");
 }
 
 /**
