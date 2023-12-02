@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 async function runGame() {
     const pantryArea = document.getElementById("pantry-area");
     const nextSubmitButton = document.getElementById("next-submit-button");
-    const pantryData = await pullPantryData();
+    const pantryData = await pullPantryData("assets/json/pantry.json");
 
     if (questionIndex === 0) {
         createPantry(pantryData, pantryArea);
@@ -63,8 +63,8 @@ async function runGame() {
  * Pulls the pantry data from JSON
  * Returns object pantryData
  */
-async function pullPantryData() {
-    const pantryRawData = await fetch("assets/json/pantry.json");
+async function pullPantryData(dataAddressString) {
+    const pantryRawData = await fetch(dataAddressString);
     const pantryData = await pantryRawData.json();
     return pantryData;
 }
@@ -220,32 +220,27 @@ function displayPantryFeedback(userCorrect, userIncorrect, userMissed) {
     let pantry = document.getElementById("pantry-area");
     let pantryArray = pantry.childNodes;
 
-    for (let items in pantryArray) {
-        if (userCorrect.includes(pantryArray[items].innerHTML)) {
-            pantryArray[items].classList.add("item-correct");
-            let correctIcon = document.createElement("i");
-            correctIcon.className = "fa-solid fa-circle-check";
-            pantryArray[items].appendChild(correctIcon);
-            pantryArray[items].classList.remove("pantry-item-selected");
-        } else if (userIncorrect.includes(pantryArray[items].innerHTML)) {
-            pantryArray[items].classList.add("item-incorrect");
-            let inCorrectIcon = document.createElement("i");
-            inCorrectIcon.className = "fa-solid fa-circle-xmark";
-            pantryArray[items].appendChild(inCorrectIcon);
-            pantryArray[items].classList.remove("pantry-item-selected");
-        } else if (userMissed.includes(pantryArray[items].innerHTML)) {
-            pantryArray[items].classList.add("item-missed");
-            let missedIcon = document.createElement("i");
-            missedIcon.className = "fa-solid fa-minus";
-            pantryArray[items].appendChild(missedIcon);
-            pantryArray[items].classList.remove("pantry-item-selected");
+    pantryArray.forEach(function (element) {
+        let feedbackIcon = document.createElement("i");
+
+        if (userCorrect.includes(element.innerHTML)) {
+            element.classList.add("item-correct");
+            feedbackIcon.className = "fa-solid fa-circle-check";
+        } else if (userIncorrect.includes(element.innerHTML)) {
+            element.classList.add("item-incorrect");
+            feedbackIcon.className = "fa-solid fa-circle-xmark";
+        } else if (userMissed.includes(element.innerHTML)) {
+            element.classList.add("item-missed");
+            feedbackIcon.className = "fa-solid fa-minus";
         }
-        if (pantryArray[items].classList) {
-            if (pantryArray[items].classList.contains("pantry-item-active")) {
-                pantryArray[items].classList.remove("pantry-item-active");
-            }
+
+        element.appendChild(feedbackIcon);
+        element.classList.remove("pantry-item-selected");
+
+        if (element.classList.contains("pantry-item-active")) {
+            element.classList.remove("pantry-item-active");
         }
-    }
+    })
 }
 
 function nextQuestion() {
