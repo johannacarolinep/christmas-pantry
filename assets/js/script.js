@@ -437,6 +437,7 @@ function quitGame() {
  * calls functions to reset the game and run the game.
  */
 function restartGame() {
+    submitted = false;
     userSelected = [];
     recipe = [];
     score = 0;
@@ -446,6 +447,7 @@ function restartGame() {
     resetQuestionResults();
     document.getElementById("score-area").innerHTML = `Score: ${score}`
     resetControls();
+    resetPantry();
     runGame();
 }
 
@@ -454,6 +456,7 @@ function restartGame() {
  * and unhides the next/submit button and quit button. 
  */
 function resetControls() {
+    document.getElementById("next-submit-button").innerHTML = "Submit";
     document.getElementById("next-submit-button").removeAttribute("hidden");
     document.getElementById("next-submit-button").removeAttribute("aria-hidden");
     document.getElementById("quit-button").removeAttribute("hidden");
