@@ -50,12 +50,19 @@ function initializeGame() {
     const finishButton = document.getElementById("finish-button");
     finishButton.addEventListener("click", quitGame);
 
+    const nextSubmitButton = document.getElementById("next-submit-button");
+    nextSubmitButton.addEventListener("click", nextSubmit);
+
     runGame();
 }
 
+/**
+ * If at start of game, calls createPantry. Otherwise, calls createQuestion, updateSelectionCounter,
+ * adds eventlistener to the nextSubmitButton and sets the value of maxIndex. Calls updateLevel.
+ */
 async function runGame() {
     const pantryArea = document.getElementById("pantry-area");
-    const nextSubmitButton = document.getElementById("next-submit-button");
+
     const pantryData = await pullPantryData("assets/json/pantry.json");
 
     if (questionIndex === 0) {
@@ -65,7 +72,7 @@ async function runGame() {
     createQuestion(pantryData.pantry[questionIndex]);
     updateSelectionCounter();
 
-    nextSubmitButton.addEventListener("click", nextSubmit);
+
     maxIndex = pantryData.pantry.length - 1;
 
     updateLevel();
@@ -247,10 +254,11 @@ function submitSelection() {
 }
 
 /**
- * Takes 3 arrays of strings. Creates another array based on the children of an HTML element.
- * Compares the created array to the parameter arrays and adds/removes classes to the HTML elements
- * based on whether they are found in the parameter arrays.
- * @param {String[]} userCorrect 
+ * Takes 3 arrays of strings. 
+ * Iterates the pantryArray items, checking if the innerHTML of the item 
+ * matches an item in one of the 3 arrays. If matching, adds an icon and classes.
+ * Removes the selected class and the active class.
+ * @param {String[]} userCorrect
  * @param {String[]} userIncorrect 
  * @param {String[]} userMissed 
  */
