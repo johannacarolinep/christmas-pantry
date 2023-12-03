@@ -141,8 +141,6 @@ function createQuestion(index) {
  */
 function pantryItemSelect(event) {
     const clickedItem = event.target;
-    //let pantry = document.getElementById("pantry-area");
-    //let pantryArray = pantry.childNodes;
 
     if (!submitted) {
         /* if not selected, and counter is not full, add item to selection
@@ -252,8 +250,6 @@ function submitSelection() {
  * @param {String[]} userMissed 
  */
 function displayPantryFeedback(userCorrect, userIncorrect, userMissed) {
-    //let pantry = document.getElementById("pantry-area");
-    //let pantryArray = pantry.childNodes;
 
     pantryArray.forEach(function (element) {
         let feedbackIcon = document.createElement("i");
@@ -292,8 +288,6 @@ function nextQuestion() {
  * removes classes and icons, adds the pantry-item-active class 
  */
 function resetPantry() {
-    //let pantry = document.getElementById("pantry-area");
-    //let pantryArray = pantry.childNodes;
 
     pantryArray.forEach(function (element) {
         element.classList.remove("item-correct");
@@ -334,8 +328,9 @@ function updateScore(countCorrect, countIncorrect) {
     possibleScore += (recipe.length);
     //Adds 1 point for each correct, removes 1 point for each incorrect
     score += (countCorrect - countIncorrect);
+    console.log("Questionindex:", questionIndex);
     //if score is negative, sets the score to 0
-    if (score < 0) {
+    if (score <= 0) {
         score = 0;
     }
     document.getElementById("score-area").innerHTML = `Score: ${score} / ${possibleScore}`;
@@ -420,23 +415,25 @@ function quitGame() {
     // Closes the modal and calls functon to restart game
     startGameButton.addEventListener("click", function () {
         quitModal.style.display = "none";
-        startGame();
+        restartGame();
     })
 }
 
 /**
- * Resets the game variables 
- * and calls function to reset the controls area and run the game.
+ * Resets the game variables, 
+ * calls functions to reset the game and run the game.
  */
-function startGame() {
+function restartGame() {
     userSelected = [];
     recipe = [];
     score = 0;
     possibleScore = 0;
     questionIndex = 0;
     maxLevel = 0;
-    runGame();
+    resetQuestionResults();
+    document.getElementById("score-area").innerHTML = `Score: ${score}`
     resetControls();
+    runGame();
 }
 
 /**
