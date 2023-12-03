@@ -4,39 +4,44 @@ let recipe = [];
 let score = 0;
 let possibleScore = 0;
 let questionIndex = 0;
-let maxLevel = 0;
+let maxIndex = 0;
 let submitted = false;
 let pantryArray = [];
 
 /* Wait for page to load before initializing game */
 document.addEventListener("DOMContentLoaded", initializeGame());
 
+/**
+ * Reads the modals from HTML, calls function to manage how modals are displayed.
+ * Calls the runGame function.
+ */
 function initializeGame() {
-    /* Welcome modal */
+    // Welcome modal
     const welcomeModal = document.getElementById("welcome-modal");
     const welcomeCloseBtn = document.getElementById("welcome-modal-close");
     displayModal(welcomeModal, undefined, welcomeCloseBtn, true, true);
 
-    /* Cake modal */
+    // Cake modal
     const cakeModal = document.getElementById("cake-modal");
     const cakeOpenModalBtn = document.getElementById("cake-info-btn");
     const cakeCloseModalBtn = document.getElementById("cake-modal-close");
     displayModal(cakeModal, cakeOpenModalBtn, cakeCloseModalBtn, false, false);
 
-    /* Instructions modal */
+    // Instructions modal
     const instructionsModal = document.getElementById("instructions-modal");
     const instructionsOpenBtn = document.getElementById("instructions-btn");
     const instructionscloseBtn = document.getElementById("instructions-modal-close");
     displayModal(instructionsModal, instructionsOpenBtn, instructionscloseBtn, false, false);
 
-    /* Confirm quit modal */
+    // Confirm quit modal
     const confirmQuitModal = document.getElementById("confirm-quit-modal");
     const confirmQuitOpenBtn = document.getElementById("quit-button");
     const confirmQuitCancel = document.getElementById("confirm-quit-modal-close");
     const confirmQuitButton = document.getElementById("confirm-quit");
     displayModal(confirmQuitModal, confirmQuitOpenBtn, confirmQuitCancel, false, false);
 
-    /* Quit modal */
+    /* Quit modal - when confirmQuitButton in confirm quit modal is clicked, 
+    or when finishButton is clicked, calls function quitGame */
     confirmQuitButton.addEventListener("click", function () {
         confirmQuitModal.style.display = "none"; //closes confirm quit modal
         quitGame();
@@ -61,7 +66,7 @@ async function runGame() {
     updateSelectionCounter();
 
     nextSubmitButton.addEventListener("click", nextSubmit);
-    maxLevel = pantryData.pantry.length - 1;
+    maxIndex = pantryData.pantry.length - 1;
 
     updateLevel();
 }
@@ -202,7 +207,7 @@ function nextSubmit(event) {
     const nextSubmitButton = event.target;
     if (nextSubmitButton.innerHTML === "Submit") {
         submitSelection();
-        if (questionIndex === maxLevel) {
+        if (questionIndex === maxIndex) {
             nextSubmitButton.hidden = "true";
             nextSubmitButton.setAttribute("aria-hidden", "true");
             document.getElementById("quit-button").hidden = "true";
@@ -274,6 +279,11 @@ function displayPantryFeedback(userCorrect, userIncorrect, userMissed) {
     })
 }
 
+/**
+ * Moves the game to the next question. Changes state away from "submitted", 
+ * increases question index. Resets user selection, and calls functions to reset 
+ * pantry (activate pantry items) and question results. Calls runGame.
+ */
 function nextQuestion() {
     submitted = false;
     questionIndex++;
@@ -365,9 +375,12 @@ function resetQuestionResults() {
     document.getElementById("results-area").innerHTML = "";
 }
 
+/**
+ * Calculates and inserts the level in the level area.
+ */
 function updateLevel() {
     let level = questionIndex + 1;
-    let finalLevel = maxLevel + 1;
+    let finalLevel = maxIndex + 1;
     document.getElementById("level-area").innerHTML = `Level: ${level} / ${finalLevel}`;
 }
 
