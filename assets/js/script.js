@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", initializeGame());
 
 /**
  * Reads the modals from HTML, calls function to manage how modals are displayed.
+ * Adds event listener to the nextSubmitButton.
  * Calls the runGame function.
  */
 function initializeGame() {
@@ -57,12 +58,11 @@ function initializeGame() {
 }
 
 /**
- * If at start of game, calls createPantry. Otherwise, calls createQuestion, updateSelectionCounter,
- * adds eventlistener to the nextSubmitButton and sets the value of maxIndex. Calls updateLevel.
+ * If at start of game, calls createPantry. Otherwise, calls createQuestion, updateSelectionCounter, 
+ * sets the value of maxIndex. Calls updateLevel.
  */
 async function runGame() {
     const pantryArea = document.getElementById("pantry-area");
-
     const pantryData = await pullPantryData("assets/json/pantry.json");
 
     if (questionIndex === 0) {
@@ -71,10 +71,7 @@ async function runGame() {
 
     createQuestion(pantryData.pantry[questionIndex]);
     updateSelectionCounter();
-
-
     maxIndex = pantryData.pantry.length - 1;
-
     updateLevel();
 }
 
