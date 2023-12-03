@@ -6,6 +6,7 @@ let possibleScore = 0;
 let questionIndex = 0;
 let maxLevel = 0;
 let submitted = false;
+let pantryArray = [];
 
 /* Wait for page to load before initializing game */
 document.addEventListener("DOMContentLoaded", initializeGame());
@@ -92,22 +93,24 @@ function createPantry(pantryData, pantryArea) {
         masterPantryArray = masterPantryArray.concat(pantryData.pantry[i].recipe);
     }
 
-    /* Fills pantryArray with masterPantryArray excluding duplicates */
-    const pantryArray = [...new Set(masterPantryArray)];
+    /* Fills pantryStringArray with masterPantryArray excluding duplicates */
+    const pantryStringArray = [...new Set(masterPantryArray)];
 
     //Randomize order in pantry array
-    shuffle(pantryArray);
+    shuffle(pantryStringArray);
 
-    /* For each item in pantryArray, create a div, add event listener and 
+    /* For each item in pantryStringArray, create a div, add event listener and 
     classes, and append to pantryArea */
-    for (item in pantryArray) {
+    for (item in pantryStringArray) {
         const pantryItem = document.createElement("div");
-        pantryItem.innerHTML = pantryArray[item];
+        pantryItem.innerHTML = pantryStringArray[item];
         pantryItem.addEventListener("click", pantryItemSelect);
         pantryItem.classList.add("pantry-item");
         pantryItem.classList.add("pantry-item-active");
         pantryArea.appendChild(pantryItem);
     }
+
+    pantryArray = pantryArea.childNodes;
 }
 
 /**
@@ -138,6 +141,8 @@ function createQuestion(index) {
  */
 function pantryItemSelect(event) {
     const clickedItem = event.target;
+    //let pantry = document.getElementById("pantry-area");
+    //let pantryArray = pantry.childNodes;
 
     if (!submitted) {
         /* if not selected, and counter is not full, add item to selection
@@ -167,8 +172,6 @@ function pantryItemSelect(event) {
  * from items that don't have the selected class.
  */
 function removeActive() {
-    let pantry = document.getElementById("pantry-area");
-    let pantryArray = pantry.childNodes;
 
     pantryArray.forEach(function (element) {
         if (!element.classList.contains("pantry-item-selected")) {
@@ -182,8 +185,6 @@ function removeActive() {
  * if they are not in the selection nor already have the active class.
  */
 function addActive() {
-    let pantry = document.getElementById("pantry-area");
-    let pantryArray = pantry.childNodes;
 
     pantryArray.forEach(function (element) {
         if (!element.classList.contains("pantry-item-selected" && !element.classList.contains("pantry-item-active"))) {
@@ -251,8 +252,8 @@ function submitSelection() {
  * @param {String[]} userMissed 
  */
 function displayPantryFeedback(userCorrect, userIncorrect, userMissed) {
-    let pantry = document.getElementById("pantry-area");
-    let pantryArray = pantry.childNodes;
+    //let pantry = document.getElementById("pantry-area");
+    //let pantryArray = pantry.childNodes;
 
     pantryArray.forEach(function (element) {
         let feedbackIcon = document.createElement("i");
@@ -281,23 +282,28 @@ function nextQuestion() {
     submitted = false;
     questionIndex++;
     userSelected = [];
-    let pantry = document.getElementById("pantry-area");
-    let pantryArray = pantry.childNodes;
-
-    pantryArray.forEach(function (element) {
-        if (element.innerHTML) {
-            element.classList.remove("item-correct");
-            element.classList.remove("item-incorrect");
-            element.classList.remove("item-missed");
-            if (element.querySelector("i")) {
-                element.querySelector("i").remove();
-            }
-            element.classList.add("pantry-item-active");
-        }
-    })
-
+    resetPantry();
     resetQuestionResults();
     runGame();
+}
+
+/**
+ * Resets the pantry. Iterates the child nodes of the pantry area, 
+ * removes classes and icons, adds the pantry-item-active class 
+ */
+function resetPantry() {
+    //let pantry = document.getElementById("pantry-area");
+    //let pantryArray = pantry.childNodes;
+
+    pantryArray.forEach(function (element) {
+        element.classList.remove("item-correct");
+        element.classList.remove("item-incorrect");
+        element.classList.remove("item-missed");
+        if (element.querySelector("i")) {
+            element.querySelector("i").remove();
+        }
+        element.classList.add("pantry-item-active");
+    })
 }
 
 /**
