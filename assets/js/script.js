@@ -456,13 +456,17 @@ function restartGame() {
  * and unhides the next/submit button and quit button. 
  */
 function resetControls() {
-    document.getElementById("next-submit-button").innerHTML = "Submit";
-    document.getElementById("next-submit-button").removeAttribute("hidden");
-    document.getElementById("next-submit-button").removeAttribute("aria-hidden");
-    document.getElementById("quit-button").removeAttribute("hidden");
-    document.getElementById("quit-button").removeAttribute("aria-hidden");
-    document.getElementById("finish-button").hidden = "true";
-    document.getElementById("finish-button").setAttribute("aria-hidden", "true");
+    const nextSubmitBtn = document.getElementById("next-submit-button");
+    const quitBtn = document.getElementById("quit-button");
+    const finishBtn = document.getElementById("finish-button");
+
+    nextSubmitBtn.innerHTML = "Submit";
+    nextSubmitBtn.removeAttribute("hidden");
+    nextSubmitBtn.removeAttribute("aria-hidden");
+    quitBtn.removeAttribute("hidden");
+    quitBtn.removeAttribute("aria-hidden");
+    finishBtn.hidden = "true";
+    finishBtn.setAttribute("aria-hidden", "true");
 }
 
 /**
