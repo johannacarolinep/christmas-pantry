@@ -34,8 +34,10 @@ function initializeGame() {
     const confirmQuitCancel = document.getElementById("confirm-quit-modal-close");
     const confirmQuitButton = document.getElementById("confirm-quit");
     displayModal(confirmQuitModal, confirmQuitOpenBtn, confirmQuitCancel, false, false);
+
+    /* Quit modal */
     confirmQuitButton.addEventListener("click", function () {
-        confirmQuitModal.style.display = "none"; //closes modal
+        confirmQuitModal.style.display = "none"; //closes confirm quit modal
         quitGame();
     });
 
@@ -109,11 +111,6 @@ function createPantry(pantryData, pantryArea) {
 }
 
 /**
- * Builds the question and recipe 
- * Reference: https://www.w3schools.com/howto/howto_css_modals.asp
- */
-
-/**
  * Builds the question in HTML and updates the recipe using data from the json 
  * file. Takes an integer number, the index for the json library, 
  * and uses it to set the innerHTML and attributes to the correct values 
@@ -134,23 +131,16 @@ function createQuestion(index) {
 }
 
 /**
- * Adds a border to pantry item when clicked, and adds item to users selection, 
- * or removes the border on click if already existing, 
- * and removes item from user selection. 
- * Only selects the item if selection < recipe.
- */
-
-/**
  * Manages the users selection of items from the pantry 
  * by reacting to clicks on the pantry items, 
  * given the user has not already submitted their selection. 
- * @param {"click"} event 
+ * @param {Event} event 
  */
 function pantryItemSelect(event) {
     const clickedItem = event.target;
 
     if (!submitted) {
-        /* if not already selected, and counter is not full, add item to selection
+        /* if not selected, and counter is not full, add item to selection
         and update the counter */
         if (!clickedItem.classList.contains("pantry-item-selected") && userSelected.length < recipe.length) {
             clickedItem.classList.add("pantry-item-selected");
@@ -207,7 +197,7 @@ function addActive() {
  * Changes the button to "Next" or if at maxlevel, hides the next/submit button 
  * and the quit button, and unhides the "Finish" button.
  * If the button is "Next", calls nextQuestion function, and changes to "Submit"
- * @param {"click"} event 
+ * @param {Event} event 
  */
 function nextSubmit(event) {
     const nextSubmitButton = event.target;
@@ -310,6 +300,11 @@ function nextQuestion() {
     runGame();
 }
 
+/**
+ * Updates the selection counter (element) inner html, 
+ * using the length of the user selection and the recipe.
+ * Adds/removes a class based on if the counter is full.
+ */
 function updateSelectionCounter() {
     const selectionCounter = document.getElementById("selection-counter");
     selectionCounter.innerHTML = `${userSelected.length}/${recipe.length} selected`;
@@ -323,9 +318,17 @@ function updateSelectionCounter() {
     }
 }
 
+/**
+ * Adds the current levels recipe length to the possible score, 
+ * and updates the users score. Displays the new values in the score area.
+ * @param {number} countCorrect, the number of ingredients the user got right
+ * @param {number} countIncorrect, the number of ingredients the user got wrong
+ */
 function updateScore(countCorrect, countIncorrect) {
     possibleScore += (recipe.length);
+    //Adds 1 point for each correct, removes 1 point for each incorrect
     score += (countCorrect - countIncorrect);
+    //if score is negative, sets the score to 0
     if (score < 0) {
         score = 0;
     }
@@ -333,8 +336,9 @@ function updateScore(countCorrect, countIncorrect) {
 }
 
 /**
- * Takes three numbers and inserts them in a string which 
- * is added to the innerHTML of a HTML element.
+ * Displays the question results. Takes three numbers and inserts them in a 
+ * string which is added to the results area. Adds different messages based on 
+ * the results.
  * @param {Number} countCorrect 
  * @param {Number} countIncorrect 
  * @param {Number} countMissed 
@@ -342,8 +346,10 @@ function updateScore(countCorrect, countIncorrect) {
 function updateQuestionResults(countCorrect, countIncorrect, countMissed) {
     const resultsArea = document.getElementById("results-area");
 
+    // if user got all items correct
     if (countCorrect === recipe.length) {
         resultsArea.innerHTML = `${countCorrect}/${recipe.length}! Congrats!`;
+        //  if user got no items correct
     } else if (countCorrect === 0) {
         resultsArea.innerHTML = `Correct: ${countCorrect}&nbsp;&nbsp;&nbsp;Incorrect: ${countIncorrect}&nbsp;&nbsp;&nbsp;Missed: ${countMissed}&nbsp;&nbsp;&nbsp;Better luck next time!`;
     } else {
@@ -351,6 +357,9 @@ function updateQuestionResults(countCorrect, countIncorrect, countMissed) {
     }
 }
 
+/**
+ * Resets the question results area, removing the inner html.
+ */
 function resetQuestionResults() {
     document.getElementById("results-area").innerHTML = "";
 }
@@ -391,7 +400,8 @@ function scrollTop() {
 }
 
 /**
- * Opens main modal and updates content to show final score
+ * Displays the quit modal and updates its content to show the final score. 
+ * Calls function to restart game if user clicks the restart game button.
  */
 function quitGame() {
     let quitModal = document.getElementById("quit-modal");
@@ -401,12 +411,17 @@ function quitGame() {
     document.getElementById("final-score-display").innerHTML = `Final score: ${score}`;
     document.getElementById("score-context").innerHTML = `You got ${score} points out of ${possibleScore} possible points.`;
 
+    // Closes the modal and calls functon to restart game
     startGameButton.addEventListener("click", function () {
         quitModal.style.display = "none";
         startGame();
     })
 }
 
+/**
+ * Resets the game variables 
+ * and calls function to reset the controls area and run the game.
+ */
 function startGame() {
     userSelected = [];
     recipe = [];
@@ -418,6 +433,10 @@ function startGame() {
     resetControls();
 }
 
+/**
+ * Resets the "controls area", hides the finish button 
+ * and unhides the next/submit button and quit button. 
+ */
 function resetControls() {
     document.getElementById("next-submit-button").removeAttribute("hidden");
     document.getElementById("next-submit-button").removeAttribute("aria-hidden");
@@ -428,24 +447,35 @@ function resetControls() {
 }
 
 /**
- * Gets the modal and "button" from HTML and 
+ * Manages displaying of modals. Takes 5 parameters.
  * Reference: https://www.w3schools.com/howto/howto_css_modals.asp
+ * @param {Element} modalParam, the modal 
+ * @param {Element} openModalBtn, the element used to "open" or display the modal 
+ * @param {Element} closeModalBtn, the element used to "close" or hide the modal
+ * @param {Boolean} fullScreen, if set to true, the modal can not be hidden by 
+ * clicking in the window, outside of the modal content 
+ * @param {Boolean} defaultOpen, if true, the modal is displayed by default, 
+ * if false, the modal is hidden by default
  */
 function displayModal(modalParam, openModalBtn, closeModalBtn, fullScreen, defaultOpen) {
+    // if true, modal displayed by default
     if (defaultOpen) {
-        modalParam.style.display = "block"; //opens modal
+        modalParam.style.display = "block";
     }
 
+    // if there is an openModalBtn, modal displayed when clicking
     if (openModalBtn) {
         openModalBtn.onclick = function () {
             modalParam.style.display = "block"; //opens modal
         }
     }
 
+    // modal hidden when clicking the closeModalBtn
     closeModalBtn.onclick = function () {
         modalParam.style.display = "none"; //closes modal
     }
 
+    // if fullScreen is false, hides when clicking outside the modal content
     if (!fullScreen) {
         window.onclick = function (event) {
             if (event.target == modalParam) {
