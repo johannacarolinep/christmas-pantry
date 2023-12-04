@@ -75,7 +75,6 @@ async function runGame() {
     updateLevel();
 }
 
-
 /**
  * Pulls the pantry data from a JSON file given the file address. Returns object pantryData.
  * @param {string} dataAddressString 
@@ -108,15 +107,17 @@ function createPantry(pantryData, pantryArea) {
     //Randomize order in pantry array
     shuffle(pantryStringArray);
 
-    /* For each item in pantryStringArray, create a div, add event listener and 
-    classes, and append to pantryArea */
-    for (let item in pantryStringArray) {
-        const pantryItem = document.createElement("div");
-        pantryItem.innerHTML = pantryStringArray[item];
-        pantryItem.addEventListener("click", pantryItemSelect);
-        pantryItem.classList.add("pantry-item");
-        pantryItem.classList.add("pantry-item-active");
-        pantryArea.appendChild(pantryItem);
+    /* If pantryStringArray, for each item in pantryStringArray, create a div, 
+    add event listener and classes, and append to pantryArea */
+    if (pantryStringArray) {
+        for (let item in pantryStringArray) {
+            const pantryItem = document.createElement("div");
+            pantryItem.innerHTML = pantryStringArray[item];
+            pantryItem.addEventListener("click", pantryItemSelect);
+            pantryItem.classList.add("pantry-item");
+            pantryItem.classList.add("pantry-item-active");
+            pantryArea.appendChild(pantryItem);
+        }
     }
 
     pantryArray = pantryArea.childNodes;
