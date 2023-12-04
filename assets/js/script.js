@@ -12,7 +12,7 @@ let pantryArray = [];
 document.addEventListener("DOMContentLoaded", initializeGame());
 
 /**
- * Reads the modals from HTML, calls function to manage how modals are displayed.
+ * Reads the modals from HTML, calls function to manage modal display behaviour.
  * Adds event listener to the nextSubmitButton.
  * Calls the runGame function.
  */
@@ -31,17 +31,31 @@ function initializeGame() {
     // Instructions modal
     const instructionsModal = document.getElementById("instructions-modal");
     const instructionsOpenBtn = document.getElementById("instructions-btn");
-    const instructionscloseBtn = document.getElementById("instructions-modal-close");
-    displayModal(instructionsModal, instructionsOpenBtn, instructionscloseBtn, false, false);
+    const instructionscloseBtn =
+        document.getElementById("instructions-modal-close");
+    displayModal(
+        instructionsModal,
+        instructionsOpenBtn,
+        instructionscloseBtn,
+        false,
+        false
+    );
 
     // Confirm quit modal
     const confirmQuitModal = document.getElementById("confirm-quit-modal");
     const confirmQuitOpenBtn = document.getElementById("quit-button");
-    const confirmQuitCancel = document.getElementById("confirm-quit-modal-close");
+    const confirmQuitCancel =
+        document.getElementById("confirm-quit-modal-close");
     const confirmQuitButton = document.getElementById("confirm-quit");
-    displayModal(confirmQuitModal, confirmQuitOpenBtn, confirmQuitCancel, false, false);
+    displayModal(
+        confirmQuitModal,
+        confirmQuitOpenBtn,
+        confirmQuitCancel,
+        false,
+        false
+    );
 
-    /* Quit modal - when confirmQuitButton in confirm quit modal is clicked, 
+    /* Quit modal - when confirmQuitButton in confirm quit modal is clicked,
     or when finishButton is clicked, calls function quitGame */
     confirmQuitButton.addEventListener("click", function () {
         confirmQuitModal.style.display = "none"; //closes confirm quit modal
@@ -58,7 +72,8 @@ function initializeGame() {
 }
 
 /**
- * If at start of game, calls createPantry. Otherwise, calls createQuestion, updateSelectionCounter, 
+ * If at start of game, calls createPantry.
+ * Otherwise, calls createQuestion, updateSelectionCounter,
  * sets the value of maxIndex. Calls updateLevel.
  */
 async function runGame() {
@@ -76,8 +91,9 @@ async function runGame() {
 }
 
 /**
- * Pulls the pantry data from a JSON file given the file address. Returns object pantryData.
- * @param {string} dataAddressString 
+ * Pulls the pantry data from a JSON file given the file address.
+ * Returns object pantryData.
+ * @param {string} dataAddressString
  * @returns {{
  *   name: string,
  *   country: string,
@@ -107,16 +123,18 @@ async function pullPantryData(dataAddressString) {
  *   question: string,
  *   recipe: string[]
  * }[]} pantryData
- * @param {Element} pantryArea 
+ * @param {Element} pantryArea
  */
 function createPantry(pantryData, pantryArea) {
     let masterPantryArray = [];
     pantryArea.innerHTML = "";
 
-    /* Fills masterPantryArray with all recipe array items, 
+    /* Fills masterPantryArray with all recipe array items,
     by concatenating all recipes */
-    for (let i = 0; i < pantryData.pantry.length; i++) {
-        masterPantryArray = masterPantryArray.concat(pantryData.pantry[i].recipe);
+    let i = 0;
+    for (i = 0; i < pantryData.pantry.length; i++) {
+        masterPantryArray =
+            masterPantryArray.concat(pantryData.pantry[i].recipe);
     }
 
     /* Fills pantryStringArray with masterPantryArray excluding duplicates */
@@ -125,7 +143,7 @@ function createPantry(pantryData, pantryArea) {
     //Randomize order in pantry array
     shuffle(pantryStringArray);
 
-    /* If pantryStringArray, for each item in pantryStringArray, create a div, 
+    /* If pantryStringArray, for each item in pantryStringArray, create a div,
     add event listener and classes, and append to pantryArea */
     if (pantryStringArray) {
         for (let item in pantryStringArray) {
@@ -142,30 +160,34 @@ function createPantry(pantryData, pantryArea) {
 }
 
 /**
- * Builds the question in HTML and updates the recipe using data from the json 
- * file. Takes an integer number, the index for the json library, 
- * and uses it to set the innerHTML and attributes to the correct values 
+ * Builds the question in HTML and updates the recipe using data from the json
+ * file. Takes an integer number, the index for the json library,
+ * and uses it to set the innerHTML and attributes to the correct values
  * in the questionArea and cake info modal.
- * @param {number} index 
+ * @param {number} index
  */
 function createQuestion(index) {
     recipe = index.recipe;
     document.getElementById("cake-name").innerHTML = index.name;
     document.getElementById("cake-country").innerHTML = `(${index.country})`;
     document.getElementById("cake-question").innerHTML = index.question;
-    document.getElementById("cake-recipe-hint").innerHTML = `This recipe contains ${recipe.length} ingredients.`;
+    document.getElementById("cake-recipe-hint").innerHTML =
+        `This recipe contains ${recipe.length} ingredients.`;
     document.getElementById("question-image").setAttribute("src", index.image);
-    document.getElementById("question-image").setAttribute("alt", index.altText);
+    document
+        .getElementById("question-image")
+        .setAttribute("alt", index.altText);
     /* Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
-    document.getElementById("cake-modal-heading").innerHTML = `About ${index.name}:`;
+    document.getElementById("cake-modal-heading").innerHTML =
+        `About ${index.name}:`;
     document.getElementById("cake-description").innerHTML = index.description;
 }
 
 /**
- * Manages the users selection of items from the pantry 
- * by reacting to clicks on the pantry items, 
- * given the user has not already submitted their selection. 
- * @param {Event} event 
+ * Manages the users selection of items from the pantry
+ * by reacting to clicks on the pantry items,
+ * given the user has not already submitted their selection.
+ * @param {Event} event
  */
 function pantryItemSelect(event) {
     const clickedItem = event.target;
@@ -173,28 +195,33 @@ function pantryItemSelect(event) {
     if (!submitted) {
         /* if not selected, and counter is not full, add item to selection
         and update the counter */
-        if (!clickedItem.classList.contains("pantry-item-selected") && userSelected.length < recipe.length) {
+        if (
+            !clickedItem.classList.contains("pantry-item-selected") &&
+            userSelected.length < recipe.length
+        ) {
             clickedItem.classList.add("pantry-item-selected");
             userSelected.push(clickedItem.innerHTML);
             updateSelectionCounter();
-            /* if counter is now full, remove active class from all pantry items, 
-            except those in selection */
+            /* if counter is now full, remove active class
+            from all pantry items, except those in selection */
             if (userSelected.length === recipe.length) {
                 removeActive();
             }
-            //if already selected, remove it from the selection    
+            //if already selected, remove it from the selection
         } else if (clickedItem.classList.contains("pantry-item-selected")) {
             clickedItem.classList.remove("pantry-item-selected");
-            userSelected = userSelected.filter(item => item !== clickedItem.innerHTML);
+            userSelected =
+                userSelected.filter(item => item !== clickedItem.innerHTML);
             updateSelectionCounter();
-            // add active class to all remaining items (since counter is no longer full)
+            /* add active class to all remaining items
+            (since counter is no longer full) */
             addActive();
         }
     }
 }
 
 /**
- * Iterates through the pantry items. Removes the active class 
+ * Iterates through the pantry items. Removes the active class
  * from items that don't have the selected class.
  */
 function removeActive() {
@@ -207,24 +234,27 @@ function removeActive() {
 }
 
 /**
- * Iterates through the pantry items. Adds the active class to items 
+ * Iterates through the pantry items. Adds the active class to items
  * if they are not in the selection nor already have the active class.
  */
 function addActive() {
 
     pantryArray.forEach(function (element) {
-        if (!element.classList.contains("pantry-item-selected" && !element.classList.contains("pantry-item-active"))) {
+        if (
+            !element.classList.contains("pantry-item-selected") &&
+            !element.classList.contains("pantry-item-active")
+        ) {
             element.classList.add("pantry-item-active");
         }
     });
 }
 
 /**
- * If the button is "Submit", runs the submitSelection function. 
- * Changes the button to "Next" or if at maxlevel, hides the next/submit button 
+ * If the button is "Submit", runs the submitSelection function.
+ * Changes the button to "Next" or if at maxlevel, hides the next/submit button
  * and the quit button, and unhides the "Finish" button.
  * If the button is "Next", calls nextQuestion function, and changes to "Submit"
- * @param {Event} event 
+ * @param {Event} event
  */
 function nextSubmit(event) {
     const nextSubmitButton = event.target;
@@ -234,9 +264,13 @@ function nextSubmit(event) {
             nextSubmitButton.hidden = "true";
             nextSubmitButton.setAttribute("aria-hidden", "true");
             document.getElementById("quit-button").hidden = "true";
-            document.getElementById("quit-button").setAttribute("aria-hidden", "true");
+            document
+                .getElementById("quit-button")
+                .setAttribute("aria-hidden", "true");
             document.getElementById("finish-button").removeAttribute("hidden");
-            document.getElementById("finish-button").setAttribute("aria-hidden", "false");
+            document
+                .getElementById("finish-button")
+                .setAttribute("aria-hidden", "false");
         } else {
             nextSubmitButton.innerHTML = "Next";
         }
@@ -248,7 +282,7 @@ function nextSubmit(event) {
 }
 
 /**
- * Compares the users selection to the recipe to create 3 new arrays, 
+ * Compares the users selection to the recipe to create 3 new arrays,
  * userCorrect, userIncorrect, and userMissed.
  */
 function submitSelection() {
@@ -270,13 +304,14 @@ function submitSelection() {
 }
 
 /**
- * Takes 3 arrays of strings. 
- * Iterates the pantryArray items, checking if the innerHTML of the item 
- * matches an item in one of the 3 arrays. If matching, adds an icon and classes.
+ * Takes 3 arrays of strings.
+ * Iterates the pantryArray items, checking if the innerHTML of the item
+ * matches an item in one of the 3 arrays.
+ * If matching, adds an icon and classes.
  * Removes the selected class and the active class.
  * @param {String[]} userCorrect
- * @param {String[]} userIncorrect 
- * @param {String[]} userMissed 
+ * @param {String[]} userIncorrect
+ * @param {String[]} userMissed
  */
 function displayPantryFeedback(userCorrect, userIncorrect, userMissed) {
 
@@ -304,8 +339,8 @@ function displayPantryFeedback(userCorrect, userIncorrect, userMissed) {
 }
 
 /**
- * Moves the game to the next question. Changes state away from "submitted", 
- * increases question index. Resets user selection, and calls functions to reset 
+ * Moves the game to the next question. Changes state away from "submitted",
+ * increases question index. Resets user selection, and calls functions to reset
  * pantry (activate pantry items) and question results. Calls runGame.
  */
 function nextQuestion() {
@@ -318,8 +353,8 @@ function nextQuestion() {
 }
 
 /**
- * Resets the pantry. Iterates the child nodes of the pantry area, 
- * removes classes and icons, adds the pantry-item-active class 
+ * Resets the pantry. Iterates the child nodes of the pantry area,
+ * removes classes and icons, adds the pantry-item-active class
  */
 function resetPantry() {
 
@@ -335,25 +370,29 @@ function resetPantry() {
 }
 
 /**
- * Updates the selection counter (element) inner html, 
+ * Updates the selection counter (element) inner html,
  * using the length of the user selection and the recipe.
  * Adds/removes a class based on if the counter is full.
  */
 function updateSelectionCounter() {
     const selectionCounter = document.getElementById("selection-counter");
-    selectionCounter.innerHTML = `${userSelected.length}/${recipe.length} selected`;
+    selectionCounter.innerHTML =
+        `${userSelected.length}/${recipe.length} selected`;
 
     if (userSelected.length === recipe.length) {
         selectionCounter.classList.add("counter-full");
     }
 
-    if (userSelected.length < recipe.length && selectionCounter.classList.contains("counter-full")) {
+    if (
+        userSelected.length < recipe.length &&
+        selectionCounter.classList.contains("counter-full")
+    ) {
         selectionCounter.classList.remove("counter-full");
     }
 }
 
 /**
- * Adds the current levels recipe length to the possible score, 
+ * Adds the current levels recipe length to the possible score,
  * and updates the users score. Displays the new values in the score area.
  * @param {number} countCorrect, the number of ingredients the user got right
  * @param {number} countIncorrect, the number of ingredients the user got wrong
@@ -366,16 +405,17 @@ function updateScore(countCorrect, countIncorrect) {
     if (score <= 0) {
         score = 0;
     }
-    document.getElementById("score-area").innerHTML = `Score: ${score} / ${possibleScore}`;
+    document.getElementById("score-area").innerHTML =
+        `Score: ${score} / ${possibleScore}`;
 }
 
 /**
- * Displays the question results. Takes three numbers and inserts them in a 
- * string which is added to the results area. Adds different messages based on 
+ * Displays the question results. Takes three numbers and inserts them in a
+ * string which is added to the results area. Adds different messages based on
  * the results.
- * @param {Number} countCorrect 
- * @param {Number} countIncorrect 
- * @param {Number} countMissed 
+ * @param {Number} countCorrect
+ * @param {Number} countIncorrect
+ * @param {Number} countMissed
  */
 function updateQuestionResults(countCorrect, countIncorrect, countMissed) {
     const resultsArea = document.getElementById("results-area");
@@ -385,9 +425,14 @@ function updateQuestionResults(countCorrect, countIncorrect, countMissed) {
         resultsArea.innerHTML = `${countCorrect}/${recipe.length}! Congrats!`;
         //  if user got no items correct
     } else if (countCorrect === 0) {
-        resultsArea.innerHTML = `Correct: ${countCorrect}&nbsp;&nbsp;&nbsp;Incorrect: ${countIncorrect}&nbsp;&nbsp;&nbsp;Missed: ${countMissed}&nbsp;&nbsp;&nbsp;Better luck next time!`;
+        resultsArea.innerHTML = `Correct: ${countCorrect}&nbsp;&nbsp;&nbsp;` +
+            `Incorrect: ${countIncorrect}&nbsp;&nbsp;&nbsp;` +
+            `Missed: ${countMissed}&nbsp;&nbsp;&nbsp;` +
+            `Better luck next time!`;
     } else {
-        resultsArea.innerHTML = `Correct: ${countCorrect}&nbsp;&nbsp;&nbsp;Incorrect: ${countIncorrect}&nbsp;&nbsp;&nbsp;Missed: ${countMissed}`;
+        resultsArea.innerHTML = `Correct: ${countCorrect}&nbsp;&nbsp;&nbsp;` +
+            `Incorrect: ${countIncorrect}&nbsp;&nbsp;&nbsp;` +
+            `Missed: ${countMissed}`;
     }
 }
 
@@ -404,13 +449,15 @@ function resetQuestionResults() {
 function updateLevel() {
     let level = questionIndex + 1;
     let finalLevel = maxIndex + 1;
-    document.getElementById("level-area").innerHTML = `Level: ${level} / ${finalLevel}`;
+    document.getElementById("level-area").innerHTML =
+        `Level: ${level} / ${finalLevel}`;
 }
 
 /**
  * Will randomize the item order in a given array
- * Fisher-Yates Shuffle, credit: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
- * @param {Array} shuffleArray 
+ * Fisher-Yates Shuffle, credit:
+ * https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+ * @param {Array} shuffleArray
  * @returns {Array}, with randomized order
  */
 function shuffle(shuffleArray) {
@@ -437,7 +484,7 @@ function scrollTop() {
 }
 
 /**
- * Displays the quit modal and updates its content to show the final score. 
+ * Displays the quit modal and updates its content to show the final score.
  * Calls function to restart game if user clicks the restart game button.
  */
 function quitGame() {
@@ -445,8 +492,10 @@ function quitGame() {
     let startGameButton = document.getElementById("restart-game-button");
 
     quitModal.style.display = "block"; //opens modal
-    document.getElementById("final-score-display").innerHTML = `Final score: ${score}`;
-    document.getElementById("score-context").innerHTML = `You got ${score} points out of ${possibleScore} possible points.`;
+    document.getElementById("final-score-display").innerHTML =
+        `Final score: ${score}`;
+    document.getElementById("score-context").innerHTML =
+        `You got ${score} points out of ${possibleScore} possible points.`;
 
     // Closes the modal and calls functon to restart game
     startGameButton.addEventListener("click", function () {
@@ -456,7 +505,7 @@ function quitGame() {
 }
 
 /**
- * Resets the game variables, 
+ * Resets the game variables,
  * calls functions to reset the game and run the game.
  */
 function restartGame() {
@@ -475,8 +524,8 @@ function restartGame() {
 }
 
 /**
- * Resets the "controls area", hides the finish button 
- * and unhides the next/submit button and quit button. 
+ * Resets the "controls area", hides the finish button
+ * and unhides the next/submit button and quit button.
  */
 function resetControls() {
     const nextSubmitBtn = document.getElementById("next-submit-button");
@@ -495,15 +544,21 @@ function resetControls() {
 /**
  * Manages displaying of modals. Takes 5 parameters.
  * Reference: https://www.w3schools.com/howto/howto_css_modals.asp
- * @param {Element} modalParam, the modal 
- * @param {Element} openModalBtn, the element used to "open" or display the modal 
- * @param {Element} closeModalBtn, the element used to "close" or hide the modal
- * @param {Boolean} fullScreen, if set to true, the modal can not be hidden by 
- * clicking in the window, outside of the modal content 
- * @param {Boolean} defaultOpen, if true, the modal is displayed by default, 
+ * @param {Element} modalParam, the modal
+ * @param {Element} openModalBtn, element used to "open" or display the modal
+ * @param {Element} closeModalBtn, element used to "close" or hide the modal
+ * @param {Boolean} fullScreen, if set to true, the modal can not be hidden by
+ * clicking in the window, outside of the modal content
+ * @param {Boolean} defaultOpen, if true, the modal is displayed by default,
  * if false, the modal is hidden by default
  */
-function displayModal(modalParam, openModalBtn, closeModalBtn, fullScreen, defaultOpen) {
+function displayModal(
+    modalParam,
+    openModalBtn,
+    closeModalBtn,
+    fullScreen,
+    defaultOpen
+) {
     // if true, modal displayed by default
     if (defaultOpen) {
         modalParam.style.display = "block";
