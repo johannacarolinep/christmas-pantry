@@ -343,7 +343,6 @@ function updateScore(countCorrect, countIncorrect) {
     possibleScore += (recipe.length);
     //Adds 1 point for each correct, removes 1 point for each incorrect
     score += (countCorrect - countIncorrect);
-    console.log("Questionindex:", questionIndex);
     //if score is negative, sets the score to 0
     if (score <= 0) {
         score = 0;
