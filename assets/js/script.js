@@ -1,3 +1,4 @@
+/* jshint esversion:8 */
 /* Variables */
 let userSelected = [];
 let recipe = [];
@@ -110,7 +111,7 @@ function createPantry(pantryData, pantryArea) {
 
     /* For each item in pantryStringArray, create a div, add event listener and 
     classes, and append to pantryArea */
-    for (item in pantryStringArray) {
+    for (let item in pantryStringArray) {
         const pantryItem = document.createElement("div");
         pantryItem.innerHTML = pantryStringArray[item];
         pantryItem.addEventListener("click", pantryItemSelect);
