@@ -56,9 +56,9 @@ The site can be accessed by this [link](https://johannacarolinep.github.io/chris
 
 ### Code
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) was used as the foundation of the site.
-- [CSS](https://developer.mozilla.org/en-US/docs/Web/css) - was used to add the styles and layout of the site.
-- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - 
-- [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) -
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/css) was used to add the styles and layout of the site.
+- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) was used for interactivity on the website.
+- [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) was used to store data.
 - [VSCode](https://code.visualstudio.com/) was used as the IDE.
 
 ### Asset creation and editing
@@ -94,6 +94,19 @@ The site can be accessed by this [link](https://johannacarolinep.github.io/chris
 ## Testing
 
 ## Deployment
+### Deployment to GitHub Pages
+The webpages are deployed to GitHub pages, using Git version control. The steps to deployment are as follows:
+- In the GitHub repository, navigate to the Settings tab.
+- From the source section drop-down menu, select the main branch, then click "Save".
+
+Once a push is detected to the main branch GitHub will update the webpages with the new code in the main branch.
+
+The live link can be found [here](https://johannacarolinep.github.io/christmas-pantry/).
+
+If you wish to run the website locally you can clone it by typing the following command in your IDE Terminal:
+- `git clone https://github.com/johannacarolinep/christmas-pantry.git`
+
+Once on your local computer, you can open the index.html with a web browser.
 
 ## Future improvements
 
