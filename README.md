@@ -107,6 +107,8 @@ The site can be accessed by this [link](https://johannacarolinep.github.io/chris
 
 ## Testing
 
+All test-related documentation can be found in the [TESTING.md](TESTING.md) file.
+
 ## Deployment
 ### Deployment to GitHub Pages
 The webpages are deployed to GitHub pages, using Git version control. The steps to deployment are as follows:
