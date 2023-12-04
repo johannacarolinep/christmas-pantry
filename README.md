@@ -45,6 +45,67 @@ The site can be accessed by this [link](https://johannacarolinep.github.io/chris
 * I want to have the option to restart the game, in case I want to try again.
 
 ## Features
+### Welcome modal
+
+![Welcome modal](documentation/feat-welcome-modal.png)
+
+### The main page
+
+![The full page](documentation/feat-full-page.png)
+
+#### Header
+
+![Header](documentation/feat-header.png)
+
+##### Instructions modal
+
+![Instructions modal](documentation/feat-instructions-modal.png)
+
+#### Question area
+
+![Question area](documentation/feat-question-area.png)
+
+##### Cake info modal
+
+![Cake info modal](documentation/feat-cake-info-modal.png)
+
+#### Pantry area
+
+![Pantry area](documentation/feat-pantry-area.png)
+
+##### Pantry
+
+![Pantry items](documentation/feat-pantry.png)
+
+![Pantry items select](documentation/feat-pantry-selection.png)
+
+![Pantry selection full](documentation/feat-pantry-selection-full.png)
+
+![Pantry user feedback](documentation/feat-pantry-feedback.png)
+
+##### Selection counter
+
+![Selection counter](documentation/feat-selection-counter.png)
+![Selection counter](documentation/feat-selection-counter-full.png)
+
+##### Controls area
+![Controls area](documentation/feat-controls.png)
+
+![Controls area with "Next" button](documentation/feat-controls-next.png)
+
+![Controls area with "Finish" button](documentation/feat-controls-finish.png)
+
+##### Results area
+
+![Results area](documentation/feat-result.png)
+![Results area congrats](documentation/feat-results-congrats.png)
+![Results area sorry](documentation/feat-results-sorry.png)
+
+### Confirm quit modal
+![Confirm quit modal](documentation/feat-confirm-quit-modal.png)
+
+### Quit modal
+![Quit modal](documentation/feat-quit-modal.png)
 
 ## Flowchart
 
