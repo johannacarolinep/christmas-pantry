@@ -721,15 +721,6 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         font-size: 1.1rem;
     }
 
-    /* Pantry item hover */
-    .pantry-item-active:hover {
-        border-radius: 2px;
-        box-shadow: 7px 7px 18px #bbbbb3,
-            -7px -7px 14px #f9f9ef;
-        background-color: #63513c;
-        color: #ffffff;
-    }
-
     /* Controls area */
     .controls-area {
         margin-top: 40px;
@@ -738,14 +729,6 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 
     .controls {
         padding: 15px;
-    }
-
-    /* Controls hover */
-    #next-submit-button:hover,
-    #quit-button:hover,
-    #finish-button:hover {
-        box-shadow: 10px 10px 31px #afa19b,
-            -10px -10px 31px #ffffff;
     }
 
     /* Styles for modals
@@ -777,19 +760,6 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         margin: 20px auto 25px auto;
     }
 
-    .welcome-modal-button:hover,
-    #restart-game-button:hover {
-        box-shadow: 10px 10px 31px #afa19b,
-            -10px -10px 31px #ffffff;
-    }
-
-    /* Confirm quit modal */
-    #confirm-quit:hover,
-    #confirm-quit-modal-close:hover {
-        box-shadow: 10px 10px 31px #afa19b,
-            -10px -10px 31px #ffffff;
-    }
-
     /* Footer */
     .footer-wrapper {
         padding: 25px 17.5px;
@@ -808,4 +778,40 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         font-size: 2.5rem;
         margin: 0 10px;
     }
+}
+
+/* Device that can hover (desktops) */
+@media (hover: hover) {
+
+    /* Pantry item hover */
+    .pantry-item-active:hover {
+        border-radius: 2px;
+        box-shadow: 7px 7px 18px #bbbbb3,
+            -7px -7px 14px #f9f9ef;
+        background-color: #63513c;
+        color: #ffffff;
+    }
+
+    /* Controls hover */
+    #next-submit-button:hover,
+    #quit-button:hover,
+    #finish-button:hover {
+        box-shadow: 10px 10px 31px #afa19b,
+            -10px -10px 31px #ffffff;
+    }
+
+    /* Modal buttons hover */
+    .welcome-modal-button:hover,
+    #restart-game-button:hover {
+        box-shadow: 10px 10px 31px #afa19b,
+            -10px -10px 31px #ffffff;
+    }
+
+    /* Confirm quit modal */
+    #confirm-quit:hover,
+    #confirm-quit-modal-close:hover {
+        box-shadow: 10px 10px 31px #afa19b,
+            -10px -10px 31px #ffffff;
+    }
+
 }
