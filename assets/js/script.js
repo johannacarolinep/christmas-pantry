@@ -130,21 +130,19 @@ function createPantry(pantryData, pantryArea) {
     let masterPantryArray = [];
     pantryArea.innerHTML = "";
 
-    /* Fills masterPantryArray with all recipe array items,
-    by concatenating all recipes */
+    // Fills masterPantryArray with all recipe array items
     for (let i = 0; i < pantryData.pantry.length; i++) {
         masterPantryArray =
             masterPantryArray.concat(pantryData.pantry[i].recipe);
     }
 
-    /* Fills pantryStringArray with masterPantryArray excluding duplicates */
+    // Fills pantryStringArray with masterPantryArray excluding duplicates
     const pantryStringArray = [...new Set(masterPantryArray)];
 
-    //Randomize order in pantry array
+    // Randomize order in pantryStringArray
     shuffle(pantryStringArray);
 
-    /* For each item in pantryStringArray, create a div,
-    add event listener and classes, and append to pantryArea */
+    // For each item, create a pantry ingredient (div) in html
     for (let item in pantryStringArray) {
         if (item) {
             const pantryItem = document.createElement("div");
@@ -156,7 +154,7 @@ function createPantry(pantryData, pantryArea) {
         }
     }
 
-
+    //Fill pantryArray with the pantry ingredients (divs) from HTML
     pantryArray = pantryArea.childNodes;
 }
 
@@ -178,7 +176,7 @@ function createQuestion(index) {
     document
         .getElementById("question-image")
         .setAttribute("alt", index.altText);
-    /* Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
+    // Reference: https://www.w3schools.com/howto/howto_css_modals.asp
     document.getElementById("cake-modal-heading").innerHTML =
         `About ${index.name}:`;
     document.getElementById("cake-description").innerHTML = index.description;
@@ -194,18 +192,18 @@ function pantryItemSelect(event) {
     const clickedItem = event.target;
 
     if (!submitted) {
-        /* if not selected, and counter is not full, add item to selection
-        and update the counter */
+        // If not selected, and counter is not full
         if (
             !clickedItem.classList.contains("pantry-item-selected") &&
             userSelected.length < recipe.length
         ) {
+            // Add item to selection and update the counter
             clickedItem.classList.add("pantry-item-selected");
             userSelected.push(clickedItem.innerHTML);
             updateSelectionCounter();
-            /* if counter is now full, remove active class
-            from all pantry items, except those in selection */
+            // check if counter is now full
             if (userSelected.length === recipe.length) {
+                // remove active class from all pantry items, except selected
                 removeActive();
             }
             //if already selected, remove it from the selection
@@ -214,8 +212,7 @@ function pantryItemSelect(event) {
             userSelected =
                 userSelected.filter(item => item !== clickedItem.innerHTML);
             updateSelectionCounter();
-            /* add active class to all remaining items
-            (since counter is no longer full) */
+            // counter no longer full, add active class to all remaining items
             addActive();
         }
     }
@@ -427,11 +424,11 @@ function updateScore(countCorrect, countIncorrect) {
 function updateQuestionResults(countCorrect, countIncorrect, countMissed) {
     const resultsArea = document.getElementById("results-area");
 
-    // if user got all items correct
     if (countCorrect === recipe.length) {
+        // if user got all items correct
         resultsArea.innerHTML = `${countCorrect}/${recipe.length}! Congrats!`;
-        //  if user got no items correct
     } else if (countCorrect === 0) {
+        //  if user got no items correct
         resultsArea.innerHTML = `Correct: ${countCorrect}&nbsp;&nbsp;&nbsp;` +
             `Incorrect: ${countIncorrect}&nbsp;&nbsp;&nbsp;` +
             `Missed: ${countMissed}&nbsp;&nbsp;&nbsp;` +
