@@ -129,12 +129,13 @@ Once on your local computer, you can open the index.html with a web browser.
 ### Code
 
 ### Media
-
 #### Images
 
 #### Icons
+All icons were taken from [Font Awesome](https://fontawesome.com/icons).
 
 #### Fonts
+Fonts were imported from [Google Fonts](https://fonts.google.com/).
 
 ## Acknowledgements
 
