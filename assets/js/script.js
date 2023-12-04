@@ -184,7 +184,7 @@ function removeActive() {
         if (!element.classList.contains("pantry-item-selected")) {
             element.classList.remove("pantry-item-active");
         }
-    })
+    });
 }
 
 /**
@@ -197,7 +197,7 @@ function addActive() {
         if (!element.classList.contains("pantry-item-selected" && !element.classList.contains("pantry-item-active"))) {
             element.classList.add("pantry-item-active");
         }
-    })
+    });
 }
 
 /**
@@ -281,7 +281,7 @@ function displayPantryFeedback(userCorrect, userIncorrect, userMissed) {
         if (element.classList.contains("pantry-item-active")) {
             element.classList.remove("pantry-item-active");
         }
-    })
+    });
 }
 
 /**
@@ -312,7 +312,7 @@ function resetPantry() {
             element.querySelector("i").remove();
         }
         element.classList.add("pantry-item-active");
-    })
+    });
 }
 
 /**
@@ -395,7 +395,7 @@ function updateLevel() {
  * @returns {Array}, with randomized order
  */
 function shuffle(shuffleArray) {
-    let currentIndex = shuffleArray.length
+    let currentIndex = shuffleArray.length;
     let randomIndex;
 
     while (currentIndex > 0) {
@@ -433,7 +433,7 @@ function quitGame() {
     startGameButton.addEventListener("click", function () {
         quitModal.style.display = "none";
         restartGame();
-    })
+    });
 }
 
 /**
@@ -449,7 +449,7 @@ function restartGame() {
     questionIndex = 0;
     maxLevel = 0;
     resetQuestionResults();
-    document.getElementById("score-area").innerHTML = `Score: ${score}`
+    document.getElementById("score-area").innerHTML = `Score: ${score}`;
     resetControls();
     resetPantry();
     runGame();
@@ -494,13 +494,13 @@ function displayModal(modalParam, openModalBtn, closeModalBtn, fullScreen, defau
     if (openModalBtn) {
         openModalBtn.onclick = function () {
             modalParam.style.display = "block"; //opens modal
-        }
+        };
     }
 
     // modal hidden when clicking the closeModalBtn
     closeModalBtn.onclick = function () {
         modalParam.style.display = "none"; //closes modal
-    }
+    };
 
     // if fullScreen is false, hides when clicking outside the modal content
     if (!fullScreen) {
@@ -508,6 +508,6 @@ function displayModal(modalParam, openModalBtn, closeModalBtn, fullScreen, defau
             if (event.target == modalParam) {
                 modalParam.style.display = "none"; //closes modal
             }
-        }
+        };
     }
 }
