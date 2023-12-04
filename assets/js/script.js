@@ -78,7 +78,15 @@ async function runGame() {
 /**
  * Pulls the pantry data from a JSON file given the file address. Returns object pantryData.
  * @param {string} dataAddressString 
- * @returns pantryData, an array of objects (NEEDS MORE WORK)
+ * @returns {{
+ *   name: string,
+ *   country: string,
+ *   image: string,
+ *   altText: string,
+ *   description: string,
+ *   question: string,
+ *   recipe: string[]
+ * }[]} pantryData
  */
 async function pullPantryData(dataAddressString) {
     const pantryRawData = await fetch(dataAddressString);
@@ -87,9 +95,19 @@ async function pullPantryData(dataAddressString) {
 }
 
 /**
- * Creates an array of all pantry item recipe (ingredients)
+ * Creates an array of all pantry item recipes (ingredients)
  * by concatenating the recipe arrays of all pantry items and deduplicating.
- * Builds the pantry divs in HTML.
+ * Builds the pantry divs in HTML. Finally, fills the pantryArray.
+ * @param {{
+ *   name: string,
+ *   country: string,
+ *   image: string,
+ *   altText: string,
+ *   description: string,
+ *   question: string,
+ *   recipe: string[]
+ * }[]} pantryData
+ * @param {Element} pantryArea 
  */
 function createPantry(pantryData, pantryArea) {
     let masterPantryArray = [];
