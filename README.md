@@ -8,6 +8,7 @@ The user is presented with a cake and tasked with picking out its ingredients fr
 The site can be accessed by this [link](https://johannacarolinep.github.io/christmas-pantry/)
 
 ---
+![Device mockup of Christmas Pantry](documentation/device-mockup.png)
 
 ## User Stories
 ### As a user landing on the website:
