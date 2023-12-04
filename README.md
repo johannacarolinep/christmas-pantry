@@ -49,6 +49,39 @@ The site can be accessed by this [link](https://johannacarolinep.github.io/chris
 ## Flowchart
 
 ## Technologies and tools used, split by primary usage area
+## Technologies and tools used, split by primary usage area
+### Planning
+- [Balsamiq](https://balsamiq.com/) was used to make wireframes for the website.
+- [Draw.io](https://app.diagrams.net/) was used to make a flowchart for the game.
+
+### Code
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) was used as the foundation of the site.
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/css) - was used to add the styles and layout of the site.
+- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - 
+- [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) -
+- [VSCode](https://code.visualstudio.com/) was used as the IDE.
+
+### Asset creation and editing
+- [GIMP](https://www.gimp.org/) was used to edit and resize all images.
+- [Favicon.io Favicon Generator](https://favicon.io/favicon-generator/) was used to make the favicon for the website
+- [Adobe Firefly](https://www.adobe.com/se/sensei/generative-ai/firefly.html) was used to create images
+- [Canva - Magic Media](https://www.canva.com/ai-image-generator/) was used to create images
+- [Adobe Illustrator](https://www.adobe.com/se/products/illustrator.html) was used to create the favicon image and the default image
+
+### Deployment and version control
+- [Git](https://git-scm.com/) was used for the version control of the website.
+- [GitHub](https://github.com/) was used to host the code of the website.
+
+### Testing
+- [Chrome Devtools](https://developer.chrome.com/docs/devtools/) was used for continuous testing and troubleshooting.
+- [Lighthouse](https://developer.chrome.com/docs/devtools/lighthouse/) was used to evaluate and optimize the performance and accessibility of the website.
+- [WAVE Tool](https://wave.webaim.org/) was used to test and troubleshoot accessibility on the website.
+- [W3C Markup Validation Service](https://validator.w3.org/) was used to validate the HTML code of the website.
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used to validate the CSS code of the website.
+
+### Documentation
+- [Am I Responsive?](https://ui.dev/amiresponsive) was used to create mockups of the website for the README.
+- [Responsive Viewer](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb/related?utm_source=ext_sidebar&hl=en-GB) was used to capture screenshots of the website across different device types.
 
 ## Design
 
