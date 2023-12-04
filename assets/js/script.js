@@ -1,3 +1,4 @@
+/* jshint esversion:8 */
 /* Variables */
 let userSelected = [];
 let recipe = [];
@@ -329,9 +330,15 @@ function displayPantryFeedback(userCorrect, userIncorrect, userMissed) {
             feedbackIcon.className = "fa-solid fa-minus";
         }
 
-        element.appendChild(feedbackIcon);
+        // if the icon got a class, append it to the pantry item
+        if (feedbackIcon.className) {
+            element.appendChild(feedbackIcon);
+        }
+
+        // remove the selected class from all pantry items
         element.classList.remove("pantry-item-selected");
 
+        // remove the active class from pantry items that still have it
         if (element.classList.contains("pantry-item-active")) {
             element.classList.remove("pantry-item-active");
         }
