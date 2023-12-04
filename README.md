@@ -86,6 +86,13 @@ The site can be accessed by this [link](https://johannacarolinep.github.io/chris
 ## Design
 
 ### Color scheme
+#### Primary colour scheme
+![Primary colour scheme](documentation/colour-scheme-primary.png)
+
+#### Pantry selection/User feedback colour scheme
+![Selection/Feedback colour scheme](documentation/colour-scheme-pantry.png)
+
+#### Additional colours
 
 ### Typography
 
