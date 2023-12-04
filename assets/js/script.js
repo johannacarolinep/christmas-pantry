@@ -1,4 +1,3 @@
-/* jshint esversion:8 */
 /* Variables */
 let userSelected = [];
 let recipe = [];
@@ -236,11 +235,11 @@ function nextSubmit(event) {
 function submitSelection() {
     submitted = true;
     //items that are in users selection and in the recipe
-    userCorrect = userSelected.filter(item => recipe.includes(item));
+    let userCorrect = userSelected.filter(item => recipe.includes(item));
     //items in the users selection that are not in the recipe
-    userIncorrect = userSelected.filter(item => !recipe.includes(item));
+    let userIncorrect = userSelected.filter(item => !recipe.includes(item));
     //items in the recipe that are not in the users selection
-    userMissed = recipe.filter(item => !userSelected.includes(item));
+    let userMissed = recipe.filter(item => !userSelected.includes(item));
 
     let countCorrect = userCorrect.length;
     let countIncorrect = userIncorrect.length;
@@ -448,7 +447,7 @@ function restartGame() {
     score = 0;
     possibleScore = 0;
     questionIndex = 0;
-    maxLevel = 0;
+    maxIndex = 0;
     resetQuestionResults();
     document.getElementById("score-area").innerHTML = `Score: ${score}`;
     resetControls();
