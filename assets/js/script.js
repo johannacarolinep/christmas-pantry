@@ -131,8 +131,7 @@ function createPantry(pantryData, pantryArea) {
 
     /* Fills masterPantryArray with all recipe array items,
     by concatenating all recipes */
-    let i = 0;
-    for (i = 0; i < pantryData.pantry.length; i++) {
+    for (let i = 0; i < pantryData.pantry.length; i++) {
         masterPantryArray =
             masterPantryArray.concat(pantryData.pantry[i].recipe);
     }
@@ -143,10 +142,10 @@ function createPantry(pantryData, pantryArea) {
     //Randomize order in pantry array
     shuffle(pantryStringArray);
 
-    /* If pantryStringArray, for each item in pantryStringArray, create a div,
+    /* For each item in pantryStringArray, create a div,
     add event listener and classes, and append to pantryArea */
-    if (pantryStringArray) {
-        for (let item in pantryStringArray) {
+    for (let item in pantryStringArray) {
+        if (item) {
             const pantryItem = document.createElement("div");
             pantryItem.innerHTML = pantryStringArray[item];
             pantryItem.addEventListener("click", pantryItemSelect);
@@ -155,6 +154,7 @@ function createPantry(pantryData, pantryArea) {
             pantryArea.appendChild(pantryItem);
         }
     }
+
 
     pantryArray = pantryArea.childNodes;
 }
