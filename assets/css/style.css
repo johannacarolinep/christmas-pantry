@@ -36,12 +36,12 @@ h2 {
 header {
     position: fixed;
     z-index: 98;
-    background-color: #f7f8f3f1;
+    background-color: #f7f8f3;
     width: 100%;
     min-height: 115px;
     background-image: url(../images/snowflakes.webp);
     background-size: cover;
-    border-bottom: 10px solid white;
+    border-bottom: 10px solid #ffffff;
     box-shadow: 0 0 7px -1px #edeac4;
 }
 
@@ -137,7 +137,7 @@ main {
     width: 100%;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
-    border: 5px solid white;
+    border: 5px solid #ffffff;
 }
 
 /* Cake info modal button */
@@ -173,8 +173,8 @@ main {
 }
 
 .counter-full {
-    box-shadow: 0 0 50px -1px #f3eeab;
-    background-color: rgb(252, 252, 252);
+    box-shadow: 0 0 50px -1px #edeac4;
+    background-color: #ffffff;
     font-weight: 500;
 }
 
@@ -209,7 +209,7 @@ main {
 }
 
 .pantry-item-active {
-    background-color: white;
+    background-color: #ffffff;
     color: #632424;
 }
 
@@ -226,8 +226,8 @@ main {
 }
 
 .item-correct {
-    background-color: rgb(36, 112, 36);
-    color: white;
+    background-color: #247024;
+    color: #ffffff;
 }
 
 .item-incorrect {
@@ -255,7 +255,7 @@ main {
 }
 
 .controls {
-    background-color: white;
+    background-color: #ffffff;
     text-align: center;
     padding: 10px;
     margin: 7px 0;
@@ -276,7 +276,7 @@ main {
 #finish-button {
     order: -1;
     background-color: #64564F;
-    color: white;
+    color: #ffffff;
     background: linear-gradient(145deg, #6b5c55, #5a4d47);
     box-shadow: 7px 7px 18px #bbbbb3,
         -7px -7px 14px #f9f9ef;
@@ -284,7 +284,7 @@ main {
 
 #quit-button {
     background-color: #9E2F2F;
-    color: white;
+    color: #ffffff;
     background: linear-gradient(145deg, #a93232, #8e2a2a);
     box-shadow: 7px 7px 18px #bbbbb3,
         -7px -7px 14px #f9f9ef;
@@ -363,7 +363,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 
 /* The Close Button */
 .modal-close-x {
-    color: #aaa;
+    color: #632424;
     float: right;
     font-size: 1rem;
     font-weight: bold;
@@ -398,7 +398,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     margin: 0 auto 20px auto;
     background-color: #247024;
     background: linear-gradient(145deg, #277827, #206520);
-    color: white;
+    color: #ffffff;
     padding: 10px 15px;
     box-shadow: 7px 7px 18px #bbbbb3,
         -7px -7px 14px #f9f9ef;
@@ -447,7 +447,7 @@ footer {
 
 .footer-wrapper {
     width: 100%;
-    color: white;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -464,7 +464,7 @@ footer {
 }
 
 .social-media-links i {
-    color: white;
+    color: #ffffff;
     font-size: 2rem;
     margin: 0 10px;
 }
@@ -727,7 +727,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         box-shadow: 7px 7px 18px #bbbbb3,
             -7px -7px 14px #f9f9ef;
         background-color: #64564F;
-        color: white;
+        color: #ffffff;
     }
 
     /* Controls area */
