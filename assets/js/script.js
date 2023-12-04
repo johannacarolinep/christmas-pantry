@@ -56,16 +56,21 @@ function initializeGame() {
         false
     );
 
-    /* Quit modal - when confirmQuitButton in confirm quit modal is clicked,
-    or when finishButton is clicked, calls function quitGame */
+    // Quit modal
+    const quitModal = document.getElementById("quit-modal");
+    const startGameButton = document.getElementById("restart-game-button");
+
+    // when confirmQuitButton is clicked, calls quitGame to display quit modal
     confirmQuitButton.addEventListener("click", function () {
         confirmQuitModal.style.display = "none"; //closes confirm quit modal
-        quitGame();
+        quitGame(quitModal, startGameButton);
     });
 
+    // when finishButton is clicked, calls quitGame to display quit modal
     const finishButton = document.getElementById("finish-button");
     finishButton.addEventListener("click", quitGame);
 
+    // calls nextSubmit when next/submit-button is clicked
     const nextSubmitButton = document.getElementById("next-submit-button");
     nextSubmitButton.addEventListener("click", nextSubmit);
 
@@ -491,10 +496,7 @@ function scrollTop() {
  * Displays the quit modal and updates its content to show the final score.
  * Calls function to restart game if user clicks the restart game button.
  */
-function quitGame() {
-    let quitModal = document.getElementById("quit-modal");
-    let startGameButton = document.getElementById("restart-game-button");
-
+function quitGame(quitModal, startGameButton) {
     quitModal.style.display = "block"; //opens modal
     document.getElementById("final-score-display").innerHTML =
         `Final score: ${score}`;
