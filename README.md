@@ -89,6 +89,13 @@ The site can be accessed by this [link](https://johannacarolinep.github.io/chris
 
 ### Typography
 
+- Poppins Google Font was used as the main font throughout the website. The font was chosen for its high readability.
+
+![Poppins font](documentation/poppins-font.png)
+
+- Playpen Sans Google Font was used for the logo, headings, and buttons (including elements styled as buttons), to give the website a more playful, fun and personal look.
+![Playpen Sans font](documentation/playpen-sans-font.png)
+
 ### Wireframes
 
 ## Testing
