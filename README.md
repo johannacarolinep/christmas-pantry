@@ -330,6 +330,20 @@ Once on your local computer, you can open the index.html with a web browser.
 ## Credits
 
 ### Code
+#### Code for randomizing order of items in an array
+I used [this code](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array) referred to as the Fisher-Yates Shuffle, in my function ```shuffle()```. Credit: User [coolaj86](https://stackoverflow.com/users/151312/coolaj86) on [Stack Overflow](https://stackoverflow.com/).
+
+#### Code for scrolling to the top of the page
+For my ```scrollTop()``` function in, I copied the last part of the code example on this W3 Schools page: [How TO - Scroll Back To Top Button](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp).
+
+#### Modals
+I used the code on W3Schools' page [How TO - CSS/JS Modal](https://www.w3schools.com/howto/howto_css_modals.asp) as the basis for all of my modals in this project.
+
+#### Box shadows
+I used numerous box shadows on the website. In order to create these efficiently, I used a combination of two different tools:
+- [Neumorphism.io](https://neumorphism.io/#e0e0e0)
+- [UnusedCSS CSS Box Shadow Generator](https://unused-css.com/tools/box-shadow-generator)
+ 
 
 ### Media
 #### Images
