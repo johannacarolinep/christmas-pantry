@@ -22,7 +22,7 @@ body {
     background-color: #63513c;
     width: 100%;
     font-family: 'Poppins', sans-serif;
-    background-image: url(../images/wallpaper-gold.webp);
+    background-image: url("../images/wallpaper-gold.webp");
     background-size: cover;
 }
 
@@ -43,7 +43,7 @@ header {
     background-color: #f7f8f3;
     width: 100%;
     min-height: 115px;
-    background-image: url(../images/snowflakes.webp);
+    background-image: url("../images/snowflakes.webp");
     background-size: cover;
     border-bottom: 10px solid #ffffff;
     box-shadow: 0 0 7px -1px #edeac4;
@@ -325,7 +325,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     height: 100%;
     overflow: auto;
     background-color: #f7f8f3f1;
-    background-image: url(../images/wallpaper-gold.webp);
+    background-image: url("../images/wallpaper-gold.webp");
     background-size: cover;
 }
 
