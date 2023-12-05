@@ -49,63 +49,192 @@ The site can be accessed by this [link](https://johannacarolinep.github.io/chris
 
 ![Welcome modal](documentation/feat-welcome-modal.png)
 
+The Welcome modal displays when the page has loaded, and the information inside the card is the first content meeting a visitor to the site. 
+
+It contains:
+- A heading welcoming the user and clarifying the purpose of the website.
+- A short introduction to the game, and some brief instructions for how to play and how to navigate the website.
+- A button ("Get started!"), which closes the modal, effectively starting the game.
+
 ### The main page
 
 ![The full page](documentation/feat-full-page.png)
 
-#### Header
+Closing the welcome modal, the user will see the main page, consisting of 4 main areas:
+
+1. The header.
+2. The question area.
+3. The pantry area.
+4. The footer.
+
+### Header
 
 ![Header](documentation/feat-header.png)
 
-##### Instructions modal
+The header is split into two rows. The first row contains a heading, the name of the game. The second row, the "stats area" has 3 components:
+
+- The level: helps the user understand their progression through the game.
+
+- The score: helps the user understand their performance in the game. The default value is 0. As the user moves through the game, the score will update when the user submits their selection, and be displayed as "points / possible points". After the first submission, the score would display "user points / 2", since the recipe on the first level contained 2 ingredients, and the max number of points was therefore 2. 
+
+- A clickable icon: triggers the "Instructions modal" to display.
+
+The position of the "stats area" in the header allows the user to easily access these three components at any time without the need to scroll. 
+
+#### Instructions modal
 
 ![Instructions modal](documentation/feat-instructions-modal.png)
 
-#### Question area
+The instructions modal is displayed when the user clicks on the icon in the header's "stats area".
+
+It contains the game rules and instructions for how to play. To help the user stay "connected" to the game, the background for this modal is transparent. 
+
+The user can close the modal by clicking on the "X" in the upper right corner, or by clicking anywhere in the window, outside of the modal's content card.
+
+### Question area
 
 ![Question area](documentation/feat-question-area.png)
 
-##### Cake info modal
+This area makes up the question of the level. It contains:
+
+- The name of the cake
+- The origin of the cake (inside brackets, next to the name)
+- The question. For each level, the task is the same, to pick out the cake's ingredients. To keep the user's interest, there are variations in how the question is worded.
+- The number of ingredients the recipe contains, helping to set expectations.
+- An image of the cake, providing a visual clue.
+- A clickable icon to open the "cake-info-modal" (holding more information about the cake).
+
+#### Cake info modal
 
 ![Cake info modal](documentation/feat-cake-info-modal.png)
 
-#### Pantry area
+The cake info modal opens when the user clicks the icon in the question area.
+
+It contains a heading and a short text with more information about the cake at the current level. This text aims to entertain the player with interesting details about the cake in question. It can also act as a way to jog the user's memory about the cake, or in certain cases contain other hints about the recipe.
+
+This modal has a transparent background. The user can close the modal by clicking on the "X" in the upper right corner or anywhere in the window outside of the modal's content card.
+
+### Pantry area
 
 ![Pantry area](documentation/feat-pantry-area.png)
 
-##### Pantry
+The pantry area, clearly marked with its heading "The Pantry" contains four main components:
+
+- The pantry (the ingredients the user can pick from).
+- The selection counter.
+- The "controls area".
+- The "results area" (visible when the selection has been submitted).
+
+#### Pantry
 
 ![Pantry items](documentation/feat-pantry.png)
 
+The pantry consists of a collection of clickable div elements, representing different ingredients. With the current setup, there are 12 ingredients for the user to choose from. In theory, this could change if more cake recipes were added to the JSON file since this is used to build the pantry.
+
+The pantry is created for the first level and then remains the same throughout the game. This means the order of the ingredients stays the same for the length of the game, helping the player to get acquainted with their options. 
+
+On devices with hover, the pantry ingredients will react when hovered.
+
+
+##### Pantry selection
+
 ![Pantry items select](documentation/feat-pantry-selection.png)
+
+The player can click on any of the ingredients to select it. The ingredient will then change colour, indicating to the user that it has been selected. 
+
+Clicking on an already selected ingredient will de-select it, and the colour will turn back.
+
+##### Full pantry selection
 
 ![Pantry selection full](documentation/feat-pantry-selection-full.png)
 
+For each level, the user can only select as many ingredients as the recipe contains. 
+
+If the maximum amount of ingredients has been selected, the remaining ingredients will be "deactivated". They are styled as if faded out and are no longer clickable.
+
+If the user de-selects an ingredient, the maximum is no longer reached, and the remaining ingredients are re-activated.
+
+##### Pantry feedback after submission
+
 ![Pantry user feedback](documentation/feat-pantry-feedback.png)
 
-##### Selection counter
+After submission, the pantry will provide the player with some instant feedback. The ingredients the player got right will turn green, and get a checkmark icon. Incorrect ingredients turn red and get an "x" icon. Ingredients that should have been in the cake, but were not selected, will turn yellow and get a "dash" icon. 
+
+None of the ingredients are clickable at this stage.
+
+#### Selection counter
 
 ![Selection counter](documentation/feat-selection-counter.png)
-![Selection counter](documentation/feat-selection-counter-full.png)
+![Selection counter full](documentation/feat-selection-counter-full.png)
 
-##### Controls area
+In the upper right corner of the pantry area is the selection counter. This feature helps the user keep track of their selection and clarifies to the user when the maximum number of ingredients have been picked.
+
+When full, the selection counter will be highlighted by turning lighter and getting a soft box-shadow. 
+
+#### Controls area
+
 ![Controls area](documentation/feat-controls.png)
 
 ![Controls area with "Next" button](documentation/feat-controls-next.png)
 
+Below the pantry is the controls area, which holds the controls for the flow of the game:
+
+- The "Next/Submit" button: Its text will alternate between "Submit" and "Next".
+    - When its text is "Submit", it submits the player's selection. The score gets updated, and feedback is displayed, in the pantry and the results area. 
+    - When its text is "Next", it moves the game to the next level and resets the pantry.
+
+- "Quit": Will open a modal to confirm the player's intention to quit the game.
+
+The "Next/Submit" button and the "Quit" button will be hidden after submission on the final level.
+
 ![Controls area with "Finish" button](documentation/feat-controls-finish.png)
 
-##### Results area
+- "Finish": Displays after submission on the final level. Will open the quit modal, without the need to confirm with the user.
+
+#### Results area
 
 ![Results area](documentation/feat-result.png)
+
+The results area appears underneath the controls, after submission on each level. 
+
+It consists of a short text, providing additional feedback to the player, in written form. 
+
+Its default is to show how many ingredients the player got correct, incorrect, and missed. 
+
 ![Results area congrats](documentation/feat-results-congrats.png)
+
+If the player got all of the ingredients right, it adds a message to congratulate them.
+
 ![Results area sorry](documentation/feat-results-sorry.png)
 
-### Confirm quit modal
+If the player got all of the ingredients wrong, it adds a message to encourage the player.
+
+#### Confirm quit modal
 ![Confirm quit modal](documentation/feat-confirm-quit-modal.png)
+The confirm quit modal displays when the user clicks on the "Quit" button in the controls area.
+
+It contains a simple question, asking the user to confirm if they want to quit the game. The user has two options, in the form of buttons:
+- "Cancel", which will close the modal, and let the user return to the game. 
+- "Confirm", which will close the modal, and instead open the "quit modal", effectively quitting the game for the user.
+
+The player can also close the modal by clicking anywhere in the window, outside of the modal's content card.
+
 
 ### Quit modal
 ![Quit modal](documentation/feat-quit-modal.png)
+The quit modal opens when the player either clicks on "Confirm" in the "confirm quit" modal, or when the player clicks "Finish" in the "controls area" at the end of the game. 
+
+This modal has a background that covers the main page, indicating to the user that they have now "moved away" from the game (in comparison to other modals with a transparent background).
+
+The modal's content card: 
+- has a heading that confirms to the player that the game is over.
+- displays the player's final score, on the first row as their total amount of points, and on the second row in the context of the possible points they could have achieved.
+- offers the player an option to restart the game.
+
+### Footer
+![Footer](documentation/feat-footer.png)
+
+Finally, at the bottom of the main page is the footer, which holds contact information in the form of clickable icons linking to the creator's social media pages.
 
 ## Flowchart
 
