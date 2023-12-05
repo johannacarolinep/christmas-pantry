@@ -37,8 +37,8 @@
                 <div id="score-area">
                     Score: 0
                 </div>
-                <div id="instructions-btn">
-                    <i class="fa-solid fa-circle-question"></i>
+                <div id="instructions-btn" aria-label="Click here to display rules and instructions">
+                    <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
@@ -52,8 +52,8 @@
                         <h2 id="cake-name">Cake name</h2>
                         <p id="cake-country">Origin</p>
                     </div>
-                    <div id="cake-info-btn">
-                        <i class="fa-solid fa-circle-info"></i>
+                    <div id="cake-info-btn" aria-label="Click here to display more info about the cake">
+                        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
                     </div>
                 </div>
                 <p id="cake-question">Which ingredients are used to make this cake?</p>
@@ -73,11 +73,11 @@
             <div id="pantry-area"></div>
             <!-- Controls -->
             <div class="controls-area">
-                <div id="quit-button" class="controls">Quit</div>
-                <div id="next-submit-button" class="controls">Submit</div>
-                <div id="finish-button" class="controls" hidden aria-hidden>
+                <button id="quit-button" class="controls">Quit</button>
+                <button id="next-submit-button" class="controls">Submit</button>
+                <button id="finish-button" class="controls" hidden aria-hidden>
                     Finish
-                </div>
+                </button>
             </div>
             <!-- Results area -->
             <div id="results-area" class="results-area"></div>
@@ -108,7 +108,10 @@
         <!-- Instructions modal -->
         <aside id="instructions-modal" class="modal-background">
             <div class="modal-content-card border-red">
-                <span id="instructions-modal-close" class="modal-close-x">X</span>
+                <span id="instructions-modal-close" class="modal-close-x"
+                    aria-label="Close instructions and get back to main page">
+                    X
+                </span>
                 <h3 class="instructions-modal-heading">Game rules:</h3>
                 <p>Right ingredients are worth 1 point each</p>
                 <p>Wrong ones deduct 1 point</p>
@@ -129,7 +132,10 @@
         <!-- Cake info modal -->
         <aside id="cake-modal" class="modal-background">
             <div class="modal-content-card border-green">
-                <span id="cake-modal-close" class="modal-close-x">X</span>
+                <span id="cake-modal-close" class="modal-close-x"
+                    aria-label="Close extra info and get back to main page">
+                    X
+                </span>
                 <h3 id="cake-modal-heading">Information</h3>
                 <p id="cake-description"></p>
             </div>
