@@ -54,6 +54,7 @@ h1 {
     width: fit-content;
     margin: 7px auto;
     padding: 7px 15px;
+    min-height: 52.5px;
 }
 
 .stats-area {
@@ -64,6 +65,7 @@ h1 {
     flex-basis: 33%;
     font-weight: 600;
     text-transform: uppercase;
+    min-height: 25.5px;
 }
 
 #level-area {
@@ -97,8 +99,7 @@ main {
     flex-direction: column;
     box-shadow: 0 0 50px -1px #edeac4;
     border: 10px solid white;
-    min-height: 391px;
-    max-height: 523px;
+    min-height: 439px;
 }
 
 #question-text-content {
@@ -394,6 +395,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 .welcome-modal-heading {
     text-align: center;
     font-size: 1.3rem;
+    min-height: 94.5px;
 }
 
 .welcome-modal-button,
@@ -471,6 +473,34 @@ footer {
     color: #ffffff;
     font-size: 2rem;
     margin: 0 10px;
+}
+
+/* Media query for medium sized mobile screens, screen size >= 375px */
+@media screen and (min-width: 375px) {
+
+    /* Question section */
+    #question-area {
+        min-height: 439px;
+    }
+
+    /* Welcome modal and Quit modal */
+    .welcome-modal-heading {
+        min-height: 63px;
+    }
+}
+
+/* Media query for large sized mobile screens, screen size >= 425px */
+@media screen and (min-width: 425px) {
+
+    /* Question section */
+    #question-area {
+        min-height: 391px;
+    }
+
+    /* Welcome modal and Quit modal */
+    .welcome-modal-heading {
+        min-height: 31.5px;
+    }
 }
 
 /* Media query for tablets, screen size >= 768px */
