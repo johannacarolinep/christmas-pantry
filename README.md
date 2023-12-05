@@ -334,6 +334,27 @@ Once on your local computer, you can open the index.html with a web browser.
 ### Media
 #### Images
 
+The below image was taken from [Pixabay](https://pixabay.com/)
+- [Header background image](https://pixabay.com/illustrations/christmas-bauble-christmas-1079926/) (snowflakes.webp)
+
+Images generated using [Adobe Firefly](https://www.adobe.com/products/firefly.html)
+- Cake: Fudge (fudge.webp)
+- Cake: Knäck (knack.webp)
+- Cake: Candied almonds (candied-almonds.webp)
+- Background, in modals and on the main page (wallpaper-gold.webp)
+
+Images generated using [Canva Magic Media](https://www.canva.com/your-apps/generate_image/magic-media)
+- Cake: Pavlova (pavlova.webp)
+- Cake: Rocky Road (rockyroad.webp)
+- Cake: Gingerbread cookies (gingerbread.webp)
+
+Image created with [Adobe Illustrator](https://www.adobe.com/products/illustrator.html)
+- The default image, which was also used in the favicon (default.webp).
+
+
+#### Favicon
+The favicon was created using [Favicon.io Favicon Generator](https://favicon.io/favicon-generator/).
+
 #### Icons
 All icons were taken from [Font Awesome](https://fontawesome.com/icons).
 
