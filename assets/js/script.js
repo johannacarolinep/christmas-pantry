@@ -68,7 +68,9 @@ function initializeGame() {
 
     // when finishButton is clicked, calls quitGame to display quit modal
     const finishButton = document.getElementById("finish-button");
-    finishButton.addEventListener("click", quitGame);
+    finishButton.addEventListener("click", function () {
+        quitGame(quitModal, startGameButton);
+    });
 
     // calls nextSubmit when next/submit-button is clicked
     const nextSubmitButton = document.getElementById("next-submit-button");
@@ -497,6 +499,7 @@ function scrollTop() {
  * Calls function to restart game if user clicks the restart game button.
  */
 function quitGame(quitModal, startGameButton) {
+    console.log("quitModal", quitModal)
     quitModal.style.display = "block"; //opens modal
     modalDisableScroll(true);
     document.getElementById("final-score-display").innerHTML =
