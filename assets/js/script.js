@@ -206,6 +206,7 @@ function pantryItemSelect(event) {
         ) {
             // Add item to selection and update the counter
             clickedItem.classList.add("pantry-item-selected");
+            clickedItem.ariaLabel = `${clickedItem.innerHTML}. You have selected this item`;
             userSelected.push(clickedItem.innerHTML);
             updateSelectionCounter();
             // check if counter is now full
@@ -216,6 +217,7 @@ function pantryItemSelect(event) {
             //if already selected, remove it from the selection
         } else if (clickedItem.classList.contains("pantry-item-selected")) {
             clickedItem.classList.remove("pantry-item-selected");
+            clickedItem.removeAttribute("aria-label");
             userSelected =
                 userSelected.filter(item => item !== clickedItem.innerHTML);
             updateSelectionCounter();
@@ -234,6 +236,7 @@ function removeActive() {
     pantryArray.forEach(function (element) {
         if (!element.classList.contains("pantry-item-selected")) {
             element.classList.remove("pantry-item-active");
+            element.setAttribute("aria-hidden", "true");
         }
     });
 }
@@ -250,6 +253,7 @@ function addActive() {
             !element.classList.contains("pantry-item-active")
         ) {
             element.classList.add("pantry-item-active");
+            element.removeAttribute("aria-hidden");
         }
     });
 }
@@ -325,12 +329,16 @@ function displayPantryFeedback(userCorrect, userIncorrect, userMissed) {
 
         if (userCorrect.includes(element.innerHTML)) {
             element.classList.add("item-correct");
+            element.ariaLabel = `${element.innerHTML} is correct`;
             feedbackIcon.className = "fa-solid fa-circle-check";
         } else if (userIncorrect.includes(element.innerHTML)) {
             element.classList.add("item-incorrect");
+            element.ariaLabel = `${element.innerHTML} is incorrect`;
             feedbackIcon.className = "fa-solid fa-circle-xmark";
         } else if (userMissed.includes(element.innerHTML)) {
             element.classList.add("item-missed");
+            element.ariaLabel = `You missed ${element.innerHTML}.`;
+            element.removeAttribute("aria-hidden");
             feedbackIcon.className = "fa-solid fa-minus";
         }
 
@@ -373,6 +381,8 @@ function resetPantry() {
         element.classList.remove("item-correct");
         element.classList.remove("item-incorrect");
         element.classList.remove("item-missed");
+        element.removeAttribute("aria-label");
+        element.removeAttribute("aria-hidden");
         if (element.querySelector("i")) {
             element.querySelector("i").remove();
         }
