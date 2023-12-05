@@ -498,6 +498,7 @@ function scrollTop() {
  */
 function quitGame(quitModal, startGameButton) {
     quitModal.style.display = "block"; //opens modal
+    modalDisableScroll(true);
     document.getElementById("final-score-display").innerHTML =
         `Final score: ${score}`;
     document.getElementById("score-context").innerHTML =
@@ -506,6 +507,7 @@ function quitGame(quitModal, startGameButton) {
     // Closes the modal and calls functon to restart game
     startGameButton.addEventListener("click", function () {
         quitModal.style.display = "none";
+        modalDisableScroll(false);
         restartGame();
     });
 }
@@ -568,18 +570,21 @@ function displayModal(
     // if true, modal displayed by default
     if (defaultOpen) {
         modalParam.style.display = "block";
+        modalDisableScroll(true);
     }
 
     // if there is an openModalBtn, modal displayed when clicking
     if (openModalBtn) {
         openModalBtn.onclick = function () {
             modalParam.style.display = "block"; //opens modal
+            modalDisableScroll(true);
         };
     }
 
     // modal hidden when clicking the closeModalBtn
     closeModalBtn.onclick = function () {
         modalParam.style.display = "none"; //closes modal
+        modalDisableScroll(false);
     };
 
     // if fullScreen is false, hides when clicking outside the modal content
@@ -587,7 +592,23 @@ function displayModal(
         window.onclick = function (event) {
             if (event.target == modalParam) {
                 modalParam.style.display = "none"; //closes modal
+                modalDisableScroll(false);
             }
         };
+    }
+}
+
+/**
+ * Takes a boolean parameter indicating if scroll should be enabled or disabled.
+ * Attaches or removes a class to the body element to hide overflow.
+ * @param {Boolean} disableScroll 
+ */
+function modalDisableScroll(disableScroll) {
+    const body = document.getElementsByTagName("body");
+
+    if (disableScroll) {
+        body[0].className = "modal-open";
+    } else {
+        body[0].className = "";
     }
 }
