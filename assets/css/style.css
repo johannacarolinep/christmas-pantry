@@ -80,6 +80,8 @@ h1 {
 
 #instructions-btn i {
     font-size: 1.4rem;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 /* Main */
@@ -147,10 +149,12 @@ main {
 }
 
 /* Cake info modal button */
-#cake-info-btn {
+#cake-info-btn i {
     font-size: 1.7rem;
+    border-radius: 50%;
     margin-left: 30px;
     display: flex;
+    cursor: pointer;
 }
 
 /* Pantry area */
@@ -570,7 +574,7 @@ footer {
         align-self: center;
     }
 
-    #cake-info-btn {
+    #cake-info-btn i {
         font-size: 2rem;
     }
 
@@ -742,7 +746,7 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
         height: 200px;
     }
 
-    #cake-info-btn {
+    #cake-info-btn i {
         font-size: 3rem;
     }
 
@@ -826,6 +830,13 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 /* Device that can hover (desktops) */
 /* Credit: https://www.smashingmagazine.com/2022/03/guide-hover-pointer-media-queries/ */
 @media (hover: hover) {
+
+    /* Open modal buttons hover */
+    #instructions-btn i:hover,
+    #cake-info-btn i:hover {
+        box-shadow: 7px 7px 10px #acaca4,
+            -7px -7px 10px #f9f9ef;
+    }
 
     /* Pantry item hover */
     .pantry-item-active:hover {
