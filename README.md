@@ -316,6 +316,16 @@ If you wish to run the website locally you can clone it by typing the following 
 Once on your local computer, you can open the index.html with a web browser.
 
 ## Future improvements
+- Add a new feature that keeps track of the player's highest score across multiple games, incentivizing the player to do better than their best score. 
+
+- Redesign the pantry so that it allows for a good game experience if more advanced levels/recipes are added (meaning a greater number of options). Technically, more levels can be added by adding more objects (cakes) to the JSON file, but with the current layout, when the pantry ingredients become too numerous, it makes for a bad game experience, especially on smaller screen sizes.
+
+- Create a leaderboard, where users can save their score using a username, possibly leveraging local storage. 
+
+- Track when the level and current score change using local storage, and use this to preserve the session if the page is refreshed.
+
+- Reuse the code to add more versions of the game. Add a main menu page from which the player would access the different versions of the game, and the option to reach the menu page from the quit modal in each game.
+
 
 ## Credits
 

@@ -603,6 +603,7 @@ function displayModal(
     // if fullScreen is false, hides when clicking outside the modal content
     if (!fullScreen) {
         window.onclick = function (event) {
+
             if (event.target == modalParam) {
                 modalParam.style.display = "none"; //closes modal
                 modalDisableScroll(false);

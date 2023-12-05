@@ -32,6 +32,14 @@ The following screenshots were generated with the Responsive Viewer extension:
 ## Manual testing
 
 ## Lighthouse report
+The website was tested with Lighthouse to ensure high performance and accessibility.
+
+### Results on mobile:
+
+![Lighthouse results - Mobile](documentation/lighthouse-mobile.png)
+
+### Results on desktop:
+![Lighthouse results - Desktop](documentation/lighthouse-desktop.png)
 
 ## Code validation
 ### HTML
