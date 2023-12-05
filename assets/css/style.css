@@ -104,6 +104,7 @@ main {
 
 #question-text-content {
     width: 100%;
+    min-height: 237px;
 }
 
 #question-text-content>p {
@@ -483,6 +484,10 @@ footer {
         min-height: 439px;
     }
 
+    #question-text-content {
+        min-height: 177px;
+    }
+
     /* Welcome modal and Quit modal */
     .welcome-modal-heading {
         min-height: 63px;
@@ -495,6 +500,10 @@ footer {
     /* Question section */
     #question-area {
         min-height: 391px;
+    }
+
+    #question-text-content {
+        min-height: 129px;
     }
 
     /* Welcome modal and Quit modal */
