@@ -21,6 +21,13 @@ To ensure cross-browser compatibility, the website was reviewed on Chrome, Safar
 ![Firefox screenshot](documentation/compatibility-firefox-ss.png)
 
 ## Responsiveness
+The responsiveness was checked across numerous device sizes, with Google dev tools and with the Responsive Viewer extension.
+
+The following screenshots were generated with the Responsive Viewer extension:
+
+- [Welcome modal](documentation/responsive-welcome-modal.pdf)
+- [The main page](documentation/responsive-main-page.pdf)
+- [Various modals](documentation/responsive-modals.pdf)
 
 ## Manual testing
 
