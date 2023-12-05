@@ -237,9 +237,10 @@ The modal's content card:
 Finally, at the bottom of the main page is the footer, which holds contact information in the form of clickable icons linking to the creator's social media pages.
 
 ## Flowchart
+![Flowchart](documentation/christmas-pantry-flowchart.png)
 
 ## Technologies and tools used, split by primary usage area
-## Technologies and tools used, split by primary usage area
+
 ### Planning
 - [Balsamiq](https://balsamiq.com/) was used to make wireframes for the website.
 - [Draw.io](https://app.diagrams.net/) was used to make a flowchart for the game.
