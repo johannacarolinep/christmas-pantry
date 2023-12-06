@@ -69,8 +69,33 @@ The website was tested with Lighthouse to ensure high performance and accessibil
 
 ## Code validation
 ### HTML
+The website's HTML was validated with the official [W3C HTML Markup Validator](https://validator.w3.org/), with no errors found:
+
+![HTML validation](documentation/validation-html.png)
+
 ### CSS
+The website's CSS was validated with the official [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/). The validation shows no errors, but 9 warnings:
+
+![CSS validation](documentation/validation-css.png)
+
+All 9 warnings relate to prefixes used with the user-select property being vendor extensions:
+
+![CSS validation warnings](documentation/validation-css-warnings.png)
+
+The user-select property was used on the website to prevent users from being able to select the text inside of eg the pantry ingredient div elements, which would decrease the user experience.
+
+According to the website [caniuse.com](https://caniuse.com/?search=user-select), browser support for this functionality increases significantly by using these prefixes (from 76.99% of users without the prefixes to 97.07% with the prefixes). For this reason, I have decided to use them for now.
+
 ### Javascript
+The website's javascript was validated using [JSHint](https://jshint.com/), with no warnings:
+
+![JSHint validation](documentation/validation-jshint.png)
+
+### JSON
+I found a validator, [JSONLint](https://jsonlint.com/), which was used to confirm my JSON is valid.
+
+![JSON validation](documentation/validation-jsonlint.png)
+
 
 ## Bugs
 ### Solved bugs
