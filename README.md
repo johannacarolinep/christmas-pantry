@@ -313,6 +313,9 @@ The website uses a variation of shadows and gradients, for which numerous additi
 ![Playpen Sans font](documentation/playpen-sans-font.png)
 
 ### Wireframes
+- [Mobile](documentation/wireframes-mobile.pdf)
+- [Tablet](documentation/wireframes-tablet.pdf)
+- [Desktop](documentation/wireframes-desktop.pdf)
 
 ## Testing
 
