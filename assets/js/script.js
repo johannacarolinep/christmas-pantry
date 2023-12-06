@@ -29,7 +29,7 @@ function initializeGame() {
     const cakeCloseModalBtn = document.getElementById("cake-modal-close");
     cakeOpenModalBtn.addEventListener("click", function () {
         displayModal(cakeModal, cakeCloseModalBtn, false);
-    })
+    });
 
     // Instructions modal
     const instructionsModal = document.getElementById("instructions-modal");
@@ -38,7 +38,7 @@ function initializeGame() {
         document.getElementById("instructions-modal-close");
     instructionsOpenBtn.addEventListener("click", function () {
         displayModal(instructionsModal, instructionsCloseBtn, false);
-    })
+    });
 
     // Confirm quit modal
     const confirmQuitModal = document.getElementById("confirm-quit-modal");
@@ -48,7 +48,7 @@ function initializeGame() {
     const confirmQuitButton = document.getElementById("confirm-quit");
     confirmQuitOpenBtn.addEventListener("click", function () {
         displayModal(confirmQuitModal, confirmQuitCancel, false);
-    })
+    });
 
     // Quit modal
     const quitModal = document.getElementById("quit-modal");
@@ -503,7 +503,6 @@ function scrollTop() {
  * Calls function to restart game if user clicks the restart game button.
  */
 function quitGame(quitModal, startGameButton) {
-    console.log("quitModal", quitModal)
     quitModal.style.display = "block"; //opens modal
     modalDisableScroll(true);
     document.getElementById("final-score-display").innerHTML =
