@@ -221,7 +221,7 @@ main {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    /* referance for prefixes: https://caniuse.com/?search=-ms-user-select */
+    /* reference for prefixes: https://caniuse.com/?search=user-select */
     -ms-user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -291,7 +291,9 @@ main {
 
 .controls-area div {
     cursor: pointer;
+    /* reference for prefixes: https://caniuse.com/?search=user-select */
     -ms-user-select: none;
+    -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
 }
@@ -396,8 +398,10 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
     border: 1px solid #632424;
     padding: 0 7px;
     cursor: pointer;
+    /* reference for prefixes: https://caniuse.com/?search=user-select */
     -ms-user-select: none;
     -webkit-user-select: none;
+    -moz-user-select: none;
     user-select: none;
 }
 
