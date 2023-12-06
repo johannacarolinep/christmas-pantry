@@ -339,6 +339,8 @@ Once on your local computer, you can open the index.html with a web browser.
 ## Future improvements
 - Add a new feature that keeps track of the player's highest score across multiple games, incentivizing the player to do better than their best score. 
 
+- Improve the accessibility of the game. Accessibility has been taken into consideration to some extent (factors such as colour contrast, not overly relying on colours to convey meaning, making sure the layout can handle it reasonably well when font size is enlarged through browser settings, and the use of aria-labels). However, there are still improvements needed, especially for the pantry selection and for the modals, to make this game accessible for users on screenreaders as well as users who cannot use a mouse.
+
 - Redesign the pantry so that it allows for a good game experience if more advanced levels/recipes are added (meaning a greater number of options). Technically, more levels can be added by adding more objects (cakes) to the JSON file, but with the current layout, when the pantry ingredients become too numerous, it makes for a bad game experience, especially on smaller screen sizes.
 
 - Create a leaderboard, where users can save their score using a username, possibly leveraging local storage. 
