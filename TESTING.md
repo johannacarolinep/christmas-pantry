@@ -46,7 +46,7 @@ The following screenshots were generated with the Responsive Viewer extension:
 | Pantry | Ingredient | Click on deactivated ingredient (selection full) | Should not react | Yes | Yes | - |
 | Pantry | Ingredient | Click on any ingredient after submitting | Should not react | Yes | Yes | - |
 | Controls | "Submit" button | Click on "Submit" | Trigger user feedback (pantry feedback, results area, score update). Button changes to "Next". | Yes | Yes | *Triggers feedback regardless of selection, since selection is optional. |
-| Controls | "Submit" button on final level | Trigger feedback and score updates + Hide "Submit button" and "Quit" button. Display "Finish" button | Yes | Yes |
+| Controls | "Submit" button on final level | Click on "Submit" | Trigger feedback and score updates + Hide "Submit button" and "Quit" button. Display "Finish" button | Yes | Yes | - |
 | Controls | "Next" button | Click on "Next" | Should move to next level, load in next question, activate all pantry items, hide results area. Button changes to "Submit" | Yes | Yes | - |
 | Controls | "Quit" button | Click on "Quit" while in selection stage | Opens "Confirm quit" modal | Yes | Yes | - |
 | Controls | "Quit" button | Click on "Quit" while in feedback/submitted stage | Opens "Confirm quit" modal | Yes | Yes | - |
