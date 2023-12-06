@@ -399,7 +399,9 @@ All icons were taken from [Font Awesome](https://fontawesome.com/icons).
 Fonts were imported from [Google Fonts](https://fonts.google.com/).
 
 ## Acknowledgements
+- I want to acknowledge my Code Institute mentor, [Iuliia Konovalova](https://github.com/IuliiaKonovalova), who always makes the most of our mentor sessions and shows up armed to the teeth with useful feedback and advice. 
 
+- [Alexandru Sulea](https://github.com/Alexandru-S) - who has brought me countless cups of tea and encouraging words on late nights in the last few weeks.
 
 ---
 
