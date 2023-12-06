@@ -221,7 +221,9 @@ main {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    /* referance for prefixes: https://caniuse.com/?search=-ms-user-select */
     -ms-user-select: none;
+    -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
     border-radius: 5px;
