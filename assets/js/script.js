@@ -34,10 +34,10 @@ function initializeGame() {
     // Instructions modal
     const instructionsModal = document.getElementById("instructions-modal");
     const instructionsOpenBtn = document.getElementById("instructions-btn");
-    const instructionscloseBtn =
+    const instructionsCloseBtn =
         document.getElementById("instructions-modal-close");
     instructionsOpenBtn.addEventListener("click", function () {
-        displayModal(instructionsModal, instructionscloseBtn, false);
+        displayModal(instructionsModal, instructionsCloseBtn, false);
     })
 
     // Confirm quit modal
