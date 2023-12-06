@@ -21,26 +21,24 @@ function initializeGame() {
     // Welcome modal
     const welcomeModal = document.getElementById("welcome-modal");
     const welcomeCloseBtn = document.getElementById("welcome-modal-close");
-    displayModal(welcomeModal, undefined, welcomeCloseBtn, true, true);
+    displayModal(welcomeModal, welcomeCloseBtn, true);
 
     // Cake modal
     const cakeModal = document.getElementById("cake-modal");
     const cakeOpenModalBtn = document.getElementById("cake-info-btn");
     const cakeCloseModalBtn = document.getElementById("cake-modal-close");
-    displayModal(cakeModal, cakeOpenModalBtn, cakeCloseModalBtn, false, false);
+    cakeOpenModalBtn.addEventListener("click", function () {
+        displayModal(cakeModal, cakeCloseModalBtn, false);
+    })
 
     // Instructions modal
     const instructionsModal = document.getElementById("instructions-modal");
     const instructionsOpenBtn = document.getElementById("instructions-btn");
     const instructionscloseBtn =
         document.getElementById("instructions-modal-close");
-    displayModal(
-        instructionsModal,
-        instructionsOpenBtn,
-        instructionscloseBtn,
-        false,
-        false
-    );
+    instructionsOpenBtn.addEventListener("click", function () {
+        displayModal(instructionsModal, instructionscloseBtn, false);
+    })
 
     // Confirm quit modal
     const confirmQuitModal = document.getElementById("confirm-quit-modal");
@@ -48,13 +46,9 @@ function initializeGame() {
     const confirmQuitCancel =
         document.getElementById("confirm-quit-modal-close");
     const confirmQuitButton = document.getElementById("confirm-quit");
-    displayModal(
-        confirmQuitModal,
-        confirmQuitOpenBtn,
-        confirmQuitCancel,
-        false,
-        false
-    );
+    confirmQuitOpenBtn.addEventListener("click", function () {
+        displayModal(confirmQuitModal, confirmQuitCancel, false);
+    })
 
     // Quit modal
     const quitModal = document.getElementById("quit-modal");
@@ -563,36 +557,21 @@ function resetControls() {
 }
 
 /**
- * Manages displaying of modals. Takes 5 parameters.
+ * Manages displaying of modals. Takes 3 parameters.
  * Reference: https://www.w3schools.com/howto/howto_css_modals.asp
  * @param {Element} modalParam, the modal
- * @param {Element} openModalBtn, element used to "open" or display the modal
  * @param {Element} closeModalBtn, element used to "close" or hide the modal
  * @param {Boolean} fullScreen, if set to true, the modal can not be hidden by
  * clicking in the window, outside of the modal content
- * @param {Boolean} defaultOpen, if true, the modal is displayed by default,
- * if false, the modal is hidden by default
  */
 function displayModal(
     modalParam,
-    openModalBtn,
     closeModalBtn,
     fullScreen,
-    defaultOpen
 ) {
-    // if true, modal displayed by default
-    if (defaultOpen) {
-        modalParam.style.display = "block";
-        modalDisableScroll(true);
-    }
-
-    // if there is an openModalBtn, modal displayed when clicking
-    if (openModalBtn) {
-        openModalBtn.onclick = function () {
-            modalParam.style.display = "block"; //opens modal
-            modalDisableScroll(true);
-        };
-    }
+    // displays modal and disables scroll
+    modalParam.style.display = "block";
+    modalDisableScroll(true);
 
     // modal hidden when clicking the closeModalBtn
     closeModalBtn.onclick = function () {
