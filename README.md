@@ -280,10 +280,28 @@ Finally, at the bottom of the main page is the footer, which holds contact infor
 #### Primary colour scheme
 ![Primary colour scheme](documentation/colour-scheme-primary.png)
 
+The website uses a mainly warm colour scheme, incorporating the classic Christmas colours red and green, to help evoke a cosy and festive vibe, fitting the theme of the game.
+
+##### Font colour:
+
+A dark maroon (#632424) was chosen for the font, creating a warm and soft impression, while being rich and dark enough to ensure a strong contrast for high readability.
+
+##### Neutral and light background colours:
+
+Areas with substantial text/content use a neutral background — either a pale eggshell (#f7f8f3 or with slight transparency #f7f8f3f1) or pure white (#ffffff), minimizing distractions and helping the user to focus their attention. These light and neutral colours also help to provide a high contrast between the background and text.
+
+##### Accent colours: 
+The red (#9e2f2f and #b8372d)  and green (#247024) accent colours were chosen for their strong associations with Christmas, while the brown (#63513c) accent colour was chosen for being a warm and soft colour, allowing it to be used as an accent without the risk of drawing too much attention to an element, making it suitable for example as the background colour in the footer. 
+
 #### Pantry selection/User feedback colour scheme
 ![Selection/Feedback colour scheme](documentation/colour-scheme-pantry.png)
 
+The brown colour (#63513c) is relatively neutral in symbolism, making it suitable to indicate selection in the pantry. It gives a clear visual cue to the user that the pantry item has been selected, without inferring a positive or negative connotation to the selection.
+
+The broader associations of red and green colours are leveraged in the pantry feedback (green for correct, and red for incorrect). The additional colour, picked from outside of the primary colour scheme, was used for feedback on “missed” items. This choice was inspired by traffic lights, providing a clear visual cue for the user.
+
 #### Additional colours
+The website uses a variation of shadows and gradients, for which numerous additional colours have been used. Given the small extent of the usage for each of these colours, they should not be considered as part of the colour scheme.
 
 ### Typography
 
