@@ -99,6 +99,125 @@ I found a validator, [JSONLint](https://jsonlint.com/), which was used to confir
 
 ## Bugs
 ### Solved bugs
-### Unsolved bugs
+#### 1. displayModal function not working as intended
+Issue: I discovered two of my modals, the "Cake modal" and the "Instructions modal" would not hide when clicking outside of the modal's content, as expected. I realised my function `displayModal()` was not working as intended.
+
+##### Troubleshooting:
+By using `console.log()` and following the function logic I understood that I was calling my `displayModal` function with variables for several modals (in `initializeGame()`). Due to this, only the variables in the last function call could be references inside the function.
+
+This meant that when I was clicking outside of the modal content, the comparison would be made between `event.target`, which would be the current modal, and the modalParam (which would be incorrect), causing the if statement to not act as intended.
+
+if statement in `displayModal` function:
+```js
+if (!fullScreen) {
+        window.onclick = function (event) {
+
+            if (event.target == modalParam) {
+                modalParam.style.display = "none"; //closes modal
+                modalDisableScroll(false);
+            }
+        };
+    }
+```
+
+##### Solution:
+For each modal that is displayed by clicking on an HTML element, I needed to call the function to display the modal only when the element was clicked.
+
+In the `initializeGame` function, for each modal, I added an event listener to the element used to display the modal and let the event listener call the function `displayModal`. For example:
+
+```js
+// Cake modal
+    const cakeModal = document.getElementById("cake-modal");
+    const cakeOpenModalBtn = document.getElementById("cake-info-btn");
+    const cakeCloseModalBtn = document.getElementById("cake-modal-close");
+    cakeOpenModalBtn.addEventListener("click", function () {
+        displayModal(cakeModal, cakeCloseModalBtn, false);
+    });
+```
+
+The `displayModal` function was adjusted to display the modal when called, instead of through an if statement.
+
+This also meant that I could simplify `displayModal`, by removing two parameters (the openModalBtn and the defaultOpen parameter).
+
+#### 2. Hover effect causing issues on tablets in horizontal mode.
+
+##### Issue: 
+A hover effect was used on the ingredients (div elements) in the pantry, turning them into a different colour on hover. When the user selects the item, that same colour remains, signaling to the user that the item has now been selected. 
+
+Testing the website on a tablet, I realised this caused a very poor user experience on such devices when used in horizontal mode. Clicking on an item that has already been selected should de-select it. On the tablet, the item did get de-selected, but was still styled as if selected, due to the `:hover` styles. 
+
+The issue occurred due to the screen width being wide enough that my hover effects were getting applied, while the device did not support hover. 
+
+##### Solution: 
+Researching online I discovered the CSS media query `hover:hover`. I moved all of my CSS rules applying hover effects to their own media query for devices with hover support, so that these rules get applied if the device supports hover, rather than if the screen has a certain width.
+
+I confirmed this had the effect I was looking for by using devtools and the combination of "mobile" vs "desktop" settings across a multitude of screen widths. 
+
+```css
+@media (hover: hover) {
+    /* All CSS rules for :hover in here */
+}
+```
+
+I also confirmed browser support on [caniuse.com](https://caniuse.com/?search=%3A%20hover).
+
+#### 3. Incorrect call of `quitGame()`.
+##### Issue:
+Clicking on the "Finish" button did not open the "quit modal" as expected (nothing happened when clicking).
+
+##### Troubleshooting:
+By using `console.log()` inside the function `quitGame(quitModal, startGameButton)`, I could see that the `quitModal` parameter being passed was not the HTML element.
+
+My next step was to look at where `quitGame()` was called. I then realised I had called the function, as below, inside of the `initializeGame` function, probably forgetting that the function takes two parameters.
+
+```js
+finishButton.addEventListener("click", quitGame);
+```
+
+##### Solution:
+I adjusted the code to:
+
+```js
+finishButton.addEventListener("click", function () {
+        quitGame(quitModal, startGameButton);
+    });
+```
+
+Lastly, I confirmed the `quitModal` parameter was now passed correctly, using the same `console.log()` and confirmed in the browser that clicking the "Finish" button now triggered the expected behaviour, opening the quit modal".
+
+#### 4. Iterating pantryArray with forEach
+##### Issue:
+My array `pantryArray` is filled with `pantryArea.childNodes` (in the `createPantry` function), where `pantryArea` is representing the pantry HTML element, and the `childNodes` being the ingredients (div elements) within. 
+
+Initially, everywhere in the code where I needed to iterate through `pantryArray`, I used a for loop.
+
+This caused an undefined item to appear in the last iteration of the loop.
+
+##### Solution:
+Researching the type of `pantryArray.childNodes` I found out that I could use the inbuilt `forEach` method to iterate over the HTML elements. 
+
+I implemented this everywhere that I was iterating through `pantryArray`, for example in the `removeActive` function, as below:
+
+```js
+function removeActive() {
+
+    pantryArray.forEach(function (element) {
+        if (!element.classList.contains("pantry-item-selected")) {
+            element.classList.remove("pantry-item-active");
+            element.setAttribute("aria-hidden", "true");
+        }
+    });
+}
+```
 
 ### Mistakes
+Creating this project has been a learning process and the mistakes have been many. To name a few:
+
+#### Inconsistent use of quotes:
+At the start of the project I used quotes inconsistently, varying between using single and double quotes. After realising this, I have tried to pay attention to being consistent.
+
+#### Missing semicolons:
+The first time I ran my code through a linter, I realised I had missed using semicolons in a lot of places, especially when calling functions. I went through the code and added semicolons where appropriate before linting again, and will try to be more careful to add them going forward.
+
+#### Keeping the code readable:
+At the start of the project, I did not think about restricting my line length, so in the final days of the project, I have reviewed my code and rewritten longer lines to improve the readability. I will try to keep in mind to continuously adhere to javascript best practices going forward.
