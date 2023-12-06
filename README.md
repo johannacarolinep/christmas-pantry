@@ -269,9 +269,11 @@ Finally, at the bottom of the main page is the footer, which holds contact infor
 - [WAVE Tool](https://wave.webaim.org/) was used to test and troubleshoot accessibility on the website.
 - [W3C Markup Validation Service](https://validator.w3.org/) was used to validate the HTML code of the website.
 - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used to validate the CSS code of the website.
+- [JSHint](https://jshint.com/) was used to validate the javascript code.
+- [JSONLint](https://jsonlint.com/) was used to confirm the validity of the JSON code.
 
 ### Documentation
-- [Am I Responsive?](https://ui.dev/amiresponsive) was used to create mockups of the website for the README.
+- [Device Shots 2.0](https://deviceshots.com/) was used to create mockups of the website for the README.
 - [Responsive Viewer](https://chrome.google.com/webstore/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb/related?utm_source=ext_sidebar&hl=en-GB) was used to capture screenshots of the website across different device types.
 
 ## Design
