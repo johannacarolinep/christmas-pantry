@@ -564,11 +564,7 @@ function resetControls() {
  * @param {Boolean} fullScreen, if set to true, the modal can not be hidden by
  * clicking in the window, outside of the modal content
  */
-function displayModal(
-    modalParam,
-    closeModalBtn,
-    fullScreen,
-) {
+function displayModal(modalParam, closeModalBtn, fullScreen) {
     // displays modal and disables scroll
     modalParam.style.display = "block";
     modalDisableScroll(true);
