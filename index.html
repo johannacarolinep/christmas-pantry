@@ -37,9 +37,9 @@
                 <div id="score-area">
                     Score: 0
                 </div>
-                <div id="instructions-btn" aria-label="Click here to display rules and instructions">
+                <button id="instructions-btn" aria-label="Open rules and instructions">
                     <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
-                </div>
+                </button>
             </div>
         </div>
     </header>
@@ -52,9 +52,9 @@
                         <h2 id="cake-name">Cake name</h2>
                         <p id="cake-country">Origin</p>
                     </div>
-                    <div id="cake-info-btn" aria-label="Click here to display more info about the cake">
+                    <button id="cake-info-btn" aria-label="Click here to display more info about the cake">
                         <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-                    </div>
+                    </button>
                 </div>
                 <p id="cake-question">
                     Which ingredients are used to make this cake?
@@ -115,10 +115,10 @@
         <!-- Instructions modal -->
         <aside id="instructions-modal" class="modal-background">
             <div class="modal-content-card border-red">
-                <span id="instructions-modal-close" class="modal-close-x"
+                <button id="instructions-modal-close" class="modal-close-x"
                     aria-label="Close instructions and get back to main page">
                     X
-                </span>
+                </button>
                 <h3 class="instructions-modal-heading">Game rules:</h3>
                 <p>Right ingredients are worth 1 point each</p>
                 <p>Wrong ones deduct 1 point</p>
@@ -141,10 +141,10 @@
         <!-- Cake info modal -->
         <aside id="cake-modal" class="modal-background">
             <div class="modal-content-card border-green">
-                <span id="cake-modal-close" class="modal-close-x"
+                <button id="cake-modal-close" class="modal-close-x"
                     aria-label="Close extra info and get back to main page">
                     X
-                </span>
+                </button>
                 <h3 id="cake-modal-heading">Information</h3>
                 <p id="cake-description"></p>
             </div>

@@ -78,10 +78,16 @@ h1 {
     flex-wrap: wrap;
 }
 
-#instructions-btn i {
+#instructions-btn {
+    border: none;
+    background-color: transparent;
+    color: #632424;
     font-size: 1.4rem;
-    border-radius: 50%;
     cursor: pointer;
+}
+
+#instructions-btn i {
+    border-radius: 50%;
 }
 
 /* Main */
@@ -149,12 +155,18 @@ main {
 }
 
 /* Cake info modal button */
+#cake-info-btn {
+    cursor: pointer;
+    color: #632424;
+    border: none;
+    background-color: transparent;
+    margin-left: 30px;
+}
+
 #cake-info-btn i {
     font-size: 1.7rem;
     border-radius: 50%;
-    margin-left: 30px;
     display: flex;
-    cursor: pointer;
 }
 
 /* Pantry area */
@@ -373,12 +385,14 @@ Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
 
 /* The Close Button */
 .modal-close-x {
+    font-family: 'Poppins', sans-serif;
     color: #632424;
+    background-color: #ffffff;
     float: right;
     font-size: 1rem;
     font-weight: bold;
     border: 1px solid #632424;
-    padding: 0 5px;
+    padding: 0 7px;
     cursor: pointer;
     -ms-user-select: none;
     -webkit-user-select: none;
